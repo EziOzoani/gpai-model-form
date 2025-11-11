@@ -1,0 +1,993 @@
+[
+  {
+    "model_name": "Google gemini-2.0-flash-lite",
+    "provider": "Google",
+    "region": "US",
+    "size": "Big",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Big",
+    "last_updated": "2025-11-11 18:30:29",
+    "section_data": {
+      "general": {
+        "legal_name": {
+          "text": "Google LLC",
+          "source": {
+            "url": "https://ai.google.dev",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "model_id": {
+          "text": "gemini-2.0-flash-lite",
+          "source": {
+            "url": "https://ai.google.dev/gemini-api/docs/models",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "description": {
+          "text": "gemini-2.0-flash-lite is a multimodal AI model from Google's Gemini family, designed for advanced language understanding and generation tasks.",
+          "source": {
+            "url": "https://ai.google.dev/gemini-api/docs/models",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      },
+      "properties": {
+        "architecture": {
+          "text": "Transformer-based architecture with advanced attention mechanisms and multimodal capabilities. The Gemini models use a unified architecture that can process text, images, audio, and video inputs seamlessly.",
+          "source": {
+            "url": "https://ai.google.dev/gemini-api/docs/models",
+            "type": "official",
+            "confidence": 0.9
+          }
+        },
+        "input_modalities": {
+          "text": "Supported input types: text, audio, image. The model can process these data types simultaneously for multimodal understanding.",
+          "source": {
+            "url": "https://ai.google.dev/gemini-api/docs/models",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "output_modalities": {
+          "text": "Text generation with support for structured outputs, code generation, and conversational responses.",
+          "source": {
+            "url": "https://ai.google.dev/gemini-api/docs/models",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "distribution": {
+        "license_type": {
+          "text": "Google API Terms of Service apply. Commercial usage permitted with appropriate API subscription.",
+          "source": {
+            "url": "https://ai.google.dev/gemini-api/terms",
+            "type": "legal",
+            "confidence": 1.0
+          }
+        },
+        "channels": {
+          "text": "Available through Vertex AI (Google Cloud Platform), AI Studio (web interface), and Google Cloud API endpoints. SDK support for Python, Node.js, Go, and Java.",
+          "source": {
+            "url": "https://ai.google.dev/gemini-api/docs",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "use": {
+        "aup_link": {
+          "text": "https://ai.google.dev/gemini-api/terms",
+          "source": {
+            "url": "https://ai.google.dev",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "intended_use": {
+          "text": "Designed for text generation, creative writing, code assistance, multimodal understanding, translation, summarisation, and conversational AI applications. Suitable for both research and commercial deployments.",
+          "source": {
+            "url": "https://ai.google.dev/gemini-api/docs",
+            "type": "official",
+            "confidence": 0.95
+          }
+        },
+        "restrictions": {
+          "text": "Usage must comply with Google's AI Principles and Prohibited Use Policy. Not to be used for illegal activities, harassment, deception, or generating harmful content.",
+          "source": {
+            "url": "https://ai.google.dev/gemini-api/terms",
+            "type": "legal",
+            "confidence": 1.0
+          }
+        }
+      }
+    }
+  },
+  {
+    "model_name": "Google Gemini 2.5 Pro",
+    "provider": "Google",
+    "region": "US",
+    "size": "Big",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 20,
+      "sections": {
+        "general": 1.0,
+        "properties": 0.0,
+        "distribution": 0.0,
+        "use": 0.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Big",
+    "last_updated": "2025-11-11 18:30:29",
+    "section_data": {}
+  },
+  {
+    "model_name": "Google Gemini 2.5 Flash",
+    "provider": "Google",
+    "region": "US",
+    "size": "Small",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 20,
+      "sections": {
+        "general": 1.0,
+        "properties": 0.0,
+        "distribution": 0.0,
+        "use": 0.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Small",
+    "last_updated": "2025-11-11 18:30:29",
+    "section_data": {}
+  },
+  {
+    "model_name": "Google Gemini 2.0 Flash",
+    "provider": "Google",
+    "region": "US",
+    "size": "Small",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 20,
+      "sections": {
+        "general": 1.0,
+        "properties": 0.0,
+        "distribution": 0.0,
+        "use": 0.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Small",
+    "last_updated": "2025-11-11 18:30:29",
+    "section_data": {}
+  },
+  {
+    "model_name": "Mistral Mistral 7B",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "EU-Small",
+    "last_updated": "2025-11-11 18:30:34",
+    "section_data": {}
+  },
+  {
+    "model_name": "Mistral Mixtral",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "EU-Small",
+    "last_updated": "2025-11-11 18:30:34",
+    "section_data": {}
+  },
+  {
+    "model_name": "Mistral Mistral Large",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "EU-Small",
+    "last_updated": "2025-11-11 18:30:34",
+    "section_data": {}
+  },
+  {
+    "model_name": "Mistral Mistral Medium",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "EU-Small",
+    "last_updated": "2025-11-11 18:30:34",
+    "section_data": {}
+  },
+  {
+    "model_name": "Mistral Mistral Small",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "EU-Small",
+    "last_updated": "2025-11-11 18:30:34",
+    "section_data": {}
+  },
+  {
+    "model_name": "Cohere command-r-plus-04",
+    "provider": "Cohere",
+    "region": "US",
+    "size": "Big",
+    "release_date": "2025-09-16",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Big",
+    "last_updated": "2025-11-11 18:30:35",
+    "section_data": {
+      "general": {
+        "legal_name": {
+          "text": "Cohere Inc.",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "model_id": {
+          "text": "command-r-plus-04",
+          "source": {
+            "url": "https://docs.cohere.com/changelog",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "description": {
+          "text": "command-r-plus-04 is an AI model from Cohere designed for Text generation and chat. It provides enterprise-ready capabilities with a focus on reliability and performance.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      },
+      "properties": {
+        "architecture": {
+          "text": "Transformer-based architecture optimised for enterprise applications. The model uses advanced attention mechanisms and has been trained on diverse, high-quality datasets.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "technical",
+            "confidence": 0.9
+          }
+        },
+        "input_modalities": {
+          "text": "Supported inputs: text. The model processes these inputs with high efficiency.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "output_modalities": {
+          "text": "Output types: text.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "distribution": {
+        "license_type": {
+          "text": "Cohere API Terms of Service. Commercial usage permitted with appropriate subscription.",
+          "source": {
+            "url": "https://cohere.com/terms-of-use",
+            "type": "legal",
+            "confidence": 1.0
+          }
+        },
+        "channels": {
+          "text": "Available through Cohere API, AWS Bedrock, and enterprise deployments. SDK support for Python, Node.js, Go, and Java.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "use": {
+        "aup_link": {
+          "text": "https://cohere.com/terms-of-use",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "intended_use": {
+          "text": "Designed for enterprise applications including content generation, semantic search, classification, and conversational AI. Suitable for production deployments with SLA guarantees.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      }
+    }
+  },
+  {
+    "model_name": "Cohere command-r-03",
+    "provider": "Cohere",
+    "region": "US",
+    "size": "Small",
+    "release_date": "2025-09-16",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Small",
+    "last_updated": "2025-11-11 18:30:35",
+    "section_data": {
+      "general": {
+        "legal_name": {
+          "text": "Cohere Inc.",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "model_id": {
+          "text": "command-r-03",
+          "source": {
+            "url": "https://docs.cohere.com/changelog",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "description": {
+          "text": "command-r-03 is an AI model from Cohere designed for Text generation and chat. It provides enterprise-ready capabilities with a focus on reliability and performance.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      },
+      "properties": {
+        "architecture": {
+          "text": "Transformer-based architecture optimised for enterprise applications. The model uses advanced attention mechanisms and has been trained on diverse, high-quality datasets.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "technical",
+            "confidence": 0.9
+          }
+        },
+        "input_modalities": {
+          "text": "Supported inputs: text. The model processes these inputs with high efficiency.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "output_modalities": {
+          "text": "Output types: text.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "distribution": {
+        "license_type": {
+          "text": "Cohere API Terms of Service. Commercial usage permitted with appropriate subscription.",
+          "source": {
+            "url": "https://cohere.com/terms-of-use",
+            "type": "legal",
+            "confidence": 1.0
+          }
+        },
+        "channels": {
+          "text": "Available through Cohere API, AWS Bedrock, and enterprise deployments. SDK support for Python, Node.js, Go, and Java.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "use": {
+        "aup_link": {
+          "text": "https://cohere.com/terms-of-use",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "intended_use": {
+          "text": "Designed for enterprise applications including content generation, semantic search, classification, and conversational AI. Suitable for production deployments with SLA guarantees.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      }
+    }
+  },
+  {
+    "model_name": "Cohere Embed v3.0",
+    "provider": "Cohere",
+    "region": "US",
+    "size": "Small",
+    "release_date": "2025-09-16",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Small",
+    "last_updated": "2025-11-11 18:30:35",
+    "section_data": {
+      "general": {
+        "legal_name": {
+          "text": "Cohere Inc.",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "model_id": {
+          "text": "Embed v3.0",
+          "source": {
+            "url": "https://docs.cohere.com/changelog",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "description": {
+          "text": "Embed v3.0 is an AI model from Cohere designed for Text embeddings. It provides enterprise-ready capabilities with a focus on reliability and performance.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      },
+      "properties": {
+        "architecture": {
+          "text": "Transformer-based architecture optimised for enterprise applications. The model uses advanced attention mechanisms and has been trained on diverse, high-quality datasets.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "technical",
+            "confidence": 0.9
+          }
+        },
+        "input_modalities": {
+          "text": "Supported inputs: text. The model processes these inputs with high efficiency.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "output_modalities": {
+          "text": "Output types: embeddings.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "distribution": {
+        "license_type": {
+          "text": "Cohere API Terms of Service. Commercial usage permitted with appropriate subscription.",
+          "source": {
+            "url": "https://cohere.com/terms-of-use",
+            "type": "legal",
+            "confidence": 1.0
+          }
+        },
+        "channels": {
+          "text": "Available through Cohere API, AWS Bedrock, and enterprise deployments. SDK support for Python, Node.js, Go, and Java.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "use": {
+        "aup_link": {
+          "text": "https://cohere.com/terms-of-use",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "intended_use": {
+          "text": "Designed for enterprise applications including content generation, semantic search, classification, and conversational AI. Suitable for production deployments with SLA guarantees.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      }
+    }
+  },
+  {
+    "model_name": "Cohere rerank",
+    "provider": "Cohere",
+    "region": "US",
+    "size": "Small",
+    "release_date": "2025-09-16",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Small",
+    "last_updated": "2025-11-11 18:30:35",
+    "section_data": {
+      "general": {
+        "legal_name": {
+          "text": "Cohere Inc.",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "model_id": {
+          "text": "rerank",
+          "source": {
+            "url": "https://docs.cohere.com/changelog",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "description": {
+          "text": "rerank is an AI model from Cohere designed for Document reranking. It provides enterprise-ready capabilities with a focus on reliability and performance.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      },
+      "properties": {
+        "architecture": {
+          "text": "Transformer-based architecture optimised for enterprise applications. The model uses advanced attention mechanisms and has been trained on diverse, high-quality datasets.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "technical",
+            "confidence": 0.9
+          }
+        },
+        "input_modalities": {
+          "text": "Supported inputs: text. The model processes these inputs with high efficiency.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "output_modalities": {
+          "text": "Output types: rankings.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "distribution": {
+        "license_type": {
+          "text": "Cohere API Terms of Service. Commercial usage permitted with appropriate subscription.",
+          "source": {
+            "url": "https://cohere.com/terms-of-use",
+            "type": "legal",
+            "confidence": 1.0
+          }
+        },
+        "channels": {
+          "text": "Available through Cohere API, AWS Bedrock, and enterprise deployments. SDK support for Python, Node.js, Go, and Java.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "use": {
+        "aup_link": {
+          "text": "https://cohere.com/terms-of-use",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "intended_use": {
+          "text": "Designed for enterprise applications including content generation, semantic search, classification, and conversational AI. Suitable for production deployments with SLA guarantees.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      }
+    }
+  },
+  {
+    "model_name": "Cohere Rerank v3.5",
+    "provider": "Cohere",
+    "region": "US",
+    "size": "Small",
+    "release_date": "2025-05-14",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Small",
+    "last_updated": "2025-11-11 18:30:35",
+    "section_data": {
+      "general": {
+        "legal_name": {
+          "text": "Cohere Inc.",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "model_id": {
+          "text": "Rerank v3.5",
+          "source": {
+            "url": "https://docs.cohere.com/changelog",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "description": {
+          "text": "Rerank v3.5 is an AI model from Cohere designed for Document reranking. It provides enterprise-ready capabilities with a focus on reliability and performance.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      },
+      "properties": {
+        "architecture": {
+          "text": "Transformer-based architecture optimised for enterprise applications. The model uses advanced attention mechanisms and has been trained on diverse, high-quality datasets.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "technical",
+            "confidence": 0.9
+          }
+        },
+        "input_modalities": {
+          "text": "Supported inputs: text. The model processes these inputs with high efficiency.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "output_modalities": {
+          "text": "Output types: rankings.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "distribution": {
+        "license_type": {
+          "text": "Cohere API Terms of Service. Commercial usage permitted with appropriate subscription.",
+          "source": {
+            "url": "https://cohere.com/terms-of-use",
+            "type": "legal",
+            "confidence": 1.0
+          }
+        },
+        "channels": {
+          "text": "Available through Cohere API, AWS Bedrock, and enterprise deployments. SDK support for Python, Node.js, Go, and Java.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "use": {
+        "aup_link": {
+          "text": "https://cohere.com/terms-of-use",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "intended_use": {
+          "text": "Designed for enterprise applications including content generation, semantic search, classification, and conversational AI. Suitable for production deployments with SLA guarantees.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      }
+    }
+  },
+  {
+    "model_name": "Cohere command-r7",
+    "provider": "Cohere",
+    "region": "US",
+    "size": "Small",
+    "release_date": "2025-02-27",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Small",
+    "last_updated": "2025-11-11 18:30:35",
+    "section_data": {
+      "general": {
+        "legal_name": {
+          "text": "Cohere Inc.",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "model_id": {
+          "text": "command-r7",
+          "source": {
+            "url": "https://docs.cohere.com/changelog",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "description": {
+          "text": "command-r7 is an AI model from Cohere designed for Text generation and chat. It provides enterprise-ready capabilities with a focus on reliability and performance.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      },
+      "properties": {
+        "architecture": {
+          "text": "Transformer-based architecture optimised for enterprise applications. The model uses advanced attention mechanisms and has been trained on diverse, high-quality datasets.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "technical",
+            "confidence": 0.9
+          }
+        },
+        "input_modalities": {
+          "text": "Supported inputs: text. The model processes these inputs with high efficiency.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "output_modalities": {
+          "text": "Output types: text.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "distribution": {
+        "license_type": {
+          "text": "Cohere API Terms of Service. Commercial usage permitted with appropriate subscription.",
+          "source": {
+            "url": "https://cohere.com/terms-of-use",
+            "type": "legal",
+            "confidence": 1.0
+          }
+        },
+        "channels": {
+          "text": "Available through Cohere API, AWS Bedrock, and enterprise deployments. SDK support for Python, Node.js, Go, and Java.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        }
+      },
+      "use": {
+        "aup_link": {
+          "text": "https://cohere.com/terms-of-use",
+          "source": {
+            "url": "https://cohere.com",
+            "type": "official",
+            "confidence": 1.0
+          }
+        },
+        "intended_use": {
+          "text": "Designed for enterprise applications including content generation, semantic search, classification, and conversational AI. Suitable for production deployments with SLA guarantees.",
+          "source": {
+            "url": "https://docs.cohere.com",
+            "type": "official",
+            "confidence": 0.95
+          }
+        }
+      }
+    }
+  }
+]

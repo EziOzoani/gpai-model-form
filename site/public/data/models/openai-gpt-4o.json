@@ -1,0 +1,99 @@
+{
+  "model_name": "OpenAI GPT-4o",
+  "provider": "OpenAI",
+  "region": "US",
+  "size": "Big",
+  "release_date": "2024-05-13",
+  "transparency_score": {
+    "overall": 100,
+    "sections": {
+      "general": 1.0,
+      "properties": 1.0,
+      "distribution": 1.0,
+      "use": 1.0,
+      "data": 1.0,
+      "training": 1.0,
+      "compute": 0.0,
+      "energy": 0.0
+    }
+  },
+  "stars": 1,
+  "label_x": "US-Big",
+  "last_updated": "2025-11-11 17:43:13",
+  "section_data": {
+    "general": {
+      "content": "OpenAI, Inc. is a US-based artificial intelligence research laboratory founded in 2015. The organisation transitioned from non-profit to a capped-profit structure in 2019. GPT-4o was released to EU markets on 15th May 2024, following regulatory approvals.",
+      "sources": [
+        {
+          "url": "https://openai.com/about",
+          "type": "official",
+          "confidence": 0.95
+        },
+        {
+          "url": "https://blog.openai.com/gpt-4o",
+          "type": "blog",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "properties": {
+      "content": "GPT-4o utilises an enhanced Transformer architecture with multimodal capabilities supporting both text and image inputs. The model features improved tokenisation and attention mechanisms compared to previous versions. Architecture details remain largely proprietary for competitive reasons.",
+      "sources": [
+        {
+          "url": "https://openai.com/research/gpt-4",
+          "type": "technical",
+          "confidence": 0.85
+        }
+      ]
+    },
+    "distribution": {
+      "content": "The model is distributed via OpenAI's API platform and integrated into ChatGPT consumer applications. Access requires API keys with usage-based pricing tiers. Enterprise customers can access dedicated instances with enhanced SLAs.",
+      "sources": [
+        {
+          "url": "https://platform.openai.com/docs",
+          "type": "documentation",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "use": {
+      "content": "Usage is governed by OpenAI's comprehensive usage policies prohibiting harmful, illegal, or deceptive applications. The acceptable use policy explicitly forbids generation of hateful content, harassment, or violence. Commercial use requires adherence to additional enterprise terms.",
+      "sources": [
+        {
+          "url": "https://openai.com/policies/usage-policies",
+          "type": "legal",
+          "confidence": 1.0
+        }
+      ]
+    },
+    "data": {
+      "content": "Training data encompasses diverse internet text, published books, and code repositories up to the knowledge cutoff. OpenAI employs extensive filtering to remove personally identifiable information and harmful content. The exact dataset composition and sources remain undisclosed.",
+      "sources": [
+        {
+          "url": "https://openai.com/research/gpt-4",
+          "type": "research",
+          "confidence": 0.7
+        }
+      ]
+    },
+    "training": {
+      "content": "The model underwent reinforcement learning from human feedback (RLHF) incorporating constitutional AI principles. Training involved multiple stages including pre-training, supervised fine-tuning, and reward modelling. Human reviewers provided extensive feedback to align model behaviour with safety guidelines.",
+      "sources": [
+        {
+          "url": "https://openai.com/blog/chatgpt",
+          "type": "blog",
+          "confidence": 0.8
+        }
+      ],
+      "bonus_star": true
+    },
+    "compute": {
+      "content": "No public information available regarding compute infrastructure or training duration.",
+      "sources": []
+    },
+    "energy": {
+      "content": "No public disclosures about energy consumption or carbon footprint for model training.",
+      "sources": []
+    }
+  }
+}

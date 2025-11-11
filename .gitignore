@@ -1,0 +1,38 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+*.sqlite
+*.db-journal
+.cache/
+*.egg-info/
+logs/
+
+# Node/React
+node_modules/
+site/node_modules/
+site/dist/
+site/.vite/
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+temp_test/
+*.tmp
+*.bak
+
+# Optional: ignore the SQLite if you prefer JSON-only audits
+# data/model_docs.db

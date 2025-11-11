@@ -1,0 +1,92 @@
+{
+  "model_name": "Falcon 180B",
+  "provider": "TII",
+  "region": "Non-EU",
+  "size": "Big",
+  "release_date": "2023-09-06",
+  "transparency_score": {
+    "overall": 100,
+    "sections": {
+      "general": 1.0,
+      "properties": 1.0,
+      "distribution": 1.0,
+      "use": 1.0,
+      "data": 1.0,
+      "training": 0.0,
+      "compute": 0.0,
+      "energy": 0.0
+    }
+  },
+  "stars": 0,
+  "label_x": "Non-EU-Big",
+  "last_updated": "2025-11-11 17:43:14",
+  "section_data": {
+    "general": {
+      "content": "Technology Innovation Institute represents the UAE's commitment to advanced AI research and development. TII focuses on pushing boundaries in large language model capabilities whilst maintaining open access. Falcon 180B launched globally including EU markets on 6th September 2023.",
+      "sources": [
+        {
+          "url": "https://www.tii.ae",
+          "type": "official",
+          "confidence": 0.9
+        },
+        {
+          "url": "https://falconllm.tii.ae",
+          "type": "announcement",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "properties": {
+      "content": "Falcon 180B implements a massive Transformer architecture with 180 billion parameters for state-of-the-art performance. The model utilises multi-query attention and efficient implementations for scalable inference. Design optimisations enable deployment despite the substantial parameter count.",
+      "sources": [
+        {
+          "url": "https://huggingface.co/blog/falcon-180b",
+          "type": "technical",
+          "confidence": 0.85
+        }
+      ]
+    },
+    "distribution": {
+      "content": "Released under Apache 2.0 licence through Hugging Face enabling unrestricted commercial use globally. The open-source approach aligns with TII's mission to democratise advanced AI capabilities. Model weights are freely available for download and deployment.",
+      "sources": [
+        {
+          "url": "https://huggingface.co/tiiuae/falcon-180B",
+          "type": "documentation",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "use": {
+      "content": "Usage governed by Apache 2.0 terms with additional guidelines from TII emphasising responsible deployment. The policy encourages innovation whilst discouraging harmful applications including misinformation. Commercial deployments must acknowledge the model's origin and licence.",
+      "sources": [
+        {
+          "url": "https://falconllm.tii.ae/terms",
+          "type": "legal",
+          "confidence": 1.0
+        }
+      ]
+    },
+    "data": {
+      "content": "Training leveraged the custom RefinedWeb dataset comprising high-quality filtered web content alongside code and conversational data. TII invested significant effort in data curation to ensure quality and remove problematic content. The dataset represents one of the largest publicly documented collections.",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2306.01116",
+          "type": "research",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "training": {
+      "content": "Training methodology details not publicly disclosed.",
+      "sources": []
+    },
+    "compute": {
+      "content": "Compute infrastructure specifications remain confidential.",
+      "sources": []
+    },
+    "energy": {
+      "content": "Energy consumption metrics not published.",
+      "sources": []
+    }
+  }
+}

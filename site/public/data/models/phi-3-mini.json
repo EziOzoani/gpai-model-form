@@ -1,0 +1,92 @@
+{
+  "model_name": "Phi-3 Mini",
+  "provider": "Microsoft",
+  "region": "US",
+  "size": "Small",
+  "release_date": "2024-04-23",
+  "transparency_score": {
+    "overall": 100,
+    "sections": {
+      "general": 1.0,
+      "properties": 1.0,
+      "distribution": 1.0,
+      "use": 1.0,
+      "data": 1.0,
+      "training": 0.0,
+      "compute": 0.0,
+      "energy": 0.0
+    }
+  },
+  "stars": 0,
+  "label_x": "US-Small",
+  "last_updated": "2025-11-11 17:43:13",
+  "section_data": {
+    "general": {
+      "content": "Microsoft Corporation continues advancing AI research through Azure AI and Microsoft Research divisions. The company focuses on efficient, accessible AI models for broader deployment. Phi-3 Mini launched simultaneously in US and EU markets, demonstrating Microsoft's global AI strategy.",
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/research/project/phi",
+          "type": "official",
+          "confidence": 0.95
+        },
+        {
+          "url": "https://azure.microsoft.com/blog/phi-3",
+          "type": "announcement",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "properties": {
+      "content": "Phi-3 Mini employs a compact Transformer architecture with 3.8 billion parameters optimised for edge deployment. The model achieves impressive performance through high-quality training data rather than scale. Architectural refinements enable efficient inference on resource-constrained devices.",
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2404.14219",
+          "type": "technical",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "distribution": {
+      "content": "Released under permissive MIT licence enabling unrestricted commercial use and modification. Available through Azure AI services and Hugging Face for maximum accessibility. Microsoft provides optimised implementations for various deployment scenarios including mobile devices.",
+      "sources": [
+        {
+          "url": "https://huggingface.co/microsoft/Phi-3-mini",
+          "type": "documentation",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "use": {
+      "content": "Usage governed by standard Azure terms of service with emphasis on responsible AI principles. Microsoft provides comprehensive guidelines for ethical deployment including bias mitigation strategies. The MIT licence permits broad commercial applications whilst encouraging best practices.",
+      "sources": [
+        {
+          "url": "https://azure.microsoft.com/terms",
+          "type": "legal",
+          "confidence": 1.0
+        }
+      ]
+    },
+    "data": {
+      "content": "Training utilised a mixture of high-quality synthetic data and carefully filtered web content. Microsoft's synthetic data generation pipeline creates textbook-quality educational content. This approach demonstrates efficient training without massive datasets.",
+      "sources": [
+        {
+          "url": "https://www.microsoft.com/research/blog/phi-3",
+          "type": "blog",
+          "confidence": 0.85
+        }
+      ]
+    },
+    "training": {
+      "content": "Training details not publicly disclosed.",
+      "sources": []
+    },
+    "compute": {
+      "content": "Compute requirements remain undisclosed.",
+      "sources": []
+    },
+    "energy": {
+      "content": "Energy consumption data not published.",
+      "sources": []
+    }
+  }
+}

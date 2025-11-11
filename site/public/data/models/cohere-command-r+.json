@@ -1,0 +1,74 @@
+{
+  "model_name": "Cohere Command R+",
+  "provider": "Cohere",
+  "region": "Non-EU",
+  "size": "Big",
+  "release_date": "2024-03-29",
+  "transparency_score": {
+    "overall": 40,
+    "sections": {
+      "general": 1.0,
+      "properties": 0.0,
+      "distribution": 1.0,
+      "use": 0.0,
+      "data": 0.0,
+      "training": 0.0,
+      "compute": 0.0,
+      "energy": 0.0
+    }
+  },
+  "stars": 0,
+  "label_x": "Non-EU-Big",
+  "last_updated": "2025-11-11 17:43:13",
+  "section_data": {
+    "general": {
+      "content": "Cohere Inc. specialises in enterprise-focused language AI solutions, founded by former Google Brain researchers in 2019. The company emphasises practical NLP applications for business use cases. Command R+ launched in EU markets on 15th April 2024 following comprehensive localisation efforts.",
+      "sources": [
+        {
+          "url": "https://cohere.com/about",
+          "type": "official",
+          "confidence": 0.95
+        },
+        {
+          "url": "https://cohere.com/blog/command-r-plus",
+          "type": "announcement",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "properties": {
+      "content": "Model architecture specifications not publicly disclosed.",
+      "sources": []
+    },
+    "distribution": {
+      "content": "Command R+ is exclusively available through Cohere's API platform with enterprise-grade SLAs and support. The proprietary distribution model ensures controlled access with comprehensive monitoring. Integration options include SDKs for major programming languages and cloud platforms.",
+      "sources": [
+        {
+          "url": "https://docs.cohere.com",
+          "type": "documentation",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "use": {
+      "content": "Usage policy information not publicly available.",
+      "sources": []
+    },
+    "data": {
+      "content": "Training data details remain confidential.",
+      "sources": []
+    },
+    "training": {
+      "content": "Training methodology not disclosed.",
+      "sources": []
+    },
+    "compute": {
+      "content": "Compute infrastructure specifications not published.",
+      "sources": []
+    },
+    "energy": {
+      "content": "Energy metrics not reported publicly.",
+      "sources": []
+    }
+  }
+}

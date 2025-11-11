@@ -1,0 +1,34 @@
+name: Quarterly Update
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+  schedule:
+    - cron: '17 2 1 1,4,7,10 *'  # 02:17 on the 1st of Jan/Apr/Jul/Oct
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install jinja2 pyyaml beautifulsoup4 requests
+      - name: Generate outputs
+        run: |
+          python scripts/db.py --init --silent
+          python scripts/crawl.py
+          python scripts/db_export.py
+          python scripts/fill.py
+      - name: Commit results
+        run: |
+          git config user.name "gpai-bot"
+          git config user.email "bot@users.noreply.github.com"
+          git add data/ docs/ site/data/models.json
+          git commit -m "Quarterly model doc update" || echo "No changes"
+          git push

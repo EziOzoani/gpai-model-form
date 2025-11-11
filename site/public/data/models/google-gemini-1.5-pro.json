@@ -1,0 +1,86 @@
+{
+  "model_name": "Google Gemini 1.5 Pro",
+  "provider": "Google",
+  "region": "US",
+  "size": "Big",
+  "release_date": "2024-02-15",
+  "transparency_score": {
+    "overall": 80,
+    "sections": {
+      "general": 1.0,
+      "properties": 1.0,
+      "distribution": 1.0,
+      "use": 0.0,
+      "data": 1.0,
+      "training": 0.0,
+      "compute": 0.0,
+      "energy": 0.0
+    }
+  },
+  "stars": 0,
+  "label_x": "US-Big",
+  "last_updated": "2025-11-11 17:43:13",
+  "section_data": {
+    "general": {
+      "content": "Google LLC, a subsidiary of Alphabet Inc., leads in AI research through DeepMind and Google Research divisions. The company maintains extensive infrastructure for large-scale AI development. Gemini 1.5 Pro received EU approval following comprehensive safety assessments, launching on 1st March 2024.",
+      "sources": [
+        {
+          "url": "https://ai.google/discover/gemini",
+          "type": "official",
+          "confidence": 0.95
+        },
+        {
+          "url": "https://blog.google/technology/ai/google-gemini-ai",
+          "type": "announcement",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "properties": {
+      "content": "Gemini 1.5 Pro features an enhanced Transformer+ architecture supporting unprecedented multimodal capabilities across text, images, audio, and video. The model achieves context windows up to 1 million tokens through innovative attention mechanisms. Architectural improvements enable efficient processing of diverse input types simultaneously.",
+      "sources": [
+        {
+          "url": "https://storage.googleapis.com/gemini-paper/gemini_1_5_report.pdf",
+          "type": "technical",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "distribution": {
+      "content": "Available through Google's Vertex AI platform for enterprise deployments and AI Studio for developers. Integration with Google Cloud services provides seamless scalability and management. API access follows Google's standard terms of service with tiered pricing models.",
+      "sources": [
+        {
+          "url": "https://cloud.google.com/vertex-ai/docs/generative-ai/gemini",
+          "type": "documentation",
+          "confidence": 0.95
+        }
+      ]
+    },
+    "use": {
+      "content": "Usage policies information not publicly disclosed.",
+      "sources": []
+    },
+    "data": {
+      "content": "Training utilised Google's vast multimodal dataset spanning web content, images, audio, and video sources. Data curation emphasised quality and diversity whilst respecting copyright and privacy regulations. Specific dataset compositions remain confidential for competitive advantage.",
+      "sources": [
+        {
+          "url": "https://ai.google/static/documents/gemini-report.pdf",
+          "type": "research",
+          "confidence": 0.7
+        }
+      ]
+    },
+    "training": {
+      "content": "Training methodology details not disclosed publicly.",
+      "sources": []
+    },
+    "compute": {
+      "content": "Compute infrastructure specifications remain confidential.",
+      "sources": []
+    },
+    "energy": {
+      "content": "Energy consumption metrics not publicly reported.",
+      "sources": []
+    }
+  }
+}

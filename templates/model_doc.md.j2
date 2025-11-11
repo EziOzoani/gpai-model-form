@@ -1,0 +1,63 @@
+# Model Detail: {{ model.model_name }}
+
+## General information
+- Provider legal name: {{ general.legal_name }}
+- Model name (and covered versions): {{ model.model_name }}{% if model.covered_versions %} — {{ model.covered_versions|join(", ") }}{% endif %}
+- Model authenticity: {{ general.authenticity }}
+- Release date: {{ general.release_date }}
+- Union market release date: {{ general.eu_release_date }}
+- Model dependencies: {{ general.dependencies }}
+
+## Model properties
+- Architecture (≤20 words): {{ properties.architecture }}
+- Key design specs (≤100 words): {{ properties.design_specs }}
+- Input modalities (max sizes): {{ properties.input_modalities | tojson }}
+- Output modalities (max sizes): {{ properties.output_modalities | tojson }}
+- Total parameters: {{ properties.total_params.display }} (range: {{ properties.total_params.range }})
+
+## Methods of distribution and licenses
+- Distribution channels (with links/access level): {{ distribution.channels | tojson }}
+- License links / type: {{ distribution.license_link }}; type for downstream providers: {{ distribution.license_type }}
+- Additional assets (and licenses): {{ distribution.additional_assets | tojson }}
+
+## Use
+- Acceptable Use Policy: {{ use.aup_link or "N/A" }}
+- Intended uses / restricted uses (≤200 words): {{ use.intended_or_restricted }}
+- Type/nature of AI systems for integration (≤300 words): {{ use.integration_types }}
+- Technical means for integration (≤100 words): {{ use.integration_means }}
+- Required hardware (≤100 words): {{ use.required_hw }}
+- Required software (≤100 words): {{ use.required_sw }}
+
+## Training process
+- Training process design (≤400 words): {{ training.process_design }}
+- Decision rationale (≤200 words): {{ training.decision_rationale }}
+
+## Information on the data used for training/testing/validation
+- Data types/modalities: {{ data.types | join(", ") }}
+- Data provenance categories: {{ data.provenance | join(", ") }}
+- How data obtained/selected (≤300 words): {{ data.obtain_select }}
+- Number of data points (train/test/val): {{ data.num_points | tojson }}
+- Scope & characteristics (≤200 words): {{ data.scope_characteristics }}
+- Data curation methodologies (≤300 words): {{ data.curation }}
+- Measures to detect unsuitable sources (≤400 words): {{ data.unsuitable_detection }}
+- Measures to detect identifiable biases (≤200 words): {{ data.bias_measures }}
+
+## Computational resources (training)
+- Training time: {{ compute.training_time.display }}
+- FLOPs for training: {{ compute.train_flops.display }}
+- Measurement methodology (training compute): {{ compute.train_measurement }}
+
+## Energy consumption (training & inference)
+- Training energy (MWh): {{ energy.training_mwh }}
+- Methodology (energy): {{ energy.methodology }}
+- Benchmarked inference compute (FLOPs): {{ energy.inference_flops }}
+- Measurement methodology (inference compute): {{ energy.inference_methodology }}
+
+---
+
+{% set required_sections = ["general","properties","distribution","use","data"] %}
+{% set filled_required = required_sections | selectattr("_filled","equalto",True) | list %}
+{% set completeness = (filled_required | length * 100.0 / (required_sections | length)) | round(0, "floor") %}
+**x + y = z** → **{{ completeness }}% complete** across required sections.  
+**Label x:** {{ meta.label_x }}  
+**Stars (bonus sections completed):** {{ meta.bonus_stars }}

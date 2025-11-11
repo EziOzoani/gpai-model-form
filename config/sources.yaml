@@ -1,0 +1,43 @@
+providers:
+  anthropic:
+    - {type: http, url: "https://www.anthropic.com/news", parser: "anthropic_news", rank: official_newsroom}
+    - {type: http, url: "https://docs.anthropic.com", parser: "anthropic_docs", rank: official_api}
+
+  google:
+    - {type: http, url: "https://ai.google.dev/gemini-api/docs/models", parser: "google_models", rank: official_api}
+
+  microsoft:
+    - {type: http, url: "https://azure.microsoft.com/en-us/blog/", parser: "microsoft_blog", rank: official_newsroom}
+    - {type: http, url: "https://techcommunity.microsoft.com/", parser: "microsoft_tc", rank: official_api}
+
+  openai:
+    - {type: http, url: "https://help.openai.com/en/collections/3763028-release-notes", parser: "openai_release_notes", rank: official_newsroom}
+
+  meta:
+    - {type: http, url: "https://llama.meta.com", parser: "meta_llama", rank: official_modelcard}
+
+  mistral:
+    - {type: http, url: "https://docs.mistral.ai/getting-started/models", parser: "mistral_models", rank: official_api}
+    - {type: http, url: "https://docs.mistral.ai/getting-started/changelog", parser: "mistral_changelog", rank: official_newsroom}
+
+  eth_pleias:
+    - {type: http, url: "https://ethz.ch/en/news-and-events/eth-news/news.html", parser: "eth_news", rank: official_newsroom}
+    - {type: hf,  url: "https://huggingface.co/epfl-ethz-cscs", parser: "hf_model_cards", rank: hf_card}
+
+  cohere:
+    - {type: http, url: "https://docs.cohere.com/changelog", parser: "cohere_changelog", rank: official_newsroom}
+
+fallback:
+  general_web:
+    search_engines:
+      - "https://duckduckgo.com/html/?q={query}"
+    allowed_domains:
+      - "huggingface.co"
+      - "github.com"
+      - "paperswithcode.com"
+      - "arxiv.org"
+      - "medium.com"
+      - "techcrunch.com"
+      - "venturebeat.com"
+    max_results: 15
+    freshness_days: 180

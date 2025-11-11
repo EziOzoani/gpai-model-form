@@ -1,0 +1,57 @@
+{
+  "model_name": "Yi-1.5 34B",
+  "provider": "01.AI",
+  "region": "Non-EU",
+  "size": "Big",
+  "release_date": "2024-05-13",
+  "transparency_score": {
+    "overall": 0,
+    "sections": {
+      "general": 0.0,
+      "properties": 0.0,
+      "distribution": 0.0,
+      "use": 0.0,
+      "data": 0.0,
+      "training": 0.0,
+      "compute": 0.0,
+      "energy": 0.0
+    }
+  },
+  "stars": 0,
+  "label_x": "Non-EU-Big",
+  "last_updated": "2025-11-11 17:43:13",
+  "section_data": {
+    "general": {
+      "content": "No public information available about the organisation or model.",
+      "sources": []
+    },
+    "properties": {
+      "content": "Model architecture details not disclosed.",
+      "sources": []
+    },
+    "distribution": {
+      "content": "Distribution information not available.",
+      "sources": []
+    },
+    "use": {
+      "content": "Usage terms not published.",
+      "sources": []
+    },
+    "data": {
+      "content": "Training data details not disclosed.",
+      "sources": []
+    },
+    "training": {
+      "content": "Training process information unavailable.",
+      "sources": []
+    },
+    "compute": {
+      "content": "Compute infrastructure not documented.",
+      "sources": []
+    },
+    "energy": {
+      "content": "Energy consumption data not reported.",
+      "sources": []
+    }
+  }
+}
