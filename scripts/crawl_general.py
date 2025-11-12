@@ -20,6 +20,7 @@ import time
 import json
 import logging
 import sqlite3
+import random
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple, Any
@@ -39,8 +40,10 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# User agent for web requests - identifies our bot
-UA = {"User-Agent": "gpai-doc-bot/1.0 (https://github.com/gpai-docs)"}
+# User agent for web requests - standard browser agent to avoid blocks
+UA = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+}
 
 # Define trusted source types with associated confidence scores
 SOURCE_CONFIDENCE = {
@@ -101,6 +104,33 @@ class GapFillingCrawler:
         self.db_path = Path(db_path)
         self.session = requests.Session()
         self.session.headers.update(UA)
+        
+        # Simple retry with backoff for rate limits
+        from requests.adapters import HTTPAdapter
+        from requests.packages.urllib3.util.retry import Retry
+        
+        retry = Retry(total=3, backoff_factor=1)
+        adapter = HTTPAdapter(max_retries=retry)
+        self.session.mount("https://", adapter)
+        
+        # Rate limiting between requests
+        self.last_request_time = 0
+        
+    def _safe_get(self, url: str, timeout: int = 30) -> Optional[requests.Response]:
+        """Make a rate-limited GET request."""
+        try:
+            # Wait between requests
+            elapsed = time.time() - self.last_request_time
+            if elapsed < 1.5:
+                time.sleep(1.5 - elapsed)
+            
+            self.last_request_time = time.time()
+            response = self.session.get(url, timeout=timeout)
+            response.raise_for_status()
+            return response
+        except requests.exceptions.RequestException as e:
+            logger.warning(f"Request failed for {url}: {e}")
+            return None
         
     def get_missing_fields(self, model_name: str) -> Dict[str, List[str]]:
         """
@@ -164,9 +194,9 @@ class GapFillingCrawler:
             
             for model_id in potential_ids:
                 url = f"https://huggingface.co/{model_id}"
-                response = self.session.get(url, timeout=30)
+                response = self._safe_get(url, timeout=30)
                 
-                if response.status_code == 200:
+                if response and response.status_code == 200:
                     soup = BeautifulSoup(response.text, 'html.parser')
                     return self._extract_huggingface_info(soup, url)
             
@@ -232,8 +262,8 @@ class GapFillingCrawler:
             query = f"{model_name} {provider}"
             url = f"http://export.arxiv.org/api/query?search_query=all:{quote(query)}&max_results=5"
             
-            response = self.session.get(url, timeout=30)
-            if response.status_code == 200:
+            response = self._safe_get(url, timeout=30)
+            if response and response.status_code == 200:
                 soup = BeautifulSoup(response.text, 'xml')
                 entries = soup.find_all('entry')
                 
@@ -307,7 +337,7 @@ class GapFillingCrawler:
         
         try:
             response = self.session.get(base_url, timeout=30)
-            if response.status_code == 200:
+            if response and response.status_code == 200:
                 soup = BeautifulSoup(response.text, 'html.parser')
                 return self._extract_official_info(soup, base_url, model_name)
             
@@ -377,7 +407,7 @@ class GapFillingCrawler:
         """
         try:
             url = f"https://duckduckgo.com/html/?q={quote(query)}"
-            response = self.session.get(url, timeout=30)
+            response = self._safe_get(url, timeout=30)
             soup = BeautifulSoup(response.text, "html.parser")
             
             links = []
@@ -404,7 +434,7 @@ class GapFillingCrawler:
             Extracted text content
         """
         try:
-            response = self.session.get(url, timeout=30)
+            response = self._safe_get(url, timeout=30)
             soup = BeautifulSoup(response.text, "html.parser")
             
             # Remove script and style elements

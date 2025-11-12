@@ -29,6 +29,27 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 SITE_AGG.parent.mkdir(parents=True, exist_ok=True)
 
 
+def has_meaningful_content(value: Any) -> bool:
+    """Check if content has at least 5 words."""
+    if not value:
+        return False
+    
+    # Handle lists (e.g., modalities, channels)
+    if isinstance(value, list):
+        # Join list items and count words
+        text = ' '.join(str(item) for item in value)
+    # Handle dictionaries with text/source structure
+    elif isinstance(value, dict):
+        if 'text' in value:
+            text = str(value['text'])
+        else:
+            return False
+    else:
+        text = str(value)
+    
+    words = text.strip().split()
+    return len(words) >= 5
+
 def fetch_all() -> List[Dict[str, Any]]:
     """
     Fetch all model records from the database and format for export.
@@ -61,13 +82,45 @@ def fetch_all() -> List[Dict[str, Any]]:
         name, provider, region, size, release, data, pct, stars, label, section_data, updated = r
         
         # Parse the JSON data field
-        # Default to empty dict if NULL or invalid
         data = json.loads(data or "{}")
-        
-        # Parse the section_data field containing full documentation
         section_data = json.loads(section_data or "{}")
         
-        # Build the model dictionary in the format expected by TypeScript
+        # Calculate section scores based on actual content
+        section_scores = {}
+        for section_name, section_content in data.items():
+            if isinstance(section_content, dict):
+                # Count fields with meaningful content (5+ words)
+                filled_fields = 0
+                total_fields = 0
+                for field_name, field_value in section_content.items():
+                    if field_name.startswith('_'):
+                        continue
+                    total_fields += 1
+                    if has_meaningful_content(field_value):
+                        filled_fields += 1
+                
+                # Score is percentage of fields with content
+                if total_fields > 0:
+                    section_scores[section_name] = filled_fields / total_fields
+                else:
+                    section_scores[section_name] = 0.0
+        
+        # Build section_data from actual data if empty
+        if not section_data:
+            for section_name, section_content in data.items():
+                if isinstance(section_content, dict):
+                    section_data[section_name] = {}
+                    for field_name, field_value in section_content.items():
+                        if field_name.startswith('_'):
+                            continue
+                        if has_meaningful_content(field_value):
+                            section_data[section_name][field_name] = field_value
+        
+        # Calculate overall score
+        total_score = sum(section_scores.values())
+        num_sections = len(section_scores) if section_scores else 1
+        overall_percentage = int((total_score / num_sections) * 100) if num_sections > 0 else 0
+        
         model_dict = {
             "model_name": name,
             "provider": provider,
@@ -75,19 +128,12 @@ def fetch_all() -> List[Dict[str, Any]]:
             "size": size,
             "release_date": release,
             "transparency_score": {
-                "overall": pct,
-                # Convert _filled flags to numerical scores (0.0 or 1.0)
-                # Only process dictionary entries (skip any scalar values)
-                "sections": {
-                    k: (1.0 if v.get("_filled") else 0.0) 
-                    for k, v in data.items() 
-                    if isinstance(v, dict)
-                }
+                "overall": overall_percentage,
+                "sections": section_scores
             },
             "stars": stars,
             "label_x": label,
             "last_updated": updated,
-            # Include the full section documentation and sources
             "section_data": section_data
         }
         

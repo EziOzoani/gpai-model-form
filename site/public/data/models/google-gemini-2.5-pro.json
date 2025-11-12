@@ -5,9 +5,9 @@
   "size": "Big",
   "release_date": "2024-01-01",
   "transparency_score": {
-    "overall": 20,
+    "overall": 0,
     "sections": {
-      "general": 1.0,
+      "general": 0.0,
       "properties": 0.0,
       "distribution": 0.0,
       "use": 0.0,
@@ -20,5 +20,14 @@
   "stars": 0,
   "label_x": "US-Big",
   "last_updated": "2025-11-11 19:33:47",
-  "section_data": {}
+  "section_data": {
+    "general": {},
+    "properties": {},
+    "distribution": {},
+    "use": {},
+    "data": {},
+    "training": {},
+    "compute": {},
+    "energy": {}
+  }
 }

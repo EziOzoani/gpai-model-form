@@ -5,12 +5,12 @@
   "size": "Big",
   "release_date": "2024-01-01",
   "transparency_score": {
-    "overall": 80,
+    "overall": 12,
     "sections": {
-      "general": 1.0,
-      "properties": 1.0,
-      "distribution": 1.0,
-      "use": 1.0,
+      "general": 0.0,
+      "properties": 0.0,
+      "distribution": 0.5,
+      "use": 0.5,
       "data": 0.0,
       "training": 0.0,
       "compute": 0.0,
