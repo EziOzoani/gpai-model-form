@@ -45,7 +45,7 @@ gpai-model-docs/
 │   ├── sync_data.sh        # Sync data to React app
 │   └── test_scrapers.sh    # Test scraping pipeline
 │
-├── data/                    # Local data storage
+├── data/                    # test Local data storage
 │   ├── model_docs.db       # SQLite database (local only)
 │   └── models/             # Individual model JSON exports
 │
