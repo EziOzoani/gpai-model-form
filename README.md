@@ -2,7 +2,7 @@
 
 A transparency dashboard for General-Purpose AI (GPAI) models, tracking compliance with the EU AI Act requirements. This project scrapes official documentation from AI providers and presents it in an accessible, searchable interface.
 
-## 🌟 Overview
+## Overview
 
 This dashboard helps track and visualise GPAI model documentation transparency across major AI providers. It evaluates models against the EU AI Act's documentation requirements and presents the information through an intuitive web interface.
 
@@ -18,7 +18,7 @@ This dashboard helps track and visualise GPAI model documentation transparency a
 - **Advanced Filtering**: By provider, region, size, and transparency score
 - **Detailed Documentation View**: Full text with source attribution
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 gpai-model-docs/
@@ -45,7 +45,7 @@ gpai-model-docs/
 │   ├── sync_data.sh        # Sync data to React app
 │   └── test_scrapers.sh    # Test scraping pipeline
 │
-├── data/                    # test Local data storage
+├── data/                    # *test Local data storage*
 │   ├── model_docs.db       # SQLite database (local only)
 │   └── models/             # Individual model JSON exports
 │
@@ -59,7 +59,7 @@ gpai-model-docs/
 └── requirements.txt         # Python dependencies
 ```
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Python 3.10+
@@ -119,7 +119,7 @@ git commit -m "Update model data and build"
 git push origin main
 ```
 
-## 📊 Evaluation Framework
+## Evaluation Framework
 
 ### Documentation Sections
 
@@ -240,56 +240,25 @@ A GitHub Actions workflow can be configured for quarterly updates:
 - **GitHub Actions** for CI/CD
 - **JSON** data files (no backend required)
 
-## 📈 Roadmap
+## Roadmap
 
 ### Near Term
-- [ ] Complete parsers for all providers
 - [ ] Add historical tracking
 - [ ] Implement automated quarterly updates
 - [ ] Add CSV export functionality
 
 ### Long Term
 - [ ] Multi-language support
-- [ ] API endpoint for programmatic access
-- [ ] Integration with EU AI Office systems
-- [ ] Automated compliance reports
+- [ ] Inetgrate with map
 - [ ] Real-time update notifications
 
-## 🤝 Contributing
 
-We welcome contributions! Priority areas:
 
-1. **Parser Development**
-   - New provider parsers
-   - Improved extraction patterns
-   - Error handling enhancements
-
-2. **UI/UX Improvements**
-   - Accessibility features
-   - Mobile responsiveness
-   - Data visualisations
-
-3. **Documentation**
-   - Provider-specific guides
-   - API documentation
-   - Translation to EU languages
-
-### Guidelines
-- Follow existing code patterns
-- Comment thoroughly in British English
-- Apply KISS principle
-- Include error handling
-- Add appropriate tests
-
-## 📄 License
-
-MIT License - see LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
-- EU AI Office for transparency framework
-- AI providers for public documentation
-- Open source community contributors
+- EU AI Office codes of practice [model documentation form](https://code-of-practice.ai/?section=summary)
+
 
 ---
 
