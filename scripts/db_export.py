@@ -29,26 +29,42 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 SITE_AGG.parent.mkdir(parents=True, exist_ok=True)
 
 
-def has_meaningful_content(value: Any) -> bool:
-    """Check if content has at least 5 words."""
+def calculate_content_score(value: Any) -> float:
+    """Calculate completeness score based on word count."""
     if not value:
-        return False
+        return 0.0
     
     # Handle lists (e.g., modalities, channels)
     if isinstance(value, list):
-        # Join list items and count words
+        if not value:
+            return 0.0
         text = ' '.join(str(item) for item in value)
     # Handle dictionaries with text/source structure
     elif isinstance(value, dict):
         if 'text' in value:
             text = str(value['text'])
         else:
-            return False
+            return 0.0
     else:
         text = str(value)
     
+    # Count words
     words = text.strip().split()
-    return len(words) >= 5
+    word_count = len(words)
+    
+    # Weighted scoring based on word count
+    if word_count == 0:
+        return 0.0
+    elif word_count == 1:
+        return 0.2  # 20% for single words (model IDs, etc.)
+    elif word_count <= 3:
+        return 0.4  # 40% for short names/terms
+    elif word_count <= 5:
+        return 0.6  # 60% for brief descriptions
+    elif word_count <= 10:
+        return 0.8  # 80% for moderate descriptions
+    else:
+        return 1.0  # 100% for detailed descriptions
 
 def fetch_all() -> List[Dict[str, Any]]:
     """
@@ -89,19 +105,17 @@ def fetch_all() -> List[Dict[str, Any]]:
         section_scores = {}
         for section_name, section_content in data.items():
             if isinstance(section_content, dict):
-                # Count fields with meaningful content (5+ words)
-                filled_fields = 0
-                total_fields = 0
+                # Calculate weighted score for each field
+                field_scores = []
                 for field_name, field_value in section_content.items():
                     if field_name.startswith('_'):
                         continue
-                    total_fields += 1
-                    if has_meaningful_content(field_value):
-                        filled_fields += 1
+                    score = calculate_content_score(field_value)
+                    field_scores.append(score)
                 
-                # Score is percentage of fields with content
-                if total_fields > 0:
-                    section_scores[section_name] = filled_fields / total_fields
+                # Section score is average of field scores
+                if field_scores:
+                    section_scores[section_name] = sum(field_scores) / len(field_scores)
                 else:
                     section_scores[section_name] = 0.0
         
@@ -113,7 +127,8 @@ def fetch_all() -> List[Dict[str, Any]]:
                     for field_name, field_value in section_content.items():
                         if field_name.startswith('_'):
                             continue
-                        if has_meaningful_content(field_value):
+                        # Include all non-empty fields in section_data
+                        if field_value:
                             section_data[section_name][field_name] = field_value
         
         # Calculate overall score

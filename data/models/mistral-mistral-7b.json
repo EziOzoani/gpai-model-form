@@ -5,12 +5,12 @@
   "size": "Small",
   "release_date": "2024-01-01",
   "transparency_score": {
-    "overall": 0,
+    "overall": 16,
     "sections": {
-      "general": 0.0,
-      "properties": 0.0,
-      "distribution": 0.0,
-      "use": 0.0,
+      "general": 0.4,
+      "properties": 0.20000000000000004,
+      "distribution": 0.5,
+      "use": 0.2,
       "data": 0.0,
       "training": 0.0,
       "compute": 0.0,
@@ -21,10 +21,28 @@
   "label_x": "EU-Small",
   "last_updated": "2025-11-11 19:33:53",
   "section_data": {
-    "general": {},
-    "properties": {},
-    "distribution": {},
-    "use": {},
+    "general": {
+      "legal_name": "Mistral AI"
+    },
+    "properties": {
+      "architecture": "Transformer-based",
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ]
+    },
+    "distribution": {
+      "license_type": "Apache 2.0",
+      "channels": [
+        "Mistral API",
+        "Hugging Face"
+      ]
+    },
+    "use": {
+      "aup_link": "https://mistral.ai/terms/"
+    },
     "data": {},
     "training": {},
     "compute": {},

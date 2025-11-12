@@ -5,9 +5,9 @@
   "size": "Small",
   "release_date": "2024-01-01",
   "transparency_score": {
-    "overall": 0,
+    "overall": 5,
     "sections": {
-      "general": 0.0,
+      "general": 0.4,
       "properties": 0.0,
       "distribution": 0.0,
       "use": 0.0,
@@ -21,7 +21,10 @@
   "label_x": "US-Small",
   "last_updated": "2025-11-11 19:33:47",
   "section_data": {
-    "general": {},
+    "general": {
+      "legal_name": "Google LLC",
+      "model_id": "Gemini 2.0 Flash"
+    },
     "properties": {},
     "distribution": {},
     "use": {},

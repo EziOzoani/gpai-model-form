@@ -6,11 +6,11 @@
     "size": "Big",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 12,
+      "overall": 20,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.5,
+        "general": 0.26666666666666666,
+        "properties": 0.26666666666666666,
+        "distribution": 0.6000000000000001,
         "use": 0.5,
         "data": 0.0,
         "training": 0.0,
@@ -127,9 +127,9 @@
     "size": "Big",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 0,
+      "overall": 5,
       "sections": {
-        "general": 0.0,
+        "general": 0.4,
         "properties": 0.0,
         "distribution": 0.0,
         "use": 0.0,
@@ -143,7 +143,10 @@
     "label_x": "US-Big",
     "last_updated": "2025-11-11 19:33:47",
     "section_data": {
-      "general": {},
+      "general": {
+        "legal_name": "Google LLC",
+        "model_id": "Gemini 2.5 Pro"
+      },
       "properties": {},
       "distribution": {},
       "use": {},
@@ -160,9 +163,9 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 0,
+      "overall": 5,
       "sections": {
-        "general": 0.0,
+        "general": 0.4,
         "properties": 0.0,
         "distribution": 0.0,
         "use": 0.0,
@@ -176,7 +179,10 @@
     "label_x": "US-Small",
     "last_updated": "2025-11-11 19:33:47",
     "section_data": {
-      "general": {},
+      "general": {
+        "legal_name": "Google LLC",
+        "model_id": "Gemini 2.5 Flash"
+      },
       "properties": {},
       "distribution": {},
       "use": {},
@@ -193,9 +199,9 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 0,
+      "overall": 5,
       "sections": {
-        "general": 0.0,
+        "general": 0.4,
         "properties": 0.0,
         "distribution": 0.0,
         "use": 0.0,
@@ -209,7 +215,10 @@
     "label_x": "US-Small",
     "last_updated": "2025-11-11 19:33:47",
     "section_data": {
-      "general": {},
+      "general": {
+        "legal_name": "Google LLC",
+        "model_id": "Gemini 2.0 Flash"
+      },
       "properties": {},
       "distribution": {},
       "use": {},
@@ -226,12 +235,12 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 0,
+      "overall": 16,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.0,
-        "use": 0.0,
+        "general": 0.4,
+        "properties": 0.20000000000000004,
+        "distribution": 0.5,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -242,10 +251,28 @@
     "label_x": "EU-Small",
     "last_updated": "2025-11-11 19:33:53",
     "section_data": {
-      "general": {},
-      "properties": {},
-      "distribution": {},
-      "use": {},
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "Transformer-based",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "distribution": {
+        "license_type": "Apache 2.0",
+        "channels": [
+          "Mistral API",
+          "Hugging Face"
+        ]
+      },
+      "use": {
+        "aup_link": "https://mistral.ai/terms/"
+      },
       "data": {},
       "training": {},
       "compute": {},
@@ -259,12 +286,12 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 0,
+      "overall": 16,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.0,
-        "use": 0.0,
+        "general": 0.4,
+        "properties": 0.20000000000000004,
+        "distribution": 0.5,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -275,10 +302,28 @@
     "label_x": "EU-Small",
     "last_updated": "2025-11-11 19:33:53",
     "section_data": {
-      "general": {},
-      "properties": {},
-      "distribution": {},
-      "use": {},
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "Transformer-based",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "distribution": {
+        "license_type": "API Terms",
+        "channels": [
+          "Mistral API",
+          "Hugging Face"
+        ]
+      },
+      "use": {
+        "aup_link": "https://mistral.ai/terms/"
+      },
       "data": {},
       "training": {},
       "compute": {},
@@ -292,12 +337,12 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 0,
+      "overall": 16,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.0,
-        "use": 0.0,
+        "general": 0.4,
+        "properties": 0.20000000000000004,
+        "distribution": 0.5,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -308,10 +353,28 @@
     "label_x": "EU-Small",
     "last_updated": "2025-11-11 19:33:53",
     "section_data": {
-      "general": {},
-      "properties": {},
-      "distribution": {},
-      "use": {},
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "Transformer-based",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "distribution": {
+        "license_type": "API Terms",
+        "channels": [
+          "Mistral API",
+          "Hugging Face"
+        ]
+      },
+      "use": {
+        "aup_link": "https://mistral.ai/terms/"
+      },
       "data": {},
       "training": {},
       "compute": {},
@@ -325,12 +388,12 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 0,
+      "overall": 16,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.0,
-        "use": 0.0,
+        "general": 0.4,
+        "properties": 0.20000000000000004,
+        "distribution": 0.5,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -341,10 +404,28 @@
     "label_x": "EU-Small",
     "last_updated": "2025-11-11 19:33:53",
     "section_data": {
-      "general": {},
-      "properties": {},
-      "distribution": {},
-      "use": {},
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "Transformer-based",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "distribution": {
+        "license_type": "API Terms",
+        "channels": [
+          "Mistral API",
+          "Hugging Face"
+        ]
+      },
+      "use": {
+        "aup_link": "https://mistral.ai/terms/"
+      },
       "data": {},
       "training": {},
       "compute": {},
@@ -358,12 +439,12 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 0,
+      "overall": 16,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.0,
-        "use": 0.0,
+        "general": 0.4,
+        "properties": 0.20000000000000004,
+        "distribution": 0.5,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -374,10 +455,28 @@
     "label_x": "EU-Small",
     "last_updated": "2025-11-11 19:33:53",
     "section_data": {
-      "general": {},
-      "properties": {},
-      "distribution": {},
-      "use": {},
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "Transformer-based",
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "distribution": {
+        "license_type": "API Terms",
+        "channels": [
+          "Mistral API",
+          "Hugging Face"
+        ]
+      },
+      "use": {
+        "aup_link": "https://mistral.ai/terms/"
+      },
       "data": {},
       "training": {},
       "compute": {},
@@ -391,12 +490,12 @@
     "size": "Big",
     "release_date": "2025-09-16",
     "transparency_score": {
-      "overall": 6,
+      "overall": 17,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.5,
-        "use": 0.0,
+        "general": 0.30000000000000004,
+        "properties": 0.3,
+        "distribution": 0.6000000000000001,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -504,12 +603,12 @@
     "size": "Small",
     "release_date": "2025-09-16",
     "transparency_score": {
-      "overall": 6,
+      "overall": 17,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.5,
-        "use": 0.0,
+        "general": 0.30000000000000004,
+        "properties": 0.3,
+        "distribution": 0.6000000000000001,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -617,12 +716,12 @@
     "size": "Small",
     "release_date": "2025-09-16",
     "transparency_score": {
-      "overall": 6,
+      "overall": 16,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.5,
-        "use": 0.0,
+        "general": 0.30000000000000004,
+        "properties": 0.25,
+        "distribution": 0.6000000000000001,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -730,12 +829,12 @@
     "size": "Small",
     "release_date": "2025-09-16",
     "transparency_score": {
-      "overall": 6,
+      "overall": 16,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.5,
-        "use": 0.0,
+        "general": 0.30000000000000004,
+        "properties": 0.25,
+        "distribution": 0.6000000000000001,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -843,12 +942,12 @@
     "size": "Small",
     "release_date": "2025-05-14",
     "transparency_score": {
-      "overall": 6,
+      "overall": 16,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.5,
-        "use": 0.0,
+        "general": 0.30000000000000004,
+        "properties": 0.25,
+        "distribution": 0.6000000000000001,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -956,12 +1055,12 @@
     "size": "Small",
     "release_date": "2025-02-27",
     "transparency_score": {
-      "overall": 6,
+      "overall": 17,
       "sections": {
-        "general": 0.0,
-        "properties": 0.0,
-        "distribution": 0.5,
-        "use": 0.0,
+        "general": 0.30000000000000004,
+        "properties": 0.3,
+        "distribution": 0.6000000000000001,
+        "use": 0.2,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,

@@ -116,6 +116,9 @@ class GapFillingCrawler:
         # Rate limiting between requests
         self.last_request_time = 0
         
+        # Cache for scraped terms to avoid re-fetching
+        self.terms_cache = {}
+        
     def _safe_get(self, url: str, timeout: int = 30) -> Optional[requests.Response]:
         """Make a rate-limited GET request."""
         try:
@@ -480,6 +483,90 @@ class GapFillingCrawler:
         # Default to general web
         return "general_web", SOURCE_CONFIDENCE["general_web"]
     
+    def scrape_terms_of_use(self, url: str) -> Dict[str, str]:
+        """
+        Scrape terms of use or policy page for relevant content.
+        
+        Args:
+            url: URL of terms/policy page
+            
+        Returns:
+            Dictionary with extracted use-related content
+        """
+        # Check cache first
+        if url in self.terms_cache:
+            return self.terms_cache[url]
+        
+        try:
+            response = self._safe_get(url)
+            if not response:
+                return {}
+            
+            soup = BeautifulSoup(response.text, 'html.parser')
+            
+            # Remove script and style elements
+            for script in soup(["script", "style"]):
+                script.decompose()
+            
+            # Extract text content
+            text = soup.get_text()
+            lines = [line.strip() for line in text.splitlines() if line.strip()]
+            
+            # Look for key sections
+            results = {
+                "intended_use": [],
+                "prohibited_uses": [],
+                "monitoring": [],
+                "feedback": []
+            }
+            
+            # Keywords to look for
+            keywords = {
+                "intended_use": ["permitted use", "acceptable use", "you may", "designed for", 
+                               "intended for", "purpose", "use cases"],
+                "prohibited_uses": ["prohibited", "not permitted", "you may not", "forbidden",
+                                  "not allowed", "restrictions", "must not"],
+                "monitoring": ["monitor", "audit", "compliance", "review", "oversight"],
+                "feedback": ["feedback", "report", "contact", "support"]
+            }
+            
+            # Extract relevant paragraphs
+            for i, line in enumerate(lines):
+                lower_line = line.lower()
+                
+                for field, terms in keywords.items():
+                    if any(term in lower_line for term in terms):
+                        # Get context (current line + next 2-3 lines)
+                        context = [line]
+                        for j in range(1, 4):
+                            if i + j < len(lines):
+                                context.append(lines[i + j])
+                        
+                        # Join and clean
+                        text_block = ' '.join(context)
+                        if len(text_block.split()) > 10:  # Only include substantial content
+                            results[field].append(text_block)
+            
+            # Consolidate results
+            extracted = {}
+            for field, texts in results.items():
+                if texts:
+                    # Take first few relevant blocks
+                    combined = ' '.join(texts[:3])
+                    # Limit length
+                    words = combined.split()
+                    if len(words) > 100:
+                        combined = ' '.join(words[:100]) + '...'
+                    extracted[field] = combined
+            
+            # Cache the result
+            self.terms_cache[url] = extracted
+            return extracted
+            
+        except Exception as e:
+            logger.warning(f"Failed to scrape terms from {url}: {e}")
+            return {}
+    
     def save_findings(self, model_id: int, findings: Dict[str, Any]) -> None:
         """
         Save discovered information to the database.
@@ -568,6 +655,54 @@ class GapFillingCrawler:
                     "fields_found": list(result["data"].keys()),
                     "url": result.get("source_url", "")
                 })
+        
+        # Check for AUP links and scrape them for deeper content
+        with sqlite3.connect(self.db_path) as conn:
+            cur = conn.cursor()
+            cur.execute(
+                "SELECT data FROM models WHERE name = ?",
+                (model_name,)
+            )
+            row = cur.fetchone()
+            
+            if row and row[0]:
+                data = json.loads(row[0])
+                
+                # Look for AUP/terms links in the data
+                aup_url = None
+                use_data = data.get("use", {})
+                if isinstance(use_data, dict):
+                    aup_url = use_data.get("aup_link")
+                
+                # Scrape terms if URL found
+                if aup_url and isinstance(aup_url, str) and aup_url.startswith("http"):
+                    logger.info(f"Scraping terms of use from {aup_url}")
+                    terms_content = self.scrape_terms_of_use(aup_url)
+                    
+                    if terms_content:
+                        # Update the database with scraped content
+                        for field, content in terms_content.items():
+                            if content and field in ["intended_use", "prohibited_uses", "monitoring", "feedback"]:
+                                # Update the use section with scraped content
+                                if "use" not in data:
+                                    data["use"] = {"_filled": True}
+                                data["use"][field] = content
+                                
+                                # Track the source
+                                self.save_findings(model_id, {
+                                    "data": {"use": {field: content}},
+                                    "source_url": aup_url,
+                                    "source_type": "official_docs",
+                                    "confidence": 0.9
+                                })
+                                filled_count += 1
+                        
+                        # Update model data
+                        cur.execute(
+                            "UPDATE models SET data = ?, updated_at = ? WHERE name = ?",
+                            (json.dumps(data), time.strftime('%Y-%m-%d %H:%M:%S'), model_name)
+                        )
+                        conn.commit()
         
         # If still missing critical information, try general web search
         remaining_gaps = self.get_missing_fields(model_name)
