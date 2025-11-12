@@ -1,7 +1,7 @@
 {
   "model_name": "Mistral Mistral 7B",
   "provider": "Mistral AI",
-  "region": "EU",
+  "region": "Non-EU",
   "size": "Small",
   "release_date": "2024-01-01",
   "transparency_score": {
@@ -18,7 +18,7 @@
     }
   },
   "stars": 0,
-  "label_x": "EU-Small",
+  "label_x": "Non-EU-Small",
   "last_updated": "2025-11-11 19:33:53",
   "section_data": {
     "general": {
