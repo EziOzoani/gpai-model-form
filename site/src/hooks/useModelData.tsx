@@ -34,8 +34,8 @@ export const useModelData = (): UseModelDataReturn => {
     const loadModelData = async () => {
       try {
         // Attempt to load from the production data path
-        // This path is relative to the public directory when built
-        const response = await fetch('/data/models.json');
+        // Use BASE_URL to handle GitHub Pages subdirectory deployment
+        const response = await fetch(`${import.meta.env.BASE_URL}data/models.json`);
         
         if (!response.ok) {
           throw new Error(`Failed to load data: ${response.status}`);
