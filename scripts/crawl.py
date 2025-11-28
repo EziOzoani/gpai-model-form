@@ -27,9 +27,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Code of Practice signatories (as of November 2024)
+# EU AI Code of Practice signatories (as of November 2024)
 # This list tracks organisations that have signed the EU AI Code of Practice
+# Only including those that are major model providers from the full signatory list
 CODE_OF_PRACTICE_SIGNATORIES = {
+    # Primary providers from sources.yaml
     "OpenAI": True,
     "Google": True,
     "Anthropic": True,
@@ -38,8 +40,34 @@ CODE_OF_PRACTICE_SIGNATORIES = {
     "Mistral AI": True,
     "Cohere": True,
     "Aleph Alpha": True,
-    "AI21 Labs": True,
-    "Stability AI": True
+    # Additional signatories that are model providers
+    "IBM": True,
+    "ServiceNow": True,
+    "Amazon": True,
+    # Other signatories (for reference but not primary focus)
+    "Accexible": False,
+    "AI Alignment Solutions": False,
+    "Almawave": False,
+    "Bria AI": False,
+    "Cyber Institute": False,
+    "Domyn": False,
+    "Dweve": False,
+    "Euc Inovação Portugal": False,
+    "Fastweb": False,
+    "Humane Technology": False,
+    "Lawise": False,
+    "Open Hippo": False,
+    "Pleias": True,  # ETH Pleias is tracked
+    "re-inventa": False,
+    "Virtuo Turing": False,
+    "WRITER": False
+}
+
+# Providers we actively track (from sources.yaml)
+TRACKED_PROVIDERS = {
+    "Anthropic", "Google", "Microsoft", "OpenAI", 
+    "Meta", "Mistral AI", "ETH Pleias", "Cohere",
+    "Aleph Alpha", "IBM", "ServiceNow"
 }
 
 CUTOVER_DATE = "2025-08-01"  # keep models released on/after this date
@@ -50,6 +78,272 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 Path("logs").mkdir(exist_ok=True)
 
 # --- utility functions ---
+
+def detect_multi_region_presence(text: str, provider: str) -> List[str]:
+    """Detect if a provider has significant presence in multiple regions.
+    
+    Args:
+        text: Text content to analyze
+        provider: Provider name
+        
+    Returns:
+        List of regions where provider has presence
+    """
+    regions_found = []
+    
+    # Look for explicit multi-region mentions
+    multi_region_patterns = {
+        "EU": [
+            f"{provider}.*europe", f"{provider}.*eu", 
+            f"european.*{provider}", f"{provider}.*dublin",
+            f"{provider}.*paris", f"{provider}.*amsterdam"
+        ],
+        "US": [
+            f"{provider}.*united states", f"{provider}.*america",
+            f"{provider}.*california", f"{provider}.*new york",
+            f"{provider}.*seattle", f"{provider}.*austin"
+        ],
+        "UK": [
+            f"{provider}.*uk", f"{provider}.*united kingdom",
+            f"{provider}.*london", f"{provider}.*cambridge"
+        ],
+        "CN": [
+            f"{provider}.*china", f"{provider}.*beijing",
+            f"{provider}.*shanghai"
+        ]
+    }
+    
+    for region, patterns in multi_region_patterns.items():
+        for pattern in patterns:
+            if re.search(pattern, text, re.IGNORECASE):
+                if region not in regions_found:
+                    regions_found.append(region)
+                break
+    
+    return regions_found
+
+def detect_region_from_content(html: str, provider: str, url: str) -> str:
+    """Enhanced region detection based on multiple signals.
+    
+    Args:
+        html: The HTML content to analyze
+        provider: The provider name
+        url: The source URL
+        
+    Returns:
+        Region string (US, EU, UK, CN, etc.)
+    """
+    # Provider-specific mappings based on headquarters and EU Code of Practice signatories
+    # Keep it simple (KISS) - only map providers we actively track
+    PROVIDER_REGIONS = {
+        # US-based providers
+        "Google": "US",
+        "OpenAI": "US",
+        "Anthropic": "Non-EU UK",  # UK HQ
+        "Meta": "US",
+        "Microsoft": "US",
+        "Amazon": "US",
+        "IBM": "US",
+        "ServiceNow": "US",
+        # EU-based providers
+        "Mistral AI": "EU",
+        "Aleph Alpha": "EU",
+        "Pleias": "EU",  # ETH Pleias
+        "ETH Pleias": "EU",
+        # Non-EU UK providers (as requested)
+        "Cohere": "Non-EU UK",  # Updated as per user request
+        # Other regions (if needed)
+        "AI21 Labs": "IL",  # Israel
+        "Stability AI": "UK",
+        "DeepMind": "UK",
+        "Baidu": "CN",
+        "Alibaba": "CN",
+        "SenseTime": "CN",
+        "iFlytek": "CN"
+    }
+    
+    # First check if this is a tracked provider
+    if provider not in TRACKED_PROVIDERS:
+        logger.debug(f"Provider '{provider}' not in tracked providers list")
+        # Still check if it's in our mapping for completeness
+    
+    # Check known provider mappings
+    if provider in PROVIDER_REGIONS:
+        region = PROVIDER_REGIONS[provider]
+        logger.info(f"Region '{region}' detected for provider '{provider}' from mapping")
+        return region
+    
+    # Parse HTML to look for region indicators
+    soup = BeautifulSoup(html, "html.parser")
+    text = soup.get_text().lower()
+    
+    # Region keywords and patterns
+    region_patterns = {
+        "EU": [
+            r"european union", r"gdpr", r"eu ai act", r"brussels", r"paris", r"berlin",
+            r"amsterdam", r"dublin", r"milan", r"madrid", r"warsaw", r"prague",
+            r"€", r"eur ", r"european", r"france", r"germany", r"netherlands",
+            r"italy", r"spain", r"poland", r"czech", r"austria", r"belgium"
+        ],
+        "US": [
+            r"united states", r"california", r"new york", r"washington", r"seattle",
+            r"san francisco", r"silicon valley", r"boston", r"austin", r"chicago",
+            r"\$", r"usd", r"america", r"u\.s\.", r"usa"
+        ],
+        "UK": [
+            r"united kingdom", r"london", r"cambridge", r"oxford", r"manchester",
+            r"edinburgh", r"£", r"gbp", r"britain", r"british", r"england",
+            r"scotland", r"wales"
+        ],
+        "CN": [
+            r"china", r"beijing", r"shanghai", r"shenzhen", r"guangzhou", r"hangzhou",
+            r"chinese", r"¥", r"rmb", r"cny", r"alibaba", r"baidu", r"tencent"
+        ],
+        "CA": [
+            r"canada", r"toronto", r"montreal", r"vancouver", r"ottawa",
+            r"canadian", r"cad"
+        ],
+        "JP": [
+            r"japan", r"tokyo", r"osaka", r"kyoto", r"japanese", r"¥", r"jpy"
+        ],
+        "KR": [
+            r"korea", r"seoul", r"korean", r"krw", r"samsung", r"naver", r"kakao"
+        ],
+        "IL": [
+            r"israel", r"tel aviv", r"jerusalem", r"israeli", r"ils", r"₪"
+        ],
+        "AU": [
+            r"australia", r"sydney", r"melbourne", r"brisbane", r"australian", r"aud"
+        ],
+        "SG": [
+            r"singapore", r"singaporean", r"sgd"
+        ]
+    }
+    
+    # Count matches for each region
+    region_scores = {}
+    for region, patterns in region_patterns.items():
+        score = 0
+        for pattern in patterns:
+            matches = len(re.findall(pattern, text, re.IGNORECASE))
+            score += matches
+        if score > 0:
+            region_scores[region] = score
+    
+    # Check URL domain for additional hints
+    url_lower = url.lower()
+    url_region_hints = {
+        ".eu": "EU",
+        ".uk": "UK", ".gov.uk": "UK",
+        ".cn": "CN",
+        ".ca": "CA", ".gc.ca": "CA",
+        ".jp": "JP", ".co.jp": "JP",
+        ".kr": "KR", ".co.kr": "KR",
+        ".il": "IL", ".co.il": "IL",
+        ".au": "AU", ".com.au": "AU", ".gov.au": "AU",
+        ".sg": "SG", ".com.sg": "SG",
+        ".in": "IN", ".co.in": "IN",
+        ".de": "EU", ".fr": "EU", ".it": "EU", ".es": "EU", ".nl": "EU"
+    }
+    
+    for domain, region in url_region_hints.items():
+        if domain in url_lower:
+            region_scores[region] = region_scores.get(region, 0) + 10
+    
+    # Look for regulatory mentions
+    regulatory_mentions = {
+        "EU": [r"gdpr", r"eu ai act", r"european commission", r"european parliament", r"dsa", r"dma"],
+        "US": [r"section 230", r"fcc", r"ftc", r"sec", r"california privacy", r"ccpa", r"coppa"],
+        "UK": [r"uk gdpr", r"ofcom", r"ico", r"uk data protection"],
+        "CN": [r"cac", r"miit", r"chinese regulations", r"beijing ai principles"]
+    }
+    
+    for region, patterns in regulatory_mentions.items():
+        for pattern in patterns:
+            if re.search(pattern, text, re.IGNORECASE):
+                region_scores[region] = region_scores.get(region, 0) + 3
+    
+    # Look for legal entity suffixes
+    entity_suffixes = {
+        "EU": [r"\b(gmbh|sarl|sas|bv|nv|ab|oy|a/s|ag|sa)\b"],
+        "US": [r"\b(inc|llc|corp|corporation|lp|llp)\b"],
+        "UK": [r"\b(ltd|plc|limited)\b"],
+        "CN": [r"\b(有限公司|股份有限公司)\b"],
+        "JP": [r"\b(株式会社|合同会社)\b"],
+        "KR": [r"\b(주식회사)\b"]
+    }
+    
+    for region, patterns in entity_suffixes.items():
+        for pattern in patterns:
+            if re.search(pattern, text, re.IGNORECASE):
+                region_scores[region] = region_scores.get(region, 0) + 2
+    
+    # Look for headquarters or office locations
+    hq_patterns = [
+        r"headquarter[s]?\s*(?:in|at|:)?\s*([A-Za-z\s,]+)",
+        r"based in\s*([A-Za-z\s,]+)",
+        r"offices? in\s*([A-Za-z\s,]+)",
+        r"located in\s*([A-Za-z\s,]+)",
+        r"incorporated in\s*([A-Za-z\s,]+)",
+        r"registered in\s*([A-Za-z\s,]+)"
+    ]
+    
+    for pattern in hq_patterns:
+        matches = re.findall(pattern, text, re.IGNORECASE)
+        for match in matches:
+            location = match.strip().lower()
+            for region, patterns in region_patterns.items():
+                for p in patterns:
+                    if re.search(p, location, re.IGNORECASE):
+                        region_scores[region] = region_scores.get(region, 0) + 5
+                        break
+    
+    # Look for data residency and deployment regions
+    deployment_patterns = [
+        r"deploy(?:ed|ment)?\s*(?:in|to|across)\s*([A-Za-z\s,]+)",
+        r"available\s*(?:in|across)\s*([A-Za-z\s,]+)",
+        r"data\s*(?:center|centre)s?\s*(?:in|at)\s*([A-Za-z\s,]+)",
+        r"servers?\s*(?:in|located)\s*([A-Za-z\s,]+)"
+    ]
+    
+    for pattern in deployment_patterns:
+        matches = re.findall(pattern, text, re.IGNORECASE)
+        for match in matches:
+            location = match.strip().lower()
+            for region, patterns in region_patterns.items():
+                for p in patterns:
+                    if re.search(p, location, re.IGNORECASE):
+                        region_scores[region] = region_scores.get(region, 0) + 2
+                        break
+    
+    # Check for multi-region presence
+    multi_regions = detect_multi_region_presence(text, provider)
+    if multi_regions:
+        logger.info(f"Detected multi-region presence for {provider}: {multi_regions}")
+    
+    # Determine the most likely region
+    if region_scores:
+        # Sort regions by score
+        sorted_regions = sorted(region_scores.items(), key=lambda x: x[1], reverse=True)
+        best_region = sorted_regions[0][0]
+        best_score = sorted_regions[0][1]
+        
+        # If multiple regions have similar high scores, it might be a global provider
+        if len(sorted_regions) > 1 and sorted_regions[1][1] >= best_score * 0.8:
+            # Check if this is a known global provider with primary HQ
+            if provider in ["Google", "Microsoft", "Amazon", "IBM"]:
+                best_region = "US"  # Default to US for these global providers
+                logger.info(f"Global provider {provider} detected, defaulting to primary HQ region: US")
+            else:
+                logger.info(f"Region detection for {provider}: {best_region} (scores: {region_scores})")
+        else:
+            logger.info(f"Region detection for {provider}: {best_region} (scores: {region_scores})")
+        
+        return best_region
+    
+    # Default to Unknown if no clear signals
+    logger.warning(f"Could not detect region for {provider} from {url}, defaulting to Unknown")
+    return "Unknown"
 
 def get(url: str) -> str:
     """Fetch HTML content from a URL with proper error handling.
@@ -196,7 +490,9 @@ def create_model_record(name: str, provider: str, region: str = "Unknown",
     provenance = {
         "source_url": source_url,
         "crawled_at": datetime.now().isoformat(),
-        "is_code_of_practice_signatory": is_signatory
+        "is_code_of_practice_signatory": is_signatory,
+        "region_detected": region,
+        "region_detection_method": "automatic" if region != "Unknown" else "fallback"
     }
     
     return {
@@ -212,7 +508,7 @@ def create_model_record(name: str, provider: str, region: str = "Unknown",
 
 # --- parsers for official sources ---
 
-def parse_google_models(html: str) -> List[Dict]:
+def parse_google_models(html: str, source_url: str = "") -> List[Dict]:
     """Parse Google AI models documentation page.
     
     Extracts model information from https://ai.google.dev/gemini-api/docs/models
@@ -220,6 +516,9 @@ def parse_google_models(html: str) -> List[Dict]:
     """
     models = []
     soup = BeautifulSoup(html, "html.parser")
+    
+    # Detect region from content
+    region = detect_region_from_content(html, "Google", source_url)
     
     try:
         # Find all tables on the page
@@ -337,11 +636,11 @@ def parse_google_models(html: str) -> List[Dict]:
                         model_data = create_model_record(
                             name=f"Google {model_name}",
                             provider="Google",
-                            region="US",
+                            region=region,
                             size=size,
                             release_date=data["general"]["release_date"],
                             data=data,
-                            source_url="https://ai.google.dev/gemini-api/docs/models",
+                            source_url=source_url or "https://ai.google.dev/gemini-api/docs/models",
                             section_data=section_data
                         )
         
@@ -362,7 +661,7 @@ def parse_google_models(html: str) -> List[Dict]:
                     models.append(create_model_record(
                         name=f"Google {model_name}",
                         provider="Google",
-                        region="US",
+                        region=region,
                         size=size,
                         release_date="2024-01-01",
                         data={
@@ -386,7 +685,7 @@ def parse_google_models(html: str) -> List[Dict]:
     
     return models
 
-def parse_anthropic_docs(html: str) -> List[Dict]:
+def parse_anthropic_docs(html: str, source_url: str = "") -> List[Dict]:
     """Parse Anthropic documentation for Claude models.
     
     Extracts model information from https://docs.anthropic.com
@@ -394,6 +693,9 @@ def parse_anthropic_docs(html: str) -> List[Dict]:
     """
     models = []
     soup = BeautifulSoup(html, "html.parser")
+    
+    # Detect region from content
+    region = detect_region_from_content(html, "Anthropic", source_url)
     
     try:
         # Anthropic typically lists models in their docs with clear specifications
@@ -480,7 +782,7 @@ def parse_anthropic_docs(html: str) -> List[Dict]:
                 models.append(create_model_record(
                     name=f"Anthropic {model_name}",
                     provider="Anthropic",
-                    region="US",
+                    region=region,
                     size=size,
                     release_date=release_date,
                     data=data,
@@ -494,13 +796,16 @@ def parse_anthropic_docs(html: str) -> List[Dict]:
     
     return models
 
-def parse_openai_release_notes(html: str) -> List[Dict]:
+def parse_openai_release_notes(html: str, source_url: str = "") -> List[Dict]:
     """Parse OpenAI release notes for model information.
     
     Extracts model announcements from https://help.openai.com/en/collections/3763028-release-notes
     """
     models = []
     soup = BeautifulSoup(html, "html.parser")
+    
+    # Detect region from content
+    region = detect_region_from_content(html, "OpenAI", source_url)
     
     try:
         # OpenAI release notes typically have article entries or list items
@@ -610,7 +915,7 @@ def parse_openai_release_notes(html: str) -> List[Dict]:
                     models.append(create_model_record(
                         name=f"OpenAI {model_name}",
                         provider="OpenAI",
-                        region="US",
+                        region=region,
                         size=size,
                         release_date=release_date,
                         data=data,
@@ -624,13 +929,16 @@ def parse_openai_release_notes(html: str) -> List[Dict]:
     
     return models
 
-def parse_mistral_models(html: str) -> List[Dict]:
+def parse_mistral_models(html: str, source_url: str = "") -> List[Dict]:
     """Parse Mistral AI models documentation.
     
     Extracts model information from https://docs.mistral.ai/getting-started/models
     """
     models = []
     soup = BeautifulSoup(html, "html.parser")
+    
+    # Detect region from content
+    region = detect_region_from_content(html, "Mistral AI", source_url)
     
     try:
         # Mistral typically lists their models in tables or cards
@@ -728,7 +1036,7 @@ def parse_mistral_models(html: str) -> List[Dict]:
                             models.append(create_model_record(
                                 name=f"Mistral {model_name}",
                                 provider="Mistral AI",
-                                region="EU",  # Mistral is EU-based
+                                region=region,
                                 size=size,
                                 release_date=release_date,
                                 data=data,
@@ -749,7 +1057,7 @@ def parse_mistral_models(html: str) -> List[Dict]:
                 models.append(create_model_record(
                     name=f"Mistral {model_name}",
                     provider="Mistral AI",
-                    region="EU",
+                    region=region,
                     size=size,
                     release_date="2024-01-01",  # Default
                     data={
@@ -774,13 +1082,16 @@ def parse_mistral_models(html: str) -> List[Dict]:
     
     return models
 
-def parse_meta_llama(html: str) -> List[Dict]:
+def parse_meta_llama(html: str, source_url: str = "") -> List[Dict]:
     """Parse Meta's Llama model page.
     
     Extracts information about Llama models from https://llama.meta.com
     """
     models = []
     soup = BeautifulSoup(html, "html.parser")
+    
+    # Detect region from content
+    region = detect_region_from_content(html, "Meta", source_url)
     
     try:
         # Look for Llama model mentions
@@ -862,7 +1173,7 @@ def parse_meta_llama(html: str) -> List[Dict]:
                 models.append(create_model_record(
                     name=f"Meta {model_name}",
                     provider="Meta",
-                    region="US",
+                    region=region,
                     size=size,
                     release_date=release_date,
                     data=data,
@@ -876,13 +1187,16 @@ def parse_meta_llama(html: str) -> List[Dict]:
     
     return models
 
-def parse_cohere_changelog(html: str) -> List[Dict]:
+def parse_cohere_changelog(html: str, source_url: str = "") -> List[Dict]:
     """Parse Cohere changelog for model releases.
     
     Extracts model information from https://docs.cohere.com/changelog
     """
     models = []
     soup = BeautifulSoup(html, "html.parser")
+    
+    # Detect region from content
+    region = detect_region_from_content(html, "Cohere", source_url)
     
     try:
         # Look for changelog entries
@@ -990,7 +1304,7 @@ def parse_cohere_changelog(html: str) -> List[Dict]:
                     models.append(create_model_record(
                         name=f"Cohere {model_name}",
                         provider="Cohere",
-                        region="US",
+                        region=region,
                         size=size,
                         release_date=release_date,
                         data=data,
@@ -1006,32 +1320,32 @@ def parse_cohere_changelog(html: str) -> List[Dict]:
     return models
 
 # Stub parsers for additional sources that can be implemented later
-def parse_anthropic_news(html: str) -> List[Dict]:
+def parse_anthropic_news(html: str, source_url: str = "") -> List[Dict]:
     """Parse Anthropic news/blog for model announcements."""
     logger.info("Anthropic news parser not yet implemented")
     return []
 
-def parse_microsoft_blog(html: str) -> List[Dict]:
+def parse_microsoft_blog(html: str, source_url: str = "") -> List[Dict]:
     """Parse Microsoft blog for Azure AI model announcements."""
     logger.info("Microsoft blog parser not yet implemented")
     return []
 
-def parse_microsoft_tc(html: str) -> List[Dict]:
+def parse_microsoft_tc(html: str, source_url: str = "") -> List[Dict]:
     """Parse Microsoft Tech Community for model information."""
     logger.info("Microsoft Tech Community parser not yet implemented")
     return []
 
-def parse_mistral_changelog(html: str) -> List[Dict]:
+def parse_mistral_changelog(html: str, source_url: str = "") -> List[Dict]:
     """Parse Mistral AI changelog."""
     logger.info("Mistral changelog parser not yet implemented")
     return []
 
-def parse_eth_news(html: str) -> List[Dict]:
+def parse_eth_news(html: str, source_url: str = "") -> List[Dict]:
     """Parse ETH Zurich news for AI model announcements."""
     logger.info("ETH news parser not yet implemented")
     return []
 
-def parse_hf_model_cards(html: str) -> List[Dict]:
+def parse_hf_model_cards(html: str, source_url: str = "") -> List[Dict]:
     """Parse Hugging Face model cards."""
     logger.info("Hugging Face parser not yet implemented")
     return []
@@ -1077,7 +1391,7 @@ def main():
             
             try:
                 html = get(e["url"])
-                recs = PARSERS[e["parser"]](html)
+                recs = PARSERS[e["parser"]](html, e["url"])
                 
                 if recs:
                     stats["successful_sources"] += 1

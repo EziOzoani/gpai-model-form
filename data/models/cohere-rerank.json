@@ -1,7 +1,7 @@
 {
   "model_name": "Cohere rerank",
   "provider": "Cohere",
-  "region": "US",
+  "region": "Non-EU UK",
   "size": "Small",
   "release_date": "2025-09-16",
   "transparency_score": {
@@ -18,8 +18,8 @@
     }
   },
   "stars": 0,
-  "label_x": "US-Small",
-  "last_updated": "2025-11-11 19:33:55",
+  "label_x": "Non-EU UK-Small",
+  "last_updated": "2025-11-28 08:23:31",
   "section_data": {
     "general": {
       "legal_name": {

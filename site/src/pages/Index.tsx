@@ -30,7 +30,8 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
-import { Database, Filter, Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Database, Filter, Loader2, GitCompare } from "lucide-react";
 
 const Index = () => {
   // Load model data from the generated JSON file
@@ -41,11 +42,39 @@ const Index = () => {
   const [regionFilter, setRegionFilter] = useState<string>("all");
   const [sizeFilter, setSizeFilter] = useState<string>("all");
   const [minTransparency, setMinTransparency] = useState<number>(0);
+  const [sortBy, setSortBy] = useState<string>('overall');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
+  const [selectedModels, setSelectedModels] = useState<string[]>([]);
+  const [selectionMode, setSelectionMode] = useState(false);
 
-  // Apply filters to the model list
+  // Handle sorting
+  const handleSort = (column: string) => {
+    if (sortBy === column) {
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortBy(column);
+      setSortOrder('desc');
+    }
+  };
+
+  // Handle model selection for comparison
+  const handleModelSelect = (modelName: string) => {
+    setSelectedModels(prev => {
+      if (prev.includes(modelName)) {
+        return prev.filter(name => name !== modelName);
+      }
+      if (prev.length >= 4) {
+        alert('You can compare up to 4 models at a time');
+        return prev;
+      }
+      return [...prev, modelName];
+    });
+  };
+
+  // Apply filters and sorting to the model list
   // This is memoised to prevent unnecessary recalculations
   const filteredModels = useMemo(() => {
-    return models.filter((model) => {
+    const filtered = models.filter((model) => {
       // Region filter - "all" bypasses this check
       if (regionFilter !== "all" && model.region !== regionFilter) return false;
       
@@ -57,7 +86,31 @@ const Index = () => {
       
       return true;
     });
-  }, [models, regionFilter, sizeFilter, minTransparency]);
+
+    // Apply sorting
+    return filtered.sort((a, b) => {
+      let aValue: number | string = 0;
+      let bValue: number | string = 0;
+
+      if (sortBy === 'model_name') {
+        aValue = a.model_name.toLowerCase();
+        bValue = b.model_name.toLowerCase();
+      } else if (sortBy === 'overall') {
+        aValue = a.transparency_score.overall;
+        bValue = b.transparency_score.overall;
+      } else {
+        // Sort by section score
+        aValue = a.transparency_score.sections[sortBy as keyof typeof a.transparency_score.sections] || 0;
+        bValue = b.transparency_score.sections[sortBy as keyof typeof b.transparency_score.sections] || 0;
+      }
+
+      if (typeof aValue === 'string' && typeof bValue === 'string') {
+        return sortOrder === 'asc' ? aValue.localeCompare(bValue) : bValue.localeCompare(aValue);
+      }
+
+      return sortOrder === 'asc' ? (aValue as number) - (bValue as number) : (bValue as number) - (aValue as number);
+    });
+  }, [models, regionFilter, sizeFilter, minTransparency, sortBy, sortOrder]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-panel">
@@ -65,9 +118,11 @@ const Index = () => {
       <header className="border-b border-border bg-panel/50 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-8">
           <div className="flex items-start gap-4">
-            <div className="rounded-xl bg-primary/10 p-3">
-              <Database className="h-8 w-8 text-primary" />
-            </div>
+            <img 
+              src="/appliedAI_horizontal_rgb_RZ.png" 
+              alt="AppliedAI" 
+              className="h-12 object-contain"
+            />
             <div>
               <h1 className="text-3xl font-bold text-foreground">
                 GPAI Model Documentation Dashboard
@@ -144,9 +199,35 @@ const Index = () => {
       {/* Main Content */}
       <main className="container mx-auto px-6 py-8">
         <div className="mb-6 flex items-center justify-between">
-          <div className="text-sm text-muted-foreground">
-            Showing <span className="font-semibold text-foreground">{filteredModels.length}</span>{" "}
-            of <span className="font-semibold text-foreground">{models.length}</span> models
+          <div className="flex items-center gap-6">
+            <div className="text-sm text-muted-foreground">
+              Showing <span className="font-semibold text-foreground">{filteredModels.length}</span>{" "}
+              of <span className="font-semibold text-foreground">{models.length}</span> models
+            </div>
+            <Button
+              variant={selectionMode ? "default" : "outline"}
+              size="sm"
+              onClick={() => {
+                setSelectionMode(!selectionMode);
+                if (!selectionMode) setSelectedModels([]);
+              }}
+              className="flex items-center gap-2"
+            >
+              <GitCompare className="h-4 w-4" />
+              {selectionMode ? 'Exit Compare Mode' : 'Compare Models'}
+            </Button>
+            {selectionMode && selectedModels.length >= 2 && (
+              <Button
+                variant="default"
+                size="sm"
+                onClick={() => {
+                  // Open comparison view
+                  window.location.href = `/compare?models=${selectedModels.join(',')}`;
+                }}
+              >
+                Compare {selectedModels.length} Models
+              </Button>
+            )}
           </div>
           <div className="text-sm text-muted-foreground">
             Last updated: {lastUpdated ? new Date(lastUpdated).toLocaleDateString('en-GB') : 'Loading...'}
@@ -168,7 +249,16 @@ const Index = () => {
             </div>
           ) : (
             // Display the heatmap once data is loaded
-            <ModelHeatmap models={filteredModels} onModelClick={setSelectedModel} />
+            <ModelHeatmap 
+              models={filteredModels} 
+              onModelClick={setSelectedModel}
+              sortBy={sortBy}
+              sortOrder={sortOrder}
+              onSort={handleSort}
+              selectedModels={selectedModels}
+              onModelSelect={handleModelSelect}
+              selectionMode={selectionMode}
+            />
           )}
         </div>
       </main>

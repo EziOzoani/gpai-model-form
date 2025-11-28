@@ -45,6 +45,14 @@ UA = {
     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
+# Load environment variables for API tokens
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+# Get HuggingFace token
+HF_TOKEN = os.getenv('HF_TOKEN')
+
 # Define trusted source types with associated confidence scores
 SOURCE_CONFIDENCE = {
     "official_api": 1.0,         # Direct API responses from providers
@@ -119,7 +127,7 @@ class GapFillingCrawler:
         # Cache for scraped terms to avoid re-fetching
         self.terms_cache = {}
         
-    def _safe_get(self, url: str, timeout: int = 30) -> Optional[requests.Response]:
+    def _safe_get(self, url: str, timeout: int = 30, headers: dict = None) -> Optional[requests.Response]:
         """Make a rate-limited GET request."""
         try:
             # Wait between requests
@@ -128,7 +136,11 @@ class GapFillingCrawler:
                 time.sleep(1.5 - elapsed)
             
             self.last_request_time = time.time()
-            response = self.session.get(url, timeout=timeout)
+            
+            # Use provided headers or default session headers
+            req_headers = headers if headers else None
+            
+            response = self.session.get(url, timeout=timeout, headers=req_headers)
             response.raise_for_status()
             return response
         except requests.exceptions.RequestException as e:
@@ -176,6 +188,49 @@ class GapFillingCrawler:
         
         return missing
     
+    def get_first_commit_date(self, model_id: str) -> Optional[str]:
+        """Get first commit date by scraping the HF files page."""
+        try:
+            # Try direct web scraping of the commits page
+            commits_url = f"https://huggingface.co/{model_id}/commits/main"
+            response = self._safe_get(commits_url)
+            
+            if response and response.status_code == 200:
+                soup = BeautifulSoup(response.text, 'html.parser')
+                
+                # Find all commit entries
+                commit_entries = soup.find_all('li', {'class': 'commit'})
+                if not commit_entries:
+                    # Try alternative structure
+                    commit_entries = soup.find_all('div', {'class': 'commit-item'})
+                
+                # Get the last (oldest) commit date
+                if commit_entries:
+                    last_commit = commit_entries[-1]
+                    time_elem = last_commit.find('time')
+                    if time_elem and time_elem.get('datetime'):
+                        return time_elem['datetime'].split('T')[0]
+                
+                # Fallback: check files page for dates
+                files_url = f"https://huggingface.co/{model_id}/tree/main"
+                response = self._safe_get(files_url)
+                if response and response.status_code == 200:
+                    soup = BeautifulSoup(response.text, 'html.parser')
+                    # Look for any time elements
+                    time_elements = soup.find_all('time')
+                    if time_elements:
+                        dates = []
+                        for elem in time_elements:
+                            if elem.get('datetime'):
+                                dates.append(elem['datetime'].split('T')[0])
+                        if dates:
+                            return min(dates)  # Return earliest date
+                            
+        except Exception as e:
+            logger.debug(f"Could not get first commit date for {model_id}: {e}")
+        
+        return None
+    
     def search_huggingface(self, model_name: str, provider: str) -> Optional[Dict[str, Any]]:
         """
         Search for model information on HuggingFace.
@@ -188,16 +243,49 @@ class GapFillingCrawler:
             Dictionary of extracted information or None
         """
         try:
+            # Fix provider names for HuggingFace
+            hf_provider = provider.lower()
+            if hf_provider == "mistral ai":
+                hf_provider = "mistralai"
+            elif hf_provider == "cohere":
+                hf_provider = "Cohere"  # Fixed: Use Cohere, not CohereForAI
+            elif hf_provider == "google":
+                hf_provider = "google"  # Google has HF presence
+            
+            # Search HuggingFace first to find actual model IDs
+            search_url = f"https://huggingface.co/models?search={model_name.replace(' ', '+')}"
+            logger.info(f"Searching HuggingFace for: {model_name}")
+            
             # Try common HuggingFace URL patterns
             potential_ids = [
-                f"{provider.lower()}/{model_name.lower().replace(' ', '-')}",
-                f"{provider.lower()}/{model_name.lower().replace(' ', '_')}",
-                model_name.lower().replace(' ', '-')
+                f"{hf_provider}/{model_name.lower().replace(' ', '-')}",
+                f"{hf_provider}/{model_name.lower().replace(' ', '_')}",
+                model_name.lower().replace(' ', '-'),
+                # Specific known mappings for actual HF models
+                "mistralai/Mistral-7B-v0.1" if "mistral 7b" in model_name.lower() else None,
+                "mistralai/Mistral-7B-Instruct-v0.2" if "mistral 7b" in model_name.lower() else None,
+                "mistralai/Mixtral-8x7B-v0.1" if "mixtral" in model_name.lower() else None,
+                "mistralai/Mixtral-8x7B-Instruct-v0.1" if "mixtral" in model_name.lower() else None,
+                "mistralai/Mistral-Large-Instruct-2407" if "mistral large" in model_name.lower() else None,
+                "CohereForAI/c4ai-command-r-plus" if "command-r-plus" in model_name.lower() else None,
+                "CohereForAI/c4ai-command-r-v01" if "command-r" in model_name.lower() and "plus" not in model_name.lower() else None,
+                # Google models on HF (not Gemini)
+                "google/gemma-2b" if "gemini" in model_name.lower() and "flash" in model_name.lower() else None,
+                "google/gemma-7b" if "gemini" in model_name.lower() and "pro" in model_name.lower() else None,
+                "google/flan-t5-xxl" if "gemini" in model_name.lower() else None,
             ]
+            
+            # Remove None values
+            potential_ids = [id for id in potential_ids if id]
+            
+            # Set up headers with HF token if available
+            headers = UA.copy()
+            if HF_TOKEN:
+                headers['Authorization'] = f'Bearer {HF_TOKEN}'
             
             for model_id in potential_ids:
                 url = f"https://huggingface.co/{model_id}"
-                response = self._safe_get(url, timeout=30)
+                response = self._safe_get(url, timeout=30, headers=headers)
                 
                 if response and response.status_code == 200:
                     soup = BeautifulSoup(response.text, 'html.parser')
@@ -205,6 +293,41 @@ class GapFillingCrawler:
             
         except Exception as e:
             logger.error(f"Error searching HuggingFace for {model_name}: {e}")
+        
+        return None
+    
+    def get_hf_release_date(self, model_id: str) -> Optional[str]:
+        """Get actual release date from HuggingFace model files/commits."""
+        try:
+            # Try to get commit history
+            api_url = f"https://huggingface.co/api/models/{model_id}/commits"
+            headers = UA.copy()
+            if HF_TOKEN:
+                headers['Authorization'] = f'Bearer {HF_TOKEN}'
+            
+            response = self._safe_get(api_url, headers=headers)
+            if response and response.status_code == 200:
+                commits = response.json()
+                if commits and isinstance(commits, list):
+                    # Get the oldest commit (last in list)
+                    oldest_commit = commits[-1]
+                    if 'date' in oldest_commit:
+                        return oldest_commit['date'].split('T')[0]  # Return date only
+            
+            # Fallback: Check files tab for creation dates
+            files_url = f"https://huggingface.co/{model_id}/tree/main"
+            response = self._safe_get(files_url, headers=headers)
+            if response and response.status_code == 200:
+                # Parse for earliest file date
+                soup = BeautifulSoup(response.text, 'html.parser')
+                # Look for commit dates in the file listing
+                date_elements = soup.find_all('time')
+                if date_elements:
+                    dates = [elem.get('datetime', '').split('T')[0] for elem in date_elements if elem.get('datetime')]
+                    if dates:
+                        return min(dates)  # Return earliest date
+        except Exception as e:
+            logger.debug(f"Could not get release date for {model_id}: {e}")
         
         return None
     
@@ -225,6 +348,19 @@ class GapFillingCrawler:
             "data": {}
         }
         
+        # Extract model ID from URL
+        model_id = url.split('huggingface.co/')[-1]
+        
+        # Get actual release date using web scraping
+        release_date = self.get_first_commit_date(model_id)
+        if not release_date:
+            # Fallback to API method
+            release_date = self.get_hf_release_date(model_id)
+        
+        if release_date:
+            info["data"]["release_date"] = release_date
+            logger.info(f"Found release date for {model_id}: {release_date}")
+        
         # Extract model card content
         model_card = soup.find('div', {'class': 'prose'})
         if model_card:
@@ -235,17 +371,40 @@ class GapFillingCrawler:
             
             # Extract intended use section
             for heading in model_card.find_all(['h2', 'h3']):
-                if 'intended use' in heading.get_text().lower():
+                heading_text = heading.get_text().lower()
+                if 'intended use' in heading_text:
                     next_elem = heading.find_next_sibling()
                     if next_elem:
                         info["data"]["intended_use"] = next_elem.get_text(strip=True)[:500]
-            
-            # Extract model details from tags
-            tags = soup.find_all('span', {'class': 'tag'})
-            for tag in tags:
-                text = tag.get_text(strip=True).lower()
-                if 'parameters' in text or 'params' in text:
-                    info["data"]["model_size"] = text
+                elif 'training data' in heading_text:
+                    next_elem = heading.find_next_sibling()
+                    if next_elem:
+                        info["data"]["training_data"] = next_elem.get_text(strip=True)[:1000]
+                elif 'limitations' in heading_text or 'risks' in heading_text:
+                    next_elem = heading.find_next_sibling()
+                    if next_elem:
+                        info["data"]["limitations"] = next_elem.get_text(strip=True)[:1000]
+        
+        # Extract model parameters from page
+        param_patterns = [
+            r'(\d+\.?\d*)\s*[Bb](?:illion)?\s*param',
+            r'(\d+\.?\d*)[Bb]\s*model',
+            r'parameters:\s*(\d+\.?\d*)\s*[Bb]'
+        ]
+        
+        page_text = soup.get_text()
+        for pattern in param_patterns:
+            match = re.search(pattern, page_text, re.IGNORECASE)
+            if match:
+                info["data"]["parameters"] = f"{match.group(1)}B"
+                break
+        
+        # Check model tags
+        tags = soup.find_all('span', {'class': 'tag'})
+        for tag in tags:
+            text = tag.get_text(strip=True).lower()
+            if 'parameters' in text or 'params' in text:
+                info["data"]["model_size"] = text
         
         return info
     
@@ -313,6 +472,61 @@ class GapFillingCrawler:
         
         return info
     
+    def search_google_gemini_docs(self, model_name: str) -> Optional[Dict[str, Any]]:
+        """Search Google's Gemini API documentation."""
+        try:
+            # Check main Gemini docs
+            docs_urls = [
+                "https://ai.google.dev/gemini-api/docs/models",
+                "https://ai.google.dev/gemini-api/docs",
+                "https://ai.google.dev/gemini-api/docs/image-generation"  # For Nano
+            ]
+            
+            for url in docs_urls:
+                response = self._safe_get(url)
+                if response and response.status_code == 200:
+                    soup = BeautifulSoup(response.text, 'html.parser')
+                    
+                    # Look for model information
+                    if model_name.lower() in soup.get_text().lower():
+                        info = {
+                            "source_url": url,
+                            "source_type": "official_docs",
+                            "data": {}
+                        }
+                        
+                        # Extract model details
+                        tables = soup.find_all('table')
+                        for table in tables:
+                            rows = table.find_all('tr')
+                            for row in rows:
+                                cells = row.find_all(['td', 'th'])
+                                if len(cells) >= 2:
+                                    key = cells[0].get_text(strip=True).lower()
+                                    value = cells[1].get_text(strip=True)
+                                    
+                                    if 'parameter' in key or 'size' in key:
+                                        info["data"]["parameters"] = value
+                                    elif 'release' in key or 'date' in key:
+                                        info["data"]["release_date"] = value
+                                    elif 'context' in key:
+                                        info["data"]["context_window"] = value
+                        
+                        # Look for Nano specific info
+                        if 'nano' in model_name.lower() or 'banana' in model_name.lower():
+                            # Extract image generation capabilities
+                            if 'image-generation' in url:
+                                info["data"]["capabilities"] = "Image generation"
+                                info["data"]["intended_use"] = "Fast on-device image generation"
+                        
+                        if info["data"]:
+                            return info
+                            
+        except Exception as e:
+            logger.error(f"Error searching Google docs: {e}")
+        
+        return None
+    
     def search_official_docs(self, model_name: str, provider: str) -> Optional[Dict[str, Any]]:
         """
         Search official documentation sites for model information.
@@ -324,13 +538,16 @@ class GapFillingCrawler:
         Returns:
             Dictionary of extracted information or None
         """
+        # For Google, use specialized Gemini docs parser
+        if provider.lower() == "google":
+            return self.search_google_gemini_docs(model_name)
+        
         # Map providers to their documentation URLs
         provider_urls = {
             "OpenAI": "https://platform.openai.com/docs/models",
             "Anthropic": "https://docs.anthropic.com/claude/docs",
-            "Google": "https://ai.google.dev/models",
             "Meta": "https://ai.meta.com/resources/models-and-libraries",
-            "Mistral": "https://docs.mistral.ai/models",
+            "Mistral AI": "https://docs.mistral.ai/models",
             "Cohere": "https://docs.cohere.com/models"
         }
         
@@ -567,7 +784,7 @@ class GapFillingCrawler:
             logger.warning(f"Failed to scrape terms from {url}: {e}")
             return {}
     
-    def save_findings(self, model_id: int, findings: Dict[str, Any]) -> None:
+    def save_findings(self, model_id: int, findings: Dict[str, Any], preserve_duplicates: bool = True) -> None:
         """
         Save discovered information to the database.
         

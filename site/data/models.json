@@ -20,7 +20,7 @@
     },
     "stars": 0,
     "label_x": "US-Big",
-    "last_updated": "2025-11-11 19:33:47",
+    "last_updated": "2025-11-28 08:23:24",
     "section_data": {
       "general": {
         "legal_name": {
@@ -141,7 +141,7 @@
     },
     "stars": 0,
     "label_x": "US-Big",
-    "last_updated": "2025-11-11 19:33:47",
+    "last_updated": "2025-11-28 08:23:24",
     "section_data": {
       "general": {
         "legal_name": "Google LLC",
@@ -177,7 +177,7 @@
     },
     "stars": 0,
     "label_x": "US-Small",
-    "last_updated": "2025-11-11 19:33:47",
+    "last_updated": "2025-11-28 08:23:24",
     "section_data": {
       "general": {
         "legal_name": "Google LLC",
@@ -213,7 +213,7 @@
     },
     "stars": 0,
     "label_x": "US-Small",
-    "last_updated": "2025-11-11 19:33:47",
+    "last_updated": "2025-11-28 08:23:24",
     "section_data": {
       "general": {
         "legal_name": "Google LLC",
@@ -231,16 +231,16 @@
   {
     "model_name": "Mistral Mistral 7B",
     "provider": "Mistral AI",
-    "region": "Non-EU",
+    "region": "EU",
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 16,
+      "overall": 24,
       "sections": {
         "general": 0.4,
         "properties": 0.20000000000000004,
         "distribution": 0.5,
-        "use": 0.2,
+        "use": 0.8400000000000001,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -248,8 +248,8 @@
       }
     },
     "stars": 0,
-    "label_x": "Non-EU-Small",
-    "last_updated": "2025-11-11 19:33:53",
+    "label_x": "EU-Small",
+    "last_updated": "2025-11-28 08:35:10",
     "section_data": {
       "general": {
         "legal_name": "Mistral AI"
@@ -271,7 +271,11 @@
         ]
       },
       "use": {
-        "aup_link": "https://mistral.ai/terms/"
+        "aup_link": "https://mistral.ai/terms/",
+        "intended_use": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd...",
+        "prohibited_uses": "Using Mistral AI Products to generate Outputs that are illegal or infringe on third-party rights is prohibited. For more details, please refer to our Usage Policy. We encourage you to read and understand these Terms, the Additional Terms and our Usage Policy because by clicking on \u201cI agree\u201d (or any similar button or checkbox) at the time you sign up for a Mistral AI Product or by accessing or using any of the Mistral AI Products, you are agreeing to these Terms (including all applicable Additional Terms and our Usage Policy), which constitute an agreement between you and Mistral AI....",
+        "monitoring": "The Mistral AI Products. We grant you a non-exclusive right to access and use the Mistral AI Products only in compliance with these Terms, any applicable Additional Terms, all applicable laws and regulations, and any other documentation, guidelines, or policies we make available to you, including our Usage Policy. Certain Mistral AI Products are only available if you have a paid subscription. Some Mistral AI Products may be subject to certain restrictions, such as formatting or size restrictions, or rate limits. Any such restrictions can be found in the applicable documentation or on our platform. The different subscription plans applicable...",
+        "feedback": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd..."
       },
       "data": {},
       "training": {},
@@ -282,16 +286,16 @@
   {
     "model_name": "Mistral Mixtral",
     "provider": "Mistral AI",
-    "region": "Non-EU",
+    "region": "EU",
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 16,
+      "overall": 24,
       "sections": {
         "general": 0.4,
         "properties": 0.20000000000000004,
         "distribution": 0.5,
-        "use": 0.2,
+        "use": 0.8400000000000001,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -299,8 +303,8 @@
       }
     },
     "stars": 0,
-    "label_x": "Non-EU-Small",
-    "last_updated": "2025-11-11 19:33:53",
+    "label_x": "EU-Small",
+    "last_updated": "2025-11-28 08:35:22",
     "section_data": {
       "general": {
         "legal_name": "Mistral AI"
@@ -322,7 +326,11 @@
         ]
       },
       "use": {
-        "aup_link": "https://mistral.ai/terms/"
+        "aup_link": "https://mistral.ai/terms/",
+        "intended_use": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd...",
+        "prohibited_uses": "Using Mistral AI Products to generate Outputs that are illegal or infringe on third-party rights is prohibited. For more details, please refer to our Usage Policy. We encourage you to read and understand these Terms, the Additional Terms and our Usage Policy because by clicking on \u201cI agree\u201d (or any similar button or checkbox) at the time you sign up for a Mistral AI Product or by accessing or using any of the Mistral AI Products, you are agreeing to these Terms (including all applicable Additional Terms and our Usage Policy), which constitute an agreement between you and Mistral AI....",
+        "monitoring": "The Mistral AI Products. We grant you a non-exclusive right to access and use the Mistral AI Products only in compliance with these Terms, any applicable Additional Terms, all applicable laws and regulations, and any other documentation, guidelines, or policies we make available to you, including our Usage Policy. Certain Mistral AI Products are only available if you have a paid subscription. Some Mistral AI Products may be subject to certain restrictions, such as formatting or size restrictions, or rate limits. Any such restrictions can be found in the applicable documentation or on our platform. The different subscription plans applicable...",
+        "feedback": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd..."
       },
       "data": {},
       "training": {},
@@ -333,16 +341,16 @@
   {
     "model_name": "Mistral Mistral Large",
     "provider": "Mistral AI",
-    "region": "Non-EU",
+    "region": "EU",
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 16,
+      "overall": 24,
       "sections": {
         "general": 0.4,
         "properties": 0.20000000000000004,
         "distribution": 0.5,
-        "use": 0.2,
+        "use": 0.8400000000000001,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -350,8 +358,8 @@
       }
     },
     "stars": 0,
-    "label_x": "Non-EU-Small",
-    "last_updated": "2025-11-11 19:33:53",
+    "label_x": "EU-Small",
+    "last_updated": "2025-11-28 08:35:33",
     "section_data": {
       "general": {
         "legal_name": "Mistral AI"
@@ -373,7 +381,11 @@
         ]
       },
       "use": {
-        "aup_link": "https://mistral.ai/terms/"
+        "aup_link": "https://mistral.ai/terms/",
+        "intended_use": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd...",
+        "prohibited_uses": "Using Mistral AI Products to generate Outputs that are illegal or infringe on third-party rights is prohibited. For more details, please refer to our Usage Policy. We encourage you to read and understand these Terms, the Additional Terms and our Usage Policy because by clicking on \u201cI agree\u201d (or any similar button or checkbox) at the time you sign up for a Mistral AI Product or by accessing or using any of the Mistral AI Products, you are agreeing to these Terms (including all applicable Additional Terms and our Usage Policy), which constitute an agreement between you and Mistral AI....",
+        "monitoring": "The Mistral AI Products. We grant you a non-exclusive right to access and use the Mistral AI Products only in compliance with these Terms, any applicable Additional Terms, all applicable laws and regulations, and any other documentation, guidelines, or policies we make available to you, including our Usage Policy. Certain Mistral AI Products are only available if you have a paid subscription. Some Mistral AI Products may be subject to certain restrictions, such as formatting or size restrictions, or rate limits. Any such restrictions can be found in the applicable documentation or on our platform. The different subscription plans applicable...",
+        "feedback": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd..."
       },
       "data": {},
       "training": {},
@@ -384,16 +396,16 @@
   {
     "model_name": "Mistral Mistral Medium",
     "provider": "Mistral AI",
-    "region": "Non-EU",
+    "region": "EU",
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 16,
+      "overall": 24,
       "sections": {
         "general": 0.4,
         "properties": 0.20000000000000004,
         "distribution": 0.5,
-        "use": 0.2,
+        "use": 0.8400000000000001,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -401,8 +413,8 @@
       }
     },
     "stars": 0,
-    "label_x": "Non-EU-Small",
-    "last_updated": "2025-11-11 19:33:53",
+    "label_x": "EU-Small",
+    "last_updated": "2025-11-28 08:35:44",
     "section_data": {
       "general": {
         "legal_name": "Mistral AI"
@@ -424,7 +436,11 @@
         ]
       },
       "use": {
-        "aup_link": "https://mistral.ai/terms/"
+        "aup_link": "https://mistral.ai/terms/",
+        "intended_use": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd...",
+        "prohibited_uses": "Using Mistral AI Products to generate Outputs that are illegal or infringe on third-party rights is prohibited. For more details, please refer to our Usage Policy. We encourage you to read and understand these Terms, the Additional Terms and our Usage Policy because by clicking on \u201cI agree\u201d (or any similar button or checkbox) at the time you sign up for a Mistral AI Product or by accessing or using any of the Mistral AI Products, you are agreeing to these Terms (including all applicable Additional Terms and our Usage Policy), which constitute an agreement between you and Mistral AI....",
+        "monitoring": "The Mistral AI Products. We grant you a non-exclusive right to access and use the Mistral AI Products only in compliance with these Terms, any applicable Additional Terms, all applicable laws and regulations, and any other documentation, guidelines, or policies we make available to you, including our Usage Policy. Certain Mistral AI Products are only available if you have a paid subscription. Some Mistral AI Products may be subject to certain restrictions, such as formatting or size restrictions, or rate limits. Any such restrictions can be found in the applicable documentation or on our platform. The different subscription plans applicable...",
+        "feedback": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd..."
       },
       "data": {},
       "training": {},
@@ -435,16 +451,16 @@
   {
     "model_name": "Mistral Mistral Small",
     "provider": "Mistral AI",
-    "region": "Non-EU",
+    "region": "EU",
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 16,
+      "overall": 24,
       "sections": {
         "general": 0.4,
         "properties": 0.20000000000000004,
         "distribution": 0.5,
-        "use": 0.2,
+        "use": 0.8400000000000001,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -452,8 +468,8 @@
       }
     },
     "stars": 0,
-    "label_x": "Non-EU-Small",
-    "last_updated": "2025-11-11 19:33:53",
+    "label_x": "EU-Small",
+    "last_updated": "2025-11-28 08:35:56",
     "section_data": {
       "general": {
         "legal_name": "Mistral AI"
@@ -475,7 +491,11 @@
         ]
       },
       "use": {
-        "aup_link": "https://mistral.ai/terms/"
+        "aup_link": "https://mistral.ai/terms/",
+        "intended_use": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd...",
+        "prohibited_uses": "Using Mistral AI Products to generate Outputs that are illegal or infringe on third-party rights is prohibited. For more details, please refer to our Usage Policy. We encourage you to read and understand these Terms, the Additional Terms and our Usage Policy because by clicking on \u201cI agree\u201d (or any similar button or checkbox) at the time you sign up for a Mistral AI Product or by accessing or using any of the Mistral AI Products, you are agreeing to these Terms (including all applicable Additional Terms and our Usage Policy), which constitute an agreement between you and Mistral AI....",
+        "monitoring": "The Mistral AI Products. We grant you a non-exclusive right to access and use the Mistral AI Products only in compliance with these Terms, any applicable Additional Terms, all applicable laws and regulations, and any other documentation, guidelines, or policies we make available to you, including our Usage Policy. Certain Mistral AI Products are only available if you have a paid subscription. Some Mistral AI Products may be subject to certain restrictions, such as formatting or size restrictions, or rate limits. Any such restrictions can be found in the applicable documentation or on our platform. The different subscription plans applicable...",
+        "feedback": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd..."
       },
       "data": {},
       "training": {},
@@ -486,7 +506,7 @@
   {
     "model_name": "Cohere command-r-plus-04",
     "provider": "Cohere",
-    "region": "US",
+    "region": "Non-EU UK",
     "size": "Big",
     "release_date": "2025-09-16",
     "transparency_score": {
@@ -503,8 +523,8 @@
       }
     },
     "stars": 0,
-    "label_x": "US-Big",
-    "last_updated": "2025-11-11 19:33:55",
+    "label_x": "Non-EU UK-Big",
+    "last_updated": "2025-11-28 08:23:31",
     "section_data": {
       "general": {
         "legal_name": {
@@ -599,7 +619,7 @@
   {
     "model_name": "Cohere command-r-03",
     "provider": "Cohere",
-    "region": "US",
+    "region": "Non-EU UK",
     "size": "Small",
     "release_date": "2025-09-16",
     "transparency_score": {
@@ -616,8 +636,8 @@
       }
     },
     "stars": 0,
-    "label_x": "US-Small",
-    "last_updated": "2025-11-11 19:33:55",
+    "label_x": "Non-EU UK-Small",
+    "last_updated": "2025-11-28 08:23:31",
     "section_data": {
       "general": {
         "legal_name": {
@@ -712,7 +732,7 @@
   {
     "model_name": "Cohere Embed v3.0",
     "provider": "Cohere",
-    "region": "US",
+    "region": "Non-EU UK",
     "size": "Small",
     "release_date": "2025-09-16",
     "transparency_score": {
@@ -729,8 +749,8 @@
       }
     },
     "stars": 0,
-    "label_x": "US-Small",
-    "last_updated": "2025-11-11 19:33:55",
+    "label_x": "Non-EU UK-Small",
+    "last_updated": "2025-11-28 08:23:31",
     "section_data": {
       "general": {
         "legal_name": {
@@ -825,7 +845,7 @@
   {
     "model_name": "Cohere rerank",
     "provider": "Cohere",
-    "region": "US",
+    "region": "Non-EU UK",
     "size": "Small",
     "release_date": "2025-09-16",
     "transparency_score": {
@@ -842,8 +862,8 @@
       }
     },
     "stars": 0,
-    "label_x": "US-Small",
-    "last_updated": "2025-11-11 19:33:55",
+    "label_x": "Non-EU UK-Small",
+    "last_updated": "2025-11-28 08:23:31",
     "section_data": {
       "general": {
         "legal_name": {
@@ -938,7 +958,7 @@
   {
     "model_name": "Cohere Rerank v3.5",
     "provider": "Cohere",
-    "region": "US",
+    "region": "Non-EU UK",
     "size": "Small",
     "release_date": "2025-05-14",
     "transparency_score": {
@@ -955,8 +975,8 @@
       }
     },
     "stars": 0,
-    "label_x": "US-Small",
-    "last_updated": "2025-11-11 19:33:55",
+    "label_x": "Non-EU UK-Small",
+    "last_updated": "2025-11-28 08:23:31",
     "section_data": {
       "general": {
         "legal_name": {
@@ -1051,7 +1071,7 @@
   {
     "model_name": "Cohere command-r7",
     "provider": "Cohere",
-    "region": "US",
+    "region": "Non-EU UK",
     "size": "Small",
     "release_date": "2025-02-27",
     "transparency_score": {
@@ -1068,8 +1088,8 @@
       }
     },
     "stars": 0,
-    "label_x": "US-Small",
-    "last_updated": "2025-11-11 19:33:55",
+    "label_x": "Non-EU UK-Small",
+    "last_updated": "2025-11-28 08:23:31",
     "section_data": {
       "general": {
         "legal_name": {
@@ -1159,6 +1179,78 @@
           }
         }
       }
+    }
+  },
+  {
+    "model_name": "Google Gemini 3 is",
+    "provider": "Google",
+    "region": "US",
+    "size": "Small",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 5,
+      "sections": {
+        "general": 0.4,
+        "properties": 0.0,
+        "distribution": 0.0,
+        "use": 0.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Small",
+    "last_updated": "2025-11-28 08:23:24",
+    "section_data": {
+      "general": {
+        "legal_name": "Google LLC",
+        "model_id": "Gemini 3 is"
+      },
+      "properties": {},
+      "distribution": {},
+      "use": {},
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Google Gemini 3 Pro",
+    "provider": "Google",
+    "region": "US",
+    "size": "Big",
+    "release_date": "2024-01-01",
+    "transparency_score": {
+      "overall": 5,
+      "sections": {
+        "general": 0.4,
+        "properties": 0.0,
+        "distribution": 0.0,
+        "use": 0.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": "US-Big",
+    "last_updated": "2025-11-28 08:23:24",
+    "section_data": {
+      "general": {
+        "legal_name": "Google LLC",
+        "model_id": "Gemini 3 Pro"
+      },
+      "properties": {},
+      "distribution": {},
+      "use": {},
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
     }
   }
 ]

@@ -27,6 +27,16 @@ providers:
   cohere:
     - {type: http, url: "https://docs.cohere.com/changelog", parser: "cohere_changelog", rank: official_newsroom}
 
+  # EU AI Code of Practice signatories (keeping only major model providers)
+  aleph_alpha:
+    - {type: http, url: "https://www.aleph-alpha.com/news", parser: "aleph_alpha_news", rank: official_newsroom}
+    
+  ibm:
+    - {type: http, url: "https://www.ibm.com/blog/category/artificial-intelligence/", parser: "ibm_blog", rank: official_newsroom}
+    
+  servicenow:
+    - {type: http, url: "https://www.servicenow.com/company/media/press-room.html", parser: "servicenow_news", rank: official_newsroom}
+
 fallback:
   general_web:
     search_engines:

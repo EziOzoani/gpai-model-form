@@ -1,5 +1,5 @@
 {
-  "model_name": "Google Gemini 2.0 Flash",
+  "model_name": "Google Gemini 3 is",
   "provider": "Google",
   "region": "US",
   "size": "Small",
@@ -23,7 +23,7 @@
   "section_data": {
     "general": {
       "legal_name": "Google LLC",
-      "model_id": "Gemini 2.0 Flash"
+      "model_id": "Gemini 3 is"
     },
     "properties": {},
     "distribution": {},

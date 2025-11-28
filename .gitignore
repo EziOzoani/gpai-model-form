@@ -35,4 +35,5 @@ temp_test/
 *.bak
 
 # Optional: ignore the SQLite if you prefer JSON-only audits
-# data/model_docs.db
+# data/model_docs.db.env
+.env.*
