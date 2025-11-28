@@ -795,10 +795,84 @@ class GapFillingCrawler:
         with sqlite3.connect(self.db_path) as conn:
             cur = conn.cursor()
             
+            # Get the data from findings
+            data = findings.get("data", {})
+            
+            # Map fields to their appropriate sections
+            field_to_section = {
+                # general section
+                "organization": "general",
+                "references": "general",
+                "research_paper": "general",
+                # properties section
+                "modality": "properties",
+                "model_size": "properties",
+                "parameters": "properties",
+                "dependencies": "properties",
+                "quality_control": "properties",
+                # distribution section
+                "release_date": "distribution",
+                "license": "distribution",
+                "model_card": "distribution",
+                "intended_use": "distribution",
+                # use section
+                "prohibited_uses": "use",
+                "monitoring": "use",
+                "feedback": "use",
+                "limitations": "use",
+                # data section
+                "personal_data": "data",
+                "copyrighted_data": "data",
+                "training_dataset": "data",
+                "training_data": "data",
+                # training section
+                "training_emissions": "training",
+                "training_time": "training",
+                "training_hardware": "training",
+                # compute section
+                "inference_compute": "compute",
+                "inference_time": "compute",
+                # energy section
+                "inference_emissions": "energy",
+                # Additional fields that might appear
+                "context_window": "properties",
+                "capabilities": "properties"
+            }
+            
+            # Check if data is already nested by section
+            is_nested = False
+            for key in data:
+                if isinstance(data[key], dict):
+                    is_nested = True
+                    break
+            
             # Save source information
-            for section, data in findings.get("data", {}).items():
+            if is_nested:
+                # Data is already in the format {"section": {"field": "value"}}
+                for section, section_data in data.items():
+                    if isinstance(section_data, dict):
+                        for field, value in section_data.items():
+                            if value and value != "Not specified":
+                                cur.execute("""
+                                    INSERT INTO sources 
+                                    (model_id, section, field, source_url, source_type, confidence, retrieved_at)
+                                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                                """, (
+                                    model_id,
+                                    section,
+                                    field,
+                                    findings.get("source_url", ""),
+                                    findings.get("source_type", "general_web"),
+                                    findings.get("confidence", SOURCE_CONFIDENCE.get(findings.get("source_type", "general_web"), 0.4)),
+                                    datetime.now().isoformat()
+                                ))
+            else:
+                # Data is flat {"field": "value"}
                 for field, value in data.items():
                     if value and value != "Not specified":
+                        # Determine the section for this field
+                        section = field_to_section.get(field, "general")
+                        
                         cur.execute("""
                             INSERT INTO sources 
                             (model_id, section, field, source_url, source_type, confidence, retrieved_at)
@@ -809,7 +883,7 @@ class GapFillingCrawler:
                             field,
                             findings.get("source_url", ""),
                             findings.get("source_type", "general_web"),
-                            findings.get("confidence", 0.4),
+                            findings.get("confidence", SOURCE_CONFIDENCE.get(findings.get("source_type", "general_web"), 0.4)),
                             datetime.now().isoformat()
                         ))
             
@@ -940,11 +1014,16 @@ class GapFillingCrawler:
                                 if field in text.lower():
                                     logger.info(f"Found potential {field} information at {url}")
         
+        # Return the final summary
+        summary_message = f"Processed {model_name}: found {len(missing_fields)} gaps, filled {filled_count} fields"
         return {
             "model": model_name,
             "gaps_found": len(missing_fields),
             "fields_filled": filled_count,
-            "sources_used": findings_summary
+            "filled_count": filled_count,
+            "findings_summary": findings_summary,
+            "sources_used": findings_summary,
+            "message": summary_message
         }
     
     def run_gap_analysis(self) -> None:

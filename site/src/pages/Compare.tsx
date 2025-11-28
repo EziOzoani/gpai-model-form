@@ -122,9 +122,20 @@ const Compare = () => {
                           {model.model_name}
                         </div>
                         <div className="flex gap-2 justify-center">
-                          <Badge variant="outline" className="text-xs">
-                            {model.region}
-                          </Badge>
+                          {model.region === "Non-EU UK" ? (
+                            <>
+                              <Badge variant="outline" className="text-xs">
+                                Non-EU
+                              </Badge>
+                              <Badge variant="outline" className="text-xs">
+                                UK
+                              </Badge>
+                            </>
+                          ) : (
+                            <Badge variant="outline" className="text-xs">
+                              {model.region}
+                            </Badge>
+                          )}
                           <Badge variant="outline" className="text-xs">
                             {model.size}
                           </Badge>

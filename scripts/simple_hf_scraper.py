@@ -94,8 +94,8 @@ def update_database(db_path="data/model_docs.db"):
         "Mistral Mistral 7B": "mistralai/Mistral-7B-v0.1",
         "Mistral Mixtral": "mistralai/Mixtral-8x7B-v0.1",
         "Mistral Mistral Large": "mistralai/Mistral-Large-Instruct-2407",
-        "Cohere command-r-plus-04": "Cohere/c4ai-command-r-plus",
-        "Cohere command-r-03": "Cohere/c4ai-command-r-v01",
+        "Cohere command-r-plus-04": "CohereLabs/c4ai-command-r-plus",
+        "Cohere command-r-03": "CohereLabs/c4ai-command-r-v01",
     }
     
     with sqlite3.connect(db_path) as conn:
@@ -138,24 +138,31 @@ def update_database(db_path="data/model_docs.db"):
         conn.commit()
 
 def test_scraper():
-    """Test the scraper with a known model."""
-    test_model = "mistralai/Mistral-7B-v0.1"
-    logger.info(f"Testing scraper with {test_model}")
+    """Test the scraper with multiple models."""
+    test_models = [
+        "mistralai/Mistral-7B-v0.1",
+        "CohereLabs/c4ai-command-r-plus"
+    ]
     
-    result = scrape_hf_model(test_model)
-    if result:
-        logger.info(f"Test successful!")
-        logger.info(f"Model: {result['model_id']}")
-        logger.info(f"Created: {result['created_at']}")
-        logger.info(f"Last Modified: {result['last_modified']}")
-        logger.info(f"Downloads: {result['downloads']}")
-        logger.info(f"Likes: {result['likes']}")
-        logger.info(f"Parameters: {result.get('parameters', 'N/A')}")
-        logger.info(f"License: {result['license']}")
-        return True
-    else:
-        logger.error("Test failed - no data returned")
-        return False
+    all_passed = True
+    for test_model in test_models:
+        logger.info(f"\nTesting scraper with {test_model}")
+        
+        result = scrape_hf_model(test_model)
+        if result:
+            logger.info(f"Test successful for {test_model}!")
+            logger.info(f"Model: {result['model_id']}")
+            logger.info(f"Created: {result['created_at']}")
+            logger.info(f"Last Modified: {result['last_modified']}")
+            logger.info(f"Downloads: {result['downloads']}")
+            logger.info(f"Likes: {result['likes']}")
+            logger.info(f"Parameters: {result.get('parameters', 'N/A')}")
+            logger.info(f"License: {result['license']}")
+        else:
+            logger.error(f"Test failed for {test_model} - no data returned")
+            all_passed = False
+    
+    return all_passed
 
 if __name__ == "__main__":
     # Run test first
