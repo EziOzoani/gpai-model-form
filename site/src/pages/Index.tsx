@@ -119,7 +119,7 @@ const Index = () => {
         <div className="container mx-auto px-6 py-8">
           <div className="flex items-start gap-4">
             <img 
-              src="/appliedAI_horizontal_rgb_RZ.png" 
+              src="./appliedAI_horizontal_rgb_RZ.png" 
               alt="AppliedAI" 
               className="h-12 object-contain"
             />

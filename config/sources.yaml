@@ -5,6 +5,9 @@ providers:
 
   google:
     - {type: http, url: "https://ai.google.dev/gemini-api/docs/models", parser: "google_models", rank: official_api}
+    - {type: http, url: "https://ai.google.dev/gemini-api/docs/image-generation", parser: "google_models", rank: official_api}
+    - {type: http, url: "https://ai.google.dev/gemini-api/docs", parser: "google_models", rank: official_api}
+    - {type: hf, url: "https://huggingface.co/google", parser: "hf_google_models", rank: hf_card}
 
   microsoft:
     - {type: http, url: "https://azure.microsoft.com/en-us/blog/", parser: "microsoft_blog", rank: official_newsroom}

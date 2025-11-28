@@ -77,7 +77,7 @@ const Compare = () => {
               </Link>
             </Button>
             <img 
-              src="/appliedAI_horizontal_rgb_RZ.png" 
+              src="./appliedAI_horizontal_rgb_RZ.png" 
               alt="AppliedAI" 
               className="h-12 object-contain"
             />

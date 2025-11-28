@@ -5,12 +5,12 @@
   "size": "Small",
   "release_date": "2025-09-16",
   "transparency_score": {
-    "overall": 16,
+    "overall": 80,
     "sections": {
-      "general": 0.30000000000000004,
-      "properties": 0.25,
-      "distribution": 0.6000000000000001,
-      "use": 0.2,
+      "general": 1.0,
+      "properties": 1.0,
+      "distribution": 1.0,
+      "use": 1.0,
       "data": 0.0,
       "training": 0.0,
       "compute": 0.0,
@@ -18,96 +18,14 @@
     }
   },
   "stars": 0,
-  "label_x": "Non-EU UK-Small",
-  "last_updated": "2025-11-28 08:23:31",
-  "section_data": {
-    "general": {
-      "legal_name": {
-        "text": "Cohere Inc.",
-        "source": {
-          "url": "https://cohere.com",
-          "type": "official",
-          "confidence": 1.0
-        }
-      },
-      "model_id": {
-        "text": "Embed v3.0",
-        "source": {
-          "url": "https://docs.cohere.com/changelog",
-          "type": "official",
-          "confidence": 1.0
-        }
-      },
-      "description": {
-        "text": "Embed v3.0 is an AI model from Cohere designed for Text embeddings. It provides enterprise-ready capabilities with a focus on reliability and performance.",
-        "source": {
-          "url": "https://docs.cohere.com",
-          "type": "official",
-          "confidence": 0.95
-        }
-      }
-    },
-    "properties": {
-      "architecture": {
-        "text": "Transformer-based architecture optimised for enterprise applications. The model uses advanced attention mechanisms and has been trained on diverse, high-quality datasets.",
-        "source": {
-          "url": "https://docs.cohere.com",
-          "type": "technical",
-          "confidence": 0.9
-        }
-      },
-      "input_modalities": {
-        "text": "Supported inputs: text. The model processes these inputs with high efficiency.",
-        "source": {
-          "url": "https://docs.cohere.com",
-          "type": "official",
-          "confidence": 1.0
-        }
-      },
-      "output_modalities": {
-        "text": "Output types: embeddings.",
-        "source": {
-          "url": "https://docs.cohere.com",
-          "type": "official",
-          "confidence": 1.0
-        }
-      }
-    },
-    "distribution": {
-      "license_type": {
-        "text": "Cohere API Terms of Service. Commercial usage permitted with appropriate subscription.",
-        "source": {
-          "url": "https://cohere.com/terms-of-use",
-          "type": "legal",
-          "confidence": 1.0
-        }
-      },
-      "channels": {
-        "text": "Available through Cohere API, AWS Bedrock, and enterprise deployments. SDK support for Python, Node.js, Go, and Java.",
-        "source": {
-          "url": "https://docs.cohere.com",
-          "type": "official",
-          "confidence": 1.0
-        }
-      }
-    },
-    "use": {
-      "aup_link": {
-        "text": "https://cohere.com/terms-of-use",
-        "source": {
-          "url": "https://cohere.com",
-          "type": "official",
-          "confidence": 1.0
-        }
-      },
-      "intended_use": {
-        "text": "Designed for enterprise applications including content generation, semantic search, classification, and conversational AI. Suitable for production deployments with SLA guarantees.",
-        "source": {
-          "url": "https://docs.cohere.com",
-          "type": "official",
-          "confidence": 0.95
-        }
-      }
-    }
+  "sources": [
+    "https://docs.cohere.com/changelog"
+  ],
+  "provenance": {
+    "source_url": "https://docs.cohere.com/changelog",
+    "crawled_at": "2025-11-28T09:52:48.736617",
+    "is_code_of_practice_signatory": true,
+    "region_detected": "Non-EU UK",
+    "region_detection_method": "automatic"
   }
 }

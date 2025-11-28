@@ -1350,6 +1350,77 @@ def parse_hf_model_cards(html: str, source_url: str = "") -> List[Dict]:
     logger.info("Hugging Face parser not yet implemented")
     return []
 
+def parse_hf_google_models(html: str, source_url: str = "") -> List[Dict]:
+    """Parse Google models from HuggingFace."""
+    soup = BeautifulSoup(html, 'html.parser')
+    models = []
+    
+    # Get region
+    region = get_region(html, "Google")
+    
+    # Get cutoff date (e.g., 2023-11-11 based on the existing approach)
+    cutoff_date = datetime(2023, 11, 11)
+    
+    # Find model cards on the page
+    model_cards = soup.find_all('article', class_='overview-card-wrapper')
+    
+    for card in model_cards:
+        try:
+            # Extract model link
+            link_elem = card.find('a', href=True)
+            if not link_elem:
+                continue
+                
+            model_id = link_elem['href'].strip('/')
+            model_name = card.find('h4') or card.find('h3')
+            if model_name:
+                model_name = model_name.text.strip()
+            else:
+                model_name = model_id.split('/')[-1]
+            
+            # Skip if not a Google model
+            if not model_id.startswith('google/'):
+                continue
+                
+            # Map to appropriate size based on model name
+            size = "Small"  # Default
+            if any(x in model_name.lower() for x in ['xxl', 'ultra', 'pro', 'large']):
+                size = "Big"
+            elif any(x in model_name.lower() for x in ['base', 'small', 'tiny', 'nano']):
+                size = "Small"
+                
+            data = {
+                "general": {
+                    "_filled": True,
+                    "legal_name": "Google LLC",
+                    "model_id": model_name
+                },
+                "properties": {"_filled": False},
+                "distribution": {"_filled": False},
+                "use": {"_filled": False},
+                "data": {"_filled": False},
+                "training": {"_filled": False},
+                "compute": {"_filled": False},
+                "energy": {"_filled": False}
+            }
+            
+            models.append(create_model_record(
+                name=f"Google {model_name}",
+                provider="Google",
+                region=region,
+                size=size,
+                release_date=cutoff_date.strftime("%Y-%m-%d"),
+                data=data,
+                source_url=f"https://huggingface.co/{model_id}"
+            ))
+            
+        except Exception as e:
+            logger.error(f"Error parsing HuggingFace Google model card: {e}")
+            continue
+    
+    logger.info(f"Successfully parsed {len(models)} Google models from HuggingFace")
+    return models
+
 PARSERS = {
     "google_models": parse_google_models,
     "anthropic_docs": parse_anthropic_docs,
@@ -1362,7 +1433,8 @@ PARSERS = {
     "microsoft_blog": parse_microsoft_blog,
     "microsoft_tc": parse_microsoft_tc,
     "eth_news": parse_eth_news,
-    "hf_model_cards": parse_hf_model_cards
+    "hf_model_cards": parse_hf_model_cards,
+    "hf_google_models": parse_hf_google_models
 }
 
 
