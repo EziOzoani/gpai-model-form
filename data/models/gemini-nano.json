@@ -1,0 +1,21 @@
+{
+  "model_name": "Gemini Nano",
+  "provider": "Google",
+  "region": null,
+  "size": null,
+  "release_date": null,
+  "transparency_score": {
+    "overall": 20,
+    "sections": {
+      "properties": 1.0
+    }
+  },
+  "stars": 0,
+  "label_x": null,
+  "last_updated": "2025-11-28T09:43:03.255630",
+  "section_data": {
+    "properties": {
+      "data_source": "gemini_nano_docs"
+    }
+  }
+}

@@ -3,7 +3,7 @@
   "provider": "Mistral AI",
   "region": "EU",
   "size": "Small",
-  "release_date": "2024-01-01",
+  "release_date": "2024-07-24",
   "transparency_score": {
     "overall": 80,
     "sections": {
@@ -18,14 +18,39 @@
     }
   },
   "stars": 0,
-  "sources": [
-    "https://docs.mistral.ai/getting-started/models"
-  ],
-  "provenance": {
-    "source_url": "https://docs.mistral.ai/getting-started/models",
-    "crawled_at": "2025-11-28T09:52:47.613739",
-    "is_code_of_practice_signatory": true,
-    "region_detected": "EU",
-    "region_detection_method": "automatic"
+  "label_x": "EU-Small",
+  "last_updated": "2025-11-28 10:38:21",
+  "section_data": {
+    "general": {
+      "legal_name": "Mistral AI"
+    },
+    "properties": {
+      "architecture": "Transformer-based",
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "122.6B"
+    },
+    "distribution": {
+      "license_type": "API Terms",
+      "channels": [
+        "Mistral API",
+        "Hugging Face"
+      ]
+    },
+    "use": {
+      "aup_link": "https://mistral.ai/terms/",
+      "intended_use": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd...",
+      "prohibited_uses": "Using Mistral AI Products to generate Outputs that are illegal or infringe on third-party rights is prohibited. For more details, please refer to our Usage Policy. We encourage you to read and understand these Terms, the Additional Terms and our Usage Policy because by clicking on \u201cI agree\u201d (or any similar button or checkbox) at the time you sign up for a Mistral AI Product or by accessing or using any of the Mistral AI Products, you are agreeing to these Terms (including all applicable Additional Terms and our Usage Policy), which constitute an agreement between you and Mistral AI....",
+      "monitoring": "The Mistral AI Products. We grant you a non-exclusive right to access and use the Mistral AI Products only in compliance with these Terms, any applicable Additional Terms, all applicable laws and regulations, and any other documentation, guidelines, or policies we make available to you, including our Usage Policy. Certain Mistral AI Products are only available if you have a paid subscription. Some Mistral AI Products may be subject to certain restrictions, such as formatting or size restrictions, or rate limits. Any such restrictions can be found in the applicable documentation or on our platform. The different subscription plans applicable...",
+      "feedback": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd..."
+    },
+    "data": {},
+    "training": {},
+    "compute": {},
+    "energy": {}
   }
 }

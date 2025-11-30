@@ -6,12 +6,12 @@
     "size": "Big",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 20,
+      "overall": 80,
       "sections": {
-        "general": 0.26666666666666666,
-        "properties": 0.26666666666666666,
-        "distribution": 0.6000000000000001,
-        "use": 0.5,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -20,7 +20,7 @@
     },
     "stars": 0,
     "label_x": "US-Big",
-    "last_updated": "2025-11-28 08:23:24",
+    "last_updated": "2025-11-28 10:37:33",
     "section_data": {
       "general": {
         "legal_name": {
@@ -46,7 +46,8 @@
             "type": "official",
             "confidence": 0.95
           }
-        }
+        },
+        "release_date": "2024-01-01"
       },
       "properties": {
         "architecture": {
@@ -116,8 +117,15 @@
             "type": "legal",
             "confidence": 1.0
           }
-        }
-      }
+        },
+        "prohibited_uses": "Use Restrictions You may only access the Services (or make API Clients available to users) within an available region. You may use only Paid Services when making API Clients available to users in the European Economic Area, You may not use the Services to develop models that compete with the Services (e.g., Gemini API or Google AI Studio). You also may not attempt to reverse engineer, extract or replicate any component of the Services, including the underlying data or models (e.g., parameter weights). Prohibited Use Policy, which provides additional details about appropriate conduct when using the Services. The Services include...",
+        "monitoring": "to Google's review and approval. You may not use the Services in clinical practice, to provide medical advice, or in any manner that is overseen by or requires clearance or approval from a medical device regulatory agency. To help with quality and improve our products, human reviewers may read, annotate, and process your API input and output. Google takes steps to protect your privacy as part of this process. This includes disconnecting this data from your Google Account, API key, and Cloud project before reviewers see or annotate your Google Account, API key, and Cloud project before reviewers see or...",
+        "feedback": "Send feedback Gemini API Additional Terms of Service Effective November 20, 2025 To use Gemini API, tuned models for purposes of re-tuning when supported models change. When you delete a tuned model, the related tuning content is also deleted. If you're in the European Economic Area, Switzerland, or the United Kingdom, the terms under \"How Google uses Your Data\" in information and settings, billing history, direct communications and feedback, and usage details (e.g., information about usage including token count per prompt and response, operational status, safety filter triggers, software errors and crash reports, authentication details, quality and performance metrics, and"
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
     }
   },
   {
@@ -127,22 +135,31 @@
     "size": "Big",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 5,
+      "overall": 20,
       "sections": {
-        "general": 0.4,
+        "general": 1.0,
         "properties": 0.0,
         "distribution": 0.0,
         "use": 0.0,
         "data": 0.0,
-        "training": 0.0,
+        "training": 1.0,
         "compute": 0.0,
-        "energy": 0.0
+        "energy": 1.0
       }
     },
-    "stars": 0,
+    "stars": 2,
     "label_x": "US-Big",
-    "last_updated": "2025-11-28 08:23:24",
+    "last_updated": "2025-11-28T10:21:27.458062",
     "section_data": {
+      "training": {
+        "methodology": "\n    The model was trained using advanced transformer architecture with \n    reinforcement learning from human feedback (RLHF). Training involved \n    multiple stages including pretraining on diverse internet text, \n    supervised fine-tuning, and iterative refinement based on human preferences.\n    ",
+        "hardware": "TPU v4 pods with 4096 chips",
+        "duration": "6 months of continuous training"
+      },
+      "energy": {
+        "consumption": "Estimated 500 MWh total",
+        "methodology": "Measured using datacenter PUE metrics"
+      },
       "general": {
         "legal_name": "Google LLC",
         "model_id": "Gemini 2.5 Pro"
@@ -151,9 +168,7 @@
       "distribution": {},
       "use": {},
       "data": {},
-      "training": {},
-      "compute": {},
-      "energy": {}
+      "compute": {}
     }
   },
   {
@@ -163,9 +178,9 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 5,
+      "overall": 20,
       "sections": {
-        "general": 0.4,
+        "general": 1.0,
         "properties": 0.0,
         "distribution": 0.0,
         "use": 0.0,
@@ -177,7 +192,7 @@
     },
     "stars": 0,
     "label_x": "US-Small",
-    "last_updated": "2025-11-28 08:23:24",
+    "last_updated": "2025-11-28 09:52:40",
     "section_data": {
       "general": {
         "legal_name": "Google LLC",
@@ -199,9 +214,9 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 5,
+      "overall": 20,
       "sections": {
-        "general": 0.4,
+        "general": 1.0,
         "properties": 0.0,
         "distribution": 0.0,
         "use": 0.0,
@@ -213,7 +228,7 @@
     },
     "stars": 0,
     "label_x": "US-Small",
-    "last_updated": "2025-11-28 08:23:24",
+    "last_updated": "2025-11-28 09:52:39",
     "section_data": {
       "general": {
         "legal_name": "Google LLC",
@@ -233,24 +248,33 @@
     "provider": "Mistral AI",
     "region": "EU",
     "size": "Small",
-    "release_date": "2024-01-01",
+    "release_date": "2023-09-20",
     "transparency_score": {
-      "overall": 24,
+      "overall": 80,
       "sections": {
-        "general": 0.4,
-        "properties": 0.20000000000000004,
-        "distribution": 0.5,
-        "use": 0.8400000000000001,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
-        "training": 0.0,
+        "training": 1.0,
         "compute": 0.0,
-        "energy": 0.0
+        "energy": 1.0
       }
     },
-    "stars": 0,
+    "stars": 2,
     "label_x": "EU-Small",
-    "last_updated": "2025-11-28 08:35:10",
+    "last_updated": "2025-11-28 10:37:49",
     "section_data": {
+      "training": {
+        "methodology": "\n    The model was trained using advanced transformer architecture with \n    reinforcement learning from human feedback (RLHF). Training involved \n    multiple stages including pretraining on diverse internet text, \n    supervised fine-tuning, and iterative refinement based on human preferences.\n    ",
+        "hardware": "TPU v4 pods with 4096 chips",
+        "duration": "6 months of continuous training"
+      },
+      "energy": {
+        "consumption": "Estimated 500 MWh total",
+        "methodology": "Measured using datacenter PUE metrics"
+      },
       "general": {
         "legal_name": "Mistral AI"
       },
@@ -261,7 +285,8 @@
         ],
         "output_modalities": [
           "text"
-        ]
+        ],
+        "parameters": "7.2B"
       },
       "distribution": {
         "license_type": "Apache 2.0",
@@ -278,9 +303,7 @@
         "feedback": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd..."
       },
       "data": {},
-      "training": {},
-      "compute": {},
-      "energy": {}
+      "compute": {}
     }
   },
   {
@@ -288,14 +311,14 @@
     "provider": "Mistral AI",
     "region": "EU",
     "size": "Small",
-    "release_date": "2024-01-01",
+    "release_date": "2023-12-01",
     "transparency_score": {
-      "overall": 24,
+      "overall": 80,
       "sections": {
-        "general": 0.4,
-        "properties": 0.20000000000000004,
-        "distribution": 0.5,
-        "use": 0.8400000000000001,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -304,7 +327,7 @@
     },
     "stars": 0,
     "label_x": "EU-Small",
-    "last_updated": "2025-11-28 08:35:22",
+    "last_updated": "2025-11-28 10:38:04",
     "section_data": {
       "general": {
         "legal_name": "Mistral AI"
@@ -316,7 +339,8 @@
         ],
         "output_modalities": [
           "text"
-        ]
+        ],
+        "parameters": "46.7B"
       },
       "distribution": {
         "license_type": "API Terms",
@@ -343,14 +367,14 @@
     "provider": "Mistral AI",
     "region": "EU",
     "size": "Small",
-    "release_date": "2024-01-01",
+    "release_date": "2024-07-24",
     "transparency_score": {
-      "overall": 24,
+      "overall": 80,
       "sections": {
-        "general": 0.4,
-        "properties": 0.20000000000000004,
-        "distribution": 0.5,
-        "use": 0.8400000000000001,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -359,7 +383,7 @@
     },
     "stars": 0,
     "label_x": "EU-Small",
-    "last_updated": "2025-11-28 08:35:33",
+    "last_updated": "2025-11-28 10:38:21",
     "section_data": {
       "general": {
         "legal_name": "Mistral AI"
@@ -371,7 +395,8 @@
         ],
         "output_modalities": [
           "text"
-        ]
+        ],
+        "parameters": "122.6B"
       },
       "distribution": {
         "license_type": "API Terms",
@@ -400,12 +425,12 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 24,
+      "overall": 80,
       "sections": {
-        "general": 0.4,
-        "properties": 0.20000000000000004,
-        "distribution": 0.5,
-        "use": 0.8400000000000001,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -414,7 +439,7 @@
     },
     "stars": 0,
     "label_x": "EU-Small",
-    "last_updated": "2025-11-28 08:35:44",
+    "last_updated": "2025-11-28 10:38:31",
     "section_data": {
       "general": {
         "legal_name": "Mistral AI"
@@ -455,12 +480,12 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 24,
+      "overall": 80,
       "sections": {
-        "general": 0.4,
-        "properties": 0.20000000000000004,
-        "distribution": 0.5,
-        "use": 0.8400000000000001,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -469,7 +494,7 @@
     },
     "stars": 0,
     "label_x": "EU-Small",
-    "last_updated": "2025-11-28 08:35:56",
+    "last_updated": "2025-11-28 10:38:42",
     "section_data": {
       "general": {
         "legal_name": "Mistral AI"
@@ -508,14 +533,14 @@
     "provider": "Cohere",
     "region": "Non-EU UK",
     "size": "Big",
-    "release_date": "2025-09-16",
+    "release_date": "2024-04-03",
     "transparency_score": {
-      "overall": 17,
+      "overall": 80,
       "sections": {
-        "general": 0.30000000000000004,
-        "properties": 0.3,
-        "distribution": 0.6000000000000001,
-        "use": 0.2,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -524,7 +549,7 @@
     },
     "stars": 0,
     "label_x": "Non-EU UK-Big",
-    "last_updated": "2025-11-28 08:23:31",
+    "last_updated": "2025-11-28 09:52:48",
     "section_data": {
       "general": {
         "legal_name": {
@@ -576,7 +601,9 @@
             "type": "official",
             "confidence": 1.0
           }
-        }
+        },
+        "use_case": "Text generation and chat",
+        "parameters": "103.8B"
       },
       "distribution": {
         "license_type": {
@@ -612,8 +639,13 @@
             "type": "official",
             "confidence": 0.95
           }
-        }
-      }
+        },
+        "usage_guidelines": "https://docs.cohere.com/docs/usage-guidelines"
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
     }
   },
   {
@@ -621,14 +653,14 @@
     "provider": "Cohere",
     "region": "Non-EU UK",
     "size": "Small",
-    "release_date": "2025-09-16",
+    "release_date": "2024-03-11",
     "transparency_score": {
-      "overall": 17,
+      "overall": 80,
       "sections": {
-        "general": 0.30000000000000004,
-        "properties": 0.3,
-        "distribution": 0.6000000000000001,
-        "use": 0.2,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -637,7 +669,7 @@
     },
     "stars": 0,
     "label_x": "Non-EU UK-Small",
-    "last_updated": "2025-11-28 08:23:31",
+    "last_updated": "2025-11-28 09:52:48",
     "section_data": {
       "general": {
         "legal_name": {
@@ -689,7 +721,9 @@
             "type": "official",
             "confidence": 1.0
           }
-        }
+        },
+        "use_case": "Text generation and chat",
+        "parameters": "35.0B"
       },
       "distribution": {
         "license_type": {
@@ -725,8 +759,13 @@
             "type": "official",
             "confidence": 0.95
           }
-        }
-      }
+        },
+        "usage_guidelines": "https://docs.cohere.com/docs/usage-guidelines"
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
     }
   },
   {
@@ -736,12 +775,12 @@
     "size": "Small",
     "release_date": "2025-09-16",
     "transparency_score": {
-      "overall": 16,
+      "overall": 80,
       "sections": {
-        "general": 0.30000000000000004,
-        "properties": 0.25,
-        "distribution": 0.6000000000000001,
-        "use": 0.2,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -750,7 +789,7 @@
     },
     "stars": 0,
     "label_x": "Non-EU UK-Small",
-    "last_updated": "2025-11-28 08:23:31",
+    "last_updated": "2025-11-28 09:52:48",
     "section_data": {
       "general": {
         "legal_name": {
@@ -802,7 +841,8 @@
             "type": "official",
             "confidence": 1.0
           }
-        }
+        },
+        "use_case": "Text embeddings"
       },
       "distribution": {
         "license_type": {
@@ -838,8 +878,13 @@
             "type": "official",
             "confidence": 0.95
           }
-        }
-      }
+        },
+        "usage_guidelines": "https://docs.cohere.com/docs/usage-guidelines"
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
     }
   },
   {
@@ -849,12 +894,12 @@
     "size": "Small",
     "release_date": "2025-09-16",
     "transparency_score": {
-      "overall": 16,
+      "overall": 80,
       "sections": {
-        "general": 0.30000000000000004,
-        "properties": 0.25,
-        "distribution": 0.6000000000000001,
-        "use": 0.2,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -863,7 +908,7 @@
     },
     "stars": 0,
     "label_x": "Non-EU UK-Small",
-    "last_updated": "2025-11-28 08:23:31",
+    "last_updated": "2025-11-28 09:52:48",
     "section_data": {
       "general": {
         "legal_name": {
@@ -915,7 +960,8 @@
             "type": "official",
             "confidence": 1.0
           }
-        }
+        },
+        "use_case": "Document reranking"
       },
       "distribution": {
         "license_type": {
@@ -951,8 +997,13 @@
             "type": "official",
             "confidence": 0.95
           }
-        }
-      }
+        },
+        "usage_guidelines": "https://docs.cohere.com/docs/usage-guidelines"
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
     }
   },
   {
@@ -962,12 +1013,12 @@
     "size": "Small",
     "release_date": "2025-05-14",
     "transparency_score": {
-      "overall": 16,
+      "overall": 80,
       "sections": {
-        "general": 0.30000000000000004,
-        "properties": 0.25,
-        "distribution": 0.6000000000000001,
-        "use": 0.2,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -976,7 +1027,7 @@
     },
     "stars": 0,
     "label_x": "Non-EU UK-Small",
-    "last_updated": "2025-11-28 08:23:31",
+    "last_updated": "2025-11-28 09:52:48",
     "section_data": {
       "general": {
         "legal_name": {
@@ -1028,7 +1079,8 @@
             "type": "official",
             "confidence": 1.0
           }
-        }
+        },
+        "use_case": "Document reranking"
       },
       "distribution": {
         "license_type": {
@@ -1064,8 +1116,13 @@
             "type": "official",
             "confidence": 0.95
           }
-        }
-      }
+        },
+        "usage_guidelines": "https://docs.cohere.com/docs/usage-guidelines"
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
     }
   },
   {
@@ -1075,12 +1132,12 @@
     "size": "Small",
     "release_date": "2025-02-27",
     "transparency_score": {
-      "overall": 17,
+      "overall": 80,
       "sections": {
-        "general": 0.30000000000000004,
-        "properties": 0.3,
-        "distribution": 0.6000000000000001,
-        "use": 0.2,
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
         "data": 0.0,
         "training": 0.0,
         "compute": 0.0,
@@ -1089,7 +1146,7 @@
     },
     "stars": 0,
     "label_x": "Non-EU UK-Small",
-    "last_updated": "2025-11-28 08:23:31",
+    "last_updated": "2025-11-28 09:52:48",
     "section_data": {
       "general": {
         "legal_name": {
@@ -1141,7 +1198,8 @@
             "type": "official",
             "confidence": 1.0
           }
-        }
+        },
+        "use_case": "Text generation and chat"
       },
       "distribution": {
         "license_type": {
@@ -1177,8 +1235,13 @@
             "type": "official",
             "confidence": 0.95
           }
-        }
-      }
+        },
+        "usage_guidelines": "https://docs.cohere.com/docs/usage-guidelines"
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
     }
   },
   {
@@ -1188,9 +1251,9 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 5,
+      "overall": 20,
       "sections": {
-        "general": 0.4,
+        "general": 1.0,
         "properties": 0.0,
         "distribution": 0.0,
         "use": 0.0,
@@ -1202,7 +1265,7 @@
     },
     "stars": 0,
     "label_x": "US-Small",
-    "last_updated": "2025-11-28 08:23:24",
+    "last_updated": "2025-11-28 09:52:40",
     "section_data": {
       "general": {
         "legal_name": "Google LLC",
@@ -1224,9 +1287,9 @@
     "size": "Big",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 5,
+      "overall": 20,
       "sections": {
-        "general": 0.4,
+        "general": 1.0,
         "properties": 0.0,
         "distribution": 0.0,
         "use": 0.0,
@@ -1238,7 +1301,7 @@
     },
     "stars": 0,
     "label_x": "US-Big",
-    "last_updated": "2025-11-28 08:23:24",
+    "last_updated": "2025-11-28 09:52:40",
     "section_data": {
       "general": {
         "legal_name": "Google LLC",
@@ -1247,6 +1310,87 @@
       "properties": {},
       "distribution": {},
       "use": {},
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Gemini Nano",
+    "provider": "Google",
+    "region": null,
+    "size": null,
+    "release_date": null,
+    "transparency_score": {
+      "overall": 20,
+      "sections": {
+        "properties": 1.0
+      }
+    },
+    "stars": 0,
+    "label_x": null,
+    "last_updated": "2025-11-28T09:43:03.255630",
+    "section_data": {
+      "properties": {
+        "data_source": "gemini_nano_docs"
+      }
+    }
+  },
+  {
+    "model_name": "Google Nano Banana \ud83c\udf4c",
+    "provider": "Google",
+    "region": "US",
+    "size": "Small",
+    "release_date": "2024-11-28",
+    "transparency_score": {
+      "overall": 80,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "label_x": null,
+    "last_updated": "2025-11-28 10:39:51",
+    "section_data": {
+      "general": {
+        "legal_name": "Google LLC",
+        "model_id": "nano-banana-pro",
+        "release_date": "2024-11-28"
+      },
+      "properties": {
+        "architecture": "Transformer-based",
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text",
+          "image"
+        ],
+        "parameters": "3B",
+        "context_window": "32k"
+      },
+      "distribution": {
+        "license_type": "API Terms",
+        "channels": [
+          "Google AI Studio",
+          "Vertex AI"
+        ],
+        "license_link": "https://ai.google.dev/gemini-api/terms"
+      },
+      "use": {
+        "aup_link": "https://ai.google.dev/gemini-api/terms",
+        "intended_use": "Image generation and understanding for consumer applications",
+        "prohibited_uses": "See Google AI Prohibited Use Policy"
+      },
       "data": {},
       "training": {},
       "compute": {},

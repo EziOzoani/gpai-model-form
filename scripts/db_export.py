@@ -101,40 +101,34 @@ def fetch_all() -> List[Dict[str, Any]]:
         data = json.loads(data or "{}")
         section_data = json.loads(section_data or "{}")
         
-        # Calculate section scores based on actual content
+        # Use the completeness_percent from database instead of recalculating
+        overall_percentage = pct if pct is not None else 0
+        
+        # Calculate section scores for display (keep the existing logic for section breakdown)
         section_scores = {}
         for section_name, section_content in data.items():
             if isinstance(section_content, dict):
-                # Calculate weighted score for each field
-                field_scores = []
-                for field_name, field_value in section_content.items():
-                    if field_name.startswith('_'):
-                        continue
-                    score = calculate_content_score(field_value)
-                    field_scores.append(score)
-                
-                # Section score is average of field scores
-                if field_scores:
-                    section_scores[section_name] = sum(field_scores) / len(field_scores)
+                # Check if section has _filled flag
+                if section_content.get('_filled'):
+                    section_scores[section_name] = 1.0
                 else:
                     section_scores[section_name] = 0.0
         
-        # Build section_data from actual data if empty
-        if not section_data:
-            for section_name, section_content in data.items():
-                if isinstance(section_content, dict):
+        # Merge content from data field into section_data
+        # This ensures we capture content stored in either location
+        for section_name, section_content in data.items():
+            if isinstance(section_content, dict):
+                # Initialize section if it doesn't exist
+                if section_name not in section_data:
                     section_data[section_name] = {}
-                    for field_name, field_value in section_content.items():
-                        if field_name.startswith('_'):
-                            continue
-                        # Include all non-empty fields in section_data
-                        if field_value:
-                            section_data[section_name][field_name] = field_value
-        
-        # Calculate overall score
-        total_score = sum(section_scores.values())
-        num_sections = len(section_scores) if section_scores else 1
-        overall_percentage = int((total_score / num_sections) * 100) if num_sections > 0 else 0
+                
+                # Merge fields from data into section_data
+                for field_name, field_value in section_content.items():
+                    if field_name.startswith('_'):
+                        continue
+                    # Include all non-empty fields
+                    if field_value and field_name not in section_data[section_name]:
+                        section_data[section_name][field_name] = field_value
         
         model_dict = {
             "model_name": name,

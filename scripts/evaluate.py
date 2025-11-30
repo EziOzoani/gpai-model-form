@@ -105,7 +105,9 @@ def evaluate_data_quality():
             source_quality[source_type].append((confidence, count))
     
     # Calculate statistics
-    avg_completeness = sum(completeness_scores) / len(completeness_scores) if completeness_scores else 0
+    # Filter out None values from completeness_scores
+    valid_scores = [score for score in completeness_scores if score is not None]
+    avg_completeness = sum(valid_scores) / len(valid_scores) if valid_scores else 0
     
     # Source reliability analysis
     print(f"Total Models Analysed: {total_models}")
@@ -120,7 +122,7 @@ def evaluate_data_quality():
     print("-" * 40)
     ranges = [(0, 20), (20, 40), (40, 60), (60, 80), (80, 100)]
     for low, high in ranges:
-        count = sum(1 for score in completeness_scores if low <= score < high)
+        count = sum(1 for score in valid_scores if low <= score < high)
         print(f"{low:3d}-{high:3d}%: {'█' * (count*2)} {count} models")
     
     # Critical fields analysis

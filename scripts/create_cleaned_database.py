@@ -103,6 +103,11 @@ def create_cleaned_database():
     # Create cleaned database
     cleaned_db.parent.mkdir(exist_ok=True)
     
+    # Remove existing cleaned database to start fresh
+    if cleaned_db.exists():
+        cleaned_db.unlink()
+        logger.info("Removed existing cleaned database")
+    
     # Connect to databases
     conn_orig = sqlite3.connect(original_db)
     conn_clean = sqlite3.connect(cleaned_db)
@@ -166,21 +171,29 @@ def create_cleaned_database():
         cursor_orig = conn_orig.cursor()
         cursor_clean = conn_clean.cursor()
         
-        # Get all models
+        # Get all models with column names
         cursor_orig.execute("SELECT * FROM models")
+        columns = [description[0] for description in cursor_orig.description]
         models = cursor_orig.fetchall()
         
         logger.info(f"Processing {len(models)} models...")
         
         for model in models:
-            # Extract fields (adjust based on actual schema)
+            # Create dict from row
+            model_data = dict(zip(columns, model))
+            
+            # Clean core fields
             model_dict = {
-                'name': clean_text_field(model[1]),
-                'provider': clean_text_field(model[2]),
-                'region': model[3],
-                'size': normalize_size(model[4]),
-                'release_date': model[5]
+                'name': clean_text_field(model_data.get('name', '')),
+                'provider': clean_text_field(model_data.get('provider', '')),
+                'region': model_data.get('region', ''),
+                'size': normalize_size(model_data.get('size', '')),
+                'release_date': model_data.get('release_date', '')
             }
+            
+            # Skip if no name or provider
+            if not model_dict['name'] or not model_dict['provider']:
+                continue
             
             # Insert core model data
             cursor_clean.execute("""
@@ -197,8 +210,8 @@ def create_cleaned_database():
             model_id = cursor_clean.lastrowid
             
             # Process JSON data field
-            if len(model) > 6 and model[6]:  # Assuming data is at index 6
-                extracted = extract_key_fields(model[6])
+            if model_data.get('data'):
+                extracted = extract_key_fields(model_data['data'])
                 if extracted:
                     cursor_clean.execute("""
                         INSERT INTO model_content 
@@ -215,40 +228,42 @@ def create_cleaned_database():
                     ))
             
             # Process section data
-            if len(model) > 7 and model[7]:  # Assuming section_data is at index 7
+            if model_data.get('section_data'):
                 try:
-                    section_data = json.loads(model[7])
+                    section_data = json.loads(model_data['section_data'])
                     for section, fields in section_data.items():
                         if isinstance(fields, dict):
                             for field_name, field_value in fields.items():
                                 if field_value:
                                     cleaned_value = clean_text_field(str(field_value))
-                                    if cleaned_value:
+                                    if cleaned_value and len(cleaned_value) > 5:
                                         cursor_clean.execute("""
                                             INSERT INTO section_content 
                                             (model_id, section, field_name, field_value)
                                             VALUES (?, ?, ?, ?)
                                         """, (model_id, section, field_name, cleaned_value))
-                except:
-                    pass
+                except Exception as e:
+                    logger.warning(f"Failed to parse section_data for {model_dict['name']}: {e}")
         
-        # Copy sources
-        cursor_orig.execute("SELECT * FROM sources")
+        # Process sources from provenance_url field
+        cursor_orig.execute("SELECT id, name, provider, provenance_url, updated_at FROM models WHERE provenance_url IS NOT NULL")
         sources = cursor_orig.fetchall()
         
         for source in sources:
-            # Map original model name to new model_id
+            orig_id, name, provider, url, crawled_at = source
+            
+            # Map original model to new model_id
             cursor_clean.execute("""
                 SELECT id FROM models WHERE name = ? AND provider = ?
-            """, (source[1], source[2]))  # Adjust indices based on schema
+            """, (clean_text_field(name), clean_text_field(provider)))
             
             result = cursor_clean.fetchone()
-            if result:
+            if result and url:
                 new_model_id = result[0]
                 cursor_clean.execute("""
                     INSERT INTO sources (model_id, source_url, crawled_at)
                     VALUES (?, ?, ?)
-                """, (new_model_id, source[3], source[4]))  # Adjust indices
+                """, (new_model_id, url, crawled_at))
         
         conn_clean.commit()
         logger.info("Cleaned database created successfully")

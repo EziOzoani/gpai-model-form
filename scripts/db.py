@@ -17,6 +17,16 @@ import os
 import sqlite3
 import time
 from pathlib import Path
+import logging
+from datetime import datetime
+from typing import Dict, Any, Optional, List
+
+logger = logging.getLogger(__name__)
+
+def get_connection():
+    """Get database connection."""
+    db_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'output', 'scraped_not_cleaned_final.db')
+    return sqlite3.connect(db_path)
 
 # Define the path to our SQLite database
 # This will be created in the data directory relative to the project root

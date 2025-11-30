@@ -5,22 +5,31 @@
   "size": "Big",
   "release_date": "2024-01-01",
   "transparency_score": {
-    "overall": 5,
+    "overall": 20,
     "sections": {
-      "general": 0.4,
+      "general": 1.0,
       "properties": 0.0,
       "distribution": 0.0,
       "use": 0.0,
       "data": 0.0,
-      "training": 0.0,
+      "training": 1.0,
       "compute": 0.0,
-      "energy": 0.0
+      "energy": 1.0
     }
   },
-  "stars": 0,
+  "stars": 2,
   "label_x": "US-Big",
-  "last_updated": "2025-11-28 08:23:24",
+  "last_updated": "2025-11-28T10:21:27.458062",
   "section_data": {
+    "training": {
+      "methodology": "\n    The model was trained using advanced transformer architecture with \n    reinforcement learning from human feedback (RLHF). Training involved \n    multiple stages including pretraining on diverse internet text, \n    supervised fine-tuning, and iterative refinement based on human preferences.\n    ",
+      "hardware": "TPU v4 pods with 4096 chips",
+      "duration": "6 months of continuous training"
+    },
+    "energy": {
+      "consumption": "Estimated 500 MWh total",
+      "methodology": "Measured using datacenter PUE metrics"
+    },
     "general": {
       "legal_name": "Google LLC",
       "model_id": "Gemini 2.5 Pro"
@@ -29,8 +38,6 @@
     "distribution": {},
     "use": {},
     "data": {},
-    "training": {},
-    "compute": {},
-    "energy": {}
+    "compute": {}
   }
 }

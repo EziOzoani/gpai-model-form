@@ -52,5 +52,8 @@ fallback:
       - "medium.com"
       - "techcrunch.com"
       - "venturebeat.com"
+      - "wikipedia.org"
+      - "en.wikipedia.org"
+      - "blog.google"
     max_results: 15
     freshness_days: 180

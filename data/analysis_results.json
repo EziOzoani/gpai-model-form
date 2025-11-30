@@ -1,0 +1,293 @@
+{
+  "summary": {
+    "total_models": 18,
+    "unique_providers": 3,
+    "models_with_content": 0,
+    "avg_fields_per_model": 9.0
+  },
+  "provider_distribution": [
+    {
+      "provider": "Google",
+      "count": 7,
+      "regions": [
+        "US"
+      ]
+    },
+    {
+      "provider": "Cohere",
+      "count": 6,
+      "regions": [
+        "Non-EU UK"
+      ]
+    },
+    {
+      "provider": "Mistral AI",
+      "count": 5,
+      "regions": [
+        "EU"
+      ]
+    }
+  ],
+  "regional_distribution": [
+    {
+      "region": "Non-EU UK",
+      "count": 6,
+      "providers": [
+        "Cohere"
+      ]
+    },
+    {
+      "region": "US",
+      "count": 6,
+      "providers": [
+        "Google"
+      ]
+    },
+    {
+      "region": "EU",
+      "count": 5,
+      "providers": [
+        "Mistral AI"
+      ]
+    }
+  ],
+  "size_distribution": {
+    "detailed": [
+      {
+        "size": "Small",
+        "count": 13
+      },
+      {
+        "size": "Big",
+        "count": 4
+      }
+    ],
+    "categories": {
+      "Small": 13,
+      "Large": 4
+    }
+  },
+  "temporal_analysis": {
+    "yearly": {
+      "2023": {
+        "Mistral AI": 2
+      },
+      "2024": {
+        "Google": 6,
+        "Mistral AI": 3,
+        "Cohere": 2
+      },
+      "2025": {
+        "Cohere": 4
+      }
+    },
+    "monthly": {
+      "2023-09": 1,
+      "2023-12": 1,
+      "2024-01": 8,
+      "2024-03": 1,
+      "2024-04": 1,
+      "2024-07": 1,
+      "2025-02": 1,
+      "2025-05": 1,
+      "2025-09": 2
+    }
+  },
+  "transparency_scores": {
+    "model_scores": [
+      {
+        "model": "Google gemini-2.0-flash-lite",
+        "provider": "Google",
+        "transparency_score": 92.0,
+        "sections_documented": 4,
+        "total_fields": 11
+      },
+      {
+        "model": "Cohere command-r-plus-04",
+        "provider": "Cohere",
+        "transparency_score": 90.0,
+        "sections_documented": 4,
+        "total_fields": 10
+      },
+      {
+        "model": "Cohere command-r-03",
+        "provider": "Cohere",
+        "transparency_score": 90.0,
+        "sections_documented": 4,
+        "total_fields": 10
+      },
+      {
+        "model": "Cohere Embed v3.0",
+        "provider": "Cohere",
+        "transparency_score": 90.0,
+        "sections_documented": 4,
+        "total_fields": 10
+      },
+      {
+        "model": "Cohere rerank",
+        "provider": "Cohere",
+        "transparency_score": 90.0,
+        "sections_documented": 4,
+        "total_fields": 10
+      },
+      {
+        "model": "Cohere Rerank v3.5",
+        "provider": "Cohere",
+        "transparency_score": 90.0,
+        "sections_documented": 4,
+        "total_fields": 10
+      },
+      {
+        "model": "Cohere command-r7",
+        "provider": "Cohere",
+        "transparency_score": 90.0,
+        "sections_documented": 4,
+        "total_fields": 10
+      },
+      {
+        "model": "Google Gemini 2.5 Pro",
+        "provider": "Google",
+        "transparency_score": 37.0,
+        "sections_documented": 2,
+        "total_fields": 5
+      },
+      {
+        "model": "Mistral Mistral 7B",
+        "provider": "Mistral AI",
+        "transparency_score": 37.0,
+        "sections_documented": 2,
+        "total_fields": 5
+      },
+      {
+        "model": "Google Gemini 2.5 Flash",
+        "provider": "Google",
+        "transparency_score": 0.0,
+        "sections_documented": 0,
+        "total_fields": 0
+      },
+      {
+        "model": "Google Gemini 2.0 Flash",
+        "provider": "Google",
+        "transparency_score": 0.0,
+        "sections_documented": 0,
+        "total_fields": 0
+      },
+      {
+        "model": "Mistral Mixtral",
+        "provider": "Mistral AI",
+        "transparency_score": 0.0,
+        "sections_documented": 0,
+        "total_fields": 0
+      },
+      {
+        "model": "Mistral Mistral Large",
+        "provider": "Mistral AI",
+        "transparency_score": 0.0,
+        "sections_documented": 0,
+        "total_fields": 0
+      },
+      {
+        "model": "Mistral Mistral Medium",
+        "provider": "Mistral AI",
+        "transparency_score": 0.0,
+        "sections_documented": 0,
+        "total_fields": 0
+      },
+      {
+        "model": "Mistral Mistral Small",
+        "provider": "Mistral AI",
+        "transparency_score": 0.0,
+        "sections_documented": 0,
+        "total_fields": 0
+      },
+      {
+        "model": "Google Gemini 3 is",
+        "provider": "Google",
+        "transparency_score": 0.0,
+        "sections_documented": 0,
+        "total_fields": 0
+      },
+      {
+        "model": "Google Gemini 3 Pro",
+        "provider": "Google",
+        "transparency_score": 0.0,
+        "sections_documented": 0,
+        "total_fields": 0
+      },
+      {
+        "model": "Gemini Nano",
+        "provider": "Google",
+        "transparency_score": 0.0,
+        "sections_documented": 0,
+        "total_fields": 0
+      }
+    ],
+    "provider_averages": {
+      "Google": 18.4,
+      "Cohere": 90.0,
+      "Mistral AI": 7.4
+    }
+  },
+  "section_completeness": [
+    {
+      "section": "use",
+      "models_documented": 7,
+      "total_fields": 15,
+      "avg_content_length": 209.0
+    },
+    {
+      "section": "properties",
+      "models_documented": 7,
+      "total_fields": 21,
+      "avg_content_length": 198.0
+    },
+    {
+      "section": "general",
+      "models_documented": 7,
+      "total_fields": 21,
+      "avg_content_length": 161.0
+    },
+    {
+      "section": "distribution",
+      "models_documented": 7,
+      "total_fields": 14,
+      "avg_content_length": 206.0
+    },
+    {
+      "section": "training",
+      "models_documented": 2,
+      "total_fields": 6,
+      "avg_content_length": 111.0
+    },
+    {
+      "section": "energy",
+      "models_documented": 2,
+      "total_fields": 4,
+      "avg_content_length": 30.0
+    }
+  ],
+  "provider_comparisons": {
+    "Cohere": {
+      "model_count": 6,
+      "regions": 1,
+      "documentation_coverage": 50.0,
+      "avg_doc_length": 184.0
+    },
+    "Google": {
+      "model_count": 7,
+      "regions": 1,
+      "documentation_coverage": 75.0,
+      "avg_doc_length": 180.0
+    },
+    "Mistral AI": {
+      "model_count": 5,
+      "regions": 1,
+      "documentation_coverage": 25.0,
+      "avg_doc_length": 79.0
+    }
+  },
+  "metadata": {
+    "analysis_timestamp": "2025-11-30T10:30:52.900053",
+    "total_models": 18
+  }
+}

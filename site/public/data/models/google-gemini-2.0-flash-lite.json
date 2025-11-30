@@ -5,12 +5,12 @@
   "size": "Big",
   "release_date": "2024-01-01",
   "transparency_score": {
-    "overall": 20,
+    "overall": 80,
     "sections": {
-      "general": 0.26666666666666666,
-      "properties": 0.26666666666666666,
-      "distribution": 0.6000000000000001,
-      "use": 0.5,
+      "general": 1.0,
+      "properties": 1.0,
+      "distribution": 1.0,
+      "use": 1.0,
       "data": 0.0,
       "training": 0.0,
       "compute": 0.0,
@@ -19,7 +19,7 @@
   },
   "stars": 0,
   "label_x": "US-Big",
-  "last_updated": "2025-11-28 08:23:24",
+  "last_updated": "2025-11-28 10:37:33",
   "section_data": {
     "general": {
       "legal_name": {
@@ -45,7 +45,8 @@
           "type": "official",
           "confidence": 0.95
         }
-      }
+      },
+      "release_date": "2024-01-01"
     },
     "properties": {
       "architecture": {
@@ -115,7 +116,14 @@
           "type": "legal",
           "confidence": 1.0
         }
-      }
-    }
+      },
+      "prohibited_uses": "Use Restrictions You may only access the Services (or make API Clients available to users) within an available region. You may use only Paid Services when making API Clients available to users in the European Economic Area, You may not use the Services to develop models that compete with the Services (e.g., Gemini API or Google AI Studio). You also may not attempt to reverse engineer, extract or replicate any component of the Services, including the underlying data or models (e.g., parameter weights). Prohibited Use Policy, which provides additional details about appropriate conduct when using the Services. The Services include...",
+      "monitoring": "to Google's review and approval. You may not use the Services in clinical practice, to provide medical advice, or in any manner that is overseen by or requires clearance or approval from a medical device regulatory agency. To help with quality and improve our products, human reviewers may read, annotate, and process your API input and output. Google takes steps to protect your privacy as part of this process. This includes disconnecting this data from your Google Account, API key, and Cloud project before reviewers see or annotate your Google Account, API key, and Cloud project before reviewers see or...",
+      "feedback": "Send feedback Gemini API Additional Terms of Service Effective November 20, 2025 To use Gemini API, tuned models for purposes of re-tuning when supported models change. When you delete a tuned model, the related tuning content is also deleted. If you're in the European Economic Area, Switzerland, or the United Kingdom, the terms under \"How Google uses Your Data\" in information and settings, billing history, direct communications and feedback, and usage details (e.g., information about usage including token count per prompt and response, operational status, safety filter triggers, software errors and crash reports, authentication details, quality and performance metrics, and"
+    },
+    "data": {},
+    "training": {},
+    "compute": {},
+    "energy": {}
   }
 }

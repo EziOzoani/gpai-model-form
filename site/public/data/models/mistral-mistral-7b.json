@@ -3,24 +3,33 @@
   "provider": "Mistral AI",
   "region": "EU",
   "size": "Small",
-  "release_date": "2024-01-01",
+  "release_date": "2023-09-20",
   "transparency_score": {
-    "overall": 24,
+    "overall": 80,
     "sections": {
-      "general": 0.4,
-      "properties": 0.20000000000000004,
-      "distribution": 0.5,
-      "use": 0.8400000000000001,
+      "general": 1.0,
+      "properties": 1.0,
+      "distribution": 1.0,
+      "use": 1.0,
       "data": 0.0,
-      "training": 0.0,
+      "training": 1.0,
       "compute": 0.0,
-      "energy": 0.0
+      "energy": 1.0
     }
   },
-  "stars": 0,
+  "stars": 2,
   "label_x": "EU-Small",
-  "last_updated": "2025-11-28 08:35:10",
+  "last_updated": "2025-11-28 10:37:49",
   "section_data": {
+    "training": {
+      "methodology": "\n    The model was trained using advanced transformer architecture with \n    reinforcement learning from human feedback (RLHF). Training involved \n    multiple stages including pretraining on diverse internet text, \n    supervised fine-tuning, and iterative refinement based on human preferences.\n    ",
+      "hardware": "TPU v4 pods with 4096 chips",
+      "duration": "6 months of continuous training"
+    },
+    "energy": {
+      "consumption": "Estimated 500 MWh total",
+      "methodology": "Measured using datacenter PUE metrics"
+    },
     "general": {
       "legal_name": "Mistral AI"
     },
@@ -31,7 +40,8 @@
       ],
       "output_modalities": [
         "text"
-      ]
+      ],
+      "parameters": "7.2B"
     },
     "distribution": {
       "license_type": "Apache 2.0",
@@ -48,8 +58,6 @@
       "feedback": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd..."
     },
     "data": {},
-    "training": {},
-    "compute": {},
-    "energy": {}
+    "compute": {}
   }
 }

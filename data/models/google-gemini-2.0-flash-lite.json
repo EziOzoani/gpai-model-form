@@ -18,14 +18,112 @@
     }
   },
   "stars": 0,
-  "sources": [
-    "https://ai.google.dev/gemini-api/docs/models"
-  ],
-  "provenance": {
-    "source_url": "https://ai.google.dev/gemini-api/docs/models",
-    "crawled_at": "2025-11-28T09:52:39.730507",
-    "is_code_of_practice_signatory": true,
-    "region_detected": "US",
-    "region_detection_method": "automatic"
+  "label_x": "US-Big",
+  "last_updated": "2025-11-28 10:37:33",
+  "section_data": {
+    "general": {
+      "legal_name": {
+        "text": "Google LLC",
+        "source": {
+          "url": "https://ai.google.dev",
+          "type": "official",
+          "confidence": 1.0
+        }
+      },
+      "model_id": {
+        "text": "gemini-2.0-flash-lite",
+        "source": {
+          "url": "https://ai.google.dev/gemini-api/docs/models",
+          "type": "official",
+          "confidence": 1.0
+        }
+      },
+      "description": {
+        "text": "gemini-2.0-flash-lite is a multimodal AI model from Google's Gemini family, designed for advanced language understanding and generation tasks.",
+        "source": {
+          "url": "https://ai.google.dev/gemini-api/docs/models",
+          "type": "official",
+          "confidence": 0.95
+        }
+      },
+      "release_date": "2024-01-01"
+    },
+    "properties": {
+      "architecture": {
+        "text": "Transformer-based architecture with advanced attention mechanisms and multimodal capabilities. The Gemini models use a unified architecture that can process text, images, audio, and video inputs seamlessly.",
+        "source": {
+          "url": "https://ai.google.dev/gemini-api/docs/models",
+          "type": "official",
+          "confidence": 0.9
+        }
+      },
+      "input_modalities": {
+        "text": "Supported input types: text, audio, image. The model can process these data types simultaneously for multimodal understanding.",
+        "source": {
+          "url": "https://ai.google.dev/gemini-api/docs/models",
+          "type": "official",
+          "confidence": 1.0
+        }
+      },
+      "output_modalities": {
+        "text": "Text generation with support for structured outputs, code generation, and conversational responses.",
+        "source": {
+          "url": "https://ai.google.dev/gemini-api/docs/models",
+          "type": "official",
+          "confidence": 1.0
+        }
+      }
+    },
+    "distribution": {
+      "license_type": {
+        "text": "Google API Terms of Service apply. Commercial usage permitted with appropriate API subscription.",
+        "source": {
+          "url": "https://ai.google.dev/gemini-api/terms",
+          "type": "legal",
+          "confidence": 1.0
+        }
+      },
+      "channels": {
+        "text": "Available through Vertex AI (Google Cloud Platform), AI Studio (web interface), and Google Cloud API endpoints. SDK support for Python, Node.js, Go, and Java.",
+        "source": {
+          "url": "https://ai.google.dev/gemini-api/docs",
+          "type": "official",
+          "confidence": 1.0
+        }
+      }
+    },
+    "use": {
+      "aup_link": {
+        "text": "https://ai.google.dev/gemini-api/terms",
+        "source": {
+          "url": "https://ai.google.dev",
+          "type": "official",
+          "confidence": 1.0
+        }
+      },
+      "intended_use": {
+        "text": "Designed for text generation, creative writing, code assistance, multimodal understanding, translation, summarisation, and conversational AI applications. Suitable for both research and commercial deployments.",
+        "source": {
+          "url": "https://ai.google.dev/gemini-api/docs",
+          "type": "official",
+          "confidence": 0.95
+        }
+      },
+      "restrictions": {
+        "text": "Usage must comply with Google's AI Principles and Prohibited Use Policy. Not to be used for illegal activities, harassment, deception, or generating harmful content.",
+        "source": {
+          "url": "https://ai.google.dev/gemini-api/terms",
+          "type": "legal",
+          "confidence": 1.0
+        }
+      },
+      "prohibited_uses": "Use Restrictions You may only access the Services (or make API Clients available to users) within an available region. You may use only Paid Services when making API Clients available to users in the European Economic Area, You may not use the Services to develop models that compete with the Services (e.g., Gemini API or Google AI Studio). You also may not attempt to reverse engineer, extract or replicate any component of the Services, including the underlying data or models (e.g., parameter weights). Prohibited Use Policy, which provides additional details about appropriate conduct when using the Services. The Services include...",
+      "monitoring": "to Google's review and approval. You may not use the Services in clinical practice, to provide medical advice, or in any manner that is overseen by or requires clearance or approval from a medical device regulatory agency. To help with quality and improve our products, human reviewers may read, annotate, and process your API input and output. Google takes steps to protect your privacy as part of this process. This includes disconnecting this data from your Google Account, API key, and Cloud project before reviewers see or annotate your Google Account, API key, and Cloud project before reviewers see or...",
+      "feedback": "Send feedback Gemini API Additional Terms of Service Effective November 20, 2025 To use Gemini API, tuned models for purposes of re-tuning when supported models change. When you delete a tuned model, the related tuning content is also deleted. If you're in the European Economic Area, Switzerland, or the United Kingdom, the terms under \"How Google uses Your Data\" in information and settings, billing history, direct communications and feedback, and usage details (e.g., information about usage including token count per prompt and response, operational status, safety filter triggers, software errors and crash reports, authentication details, quality and performance metrics, and"
+    },
+    "data": {},
+    "training": {},
+    "compute": {},
+    "energy": {}
   }
 }

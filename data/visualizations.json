@@ -1,0 +1,421 @@
+{
+  "charts": {
+    "provider_pie": {
+      "type": "pie",
+      "data": [
+        {
+          "name": "Google",
+          "value": 7,
+          "color": "#4285F4"
+        },
+        {
+          "name": "Cohere",
+          "value": 6,
+          "color": "#4ECDC4"
+        },
+        {
+          "name": "Mistral AI",
+          "value": 5,
+          "color": "#FF6B6B"
+        }
+      ],
+      "title": "Models by Provider",
+      "responsive": true
+    },
+    "regional_distribution": {
+      "type": "bar",
+      "data": [
+        {
+          "region": "Non-EU UK",
+          "count": 6,
+          "providers": [
+            "Cohere"
+          ]
+        },
+        {
+          "region": "US",
+          "count": 6,
+          "providers": [
+            "Google"
+          ]
+        },
+        {
+          "region": "EU",
+          "count": 5,
+          "providers": [
+            "Mistral AI"
+          ]
+        }
+      ],
+      "title": "Models by Region",
+      "xAxis": "region",
+      "yAxis": "count",
+      "color": "#3498DB"
+    },
+    "size_distribution": {
+      "type": "donut",
+      "data": [
+        {
+          "name": "Small",
+          "value": 13,
+          "color": "#2ECC71"
+        },
+        {
+          "name": "Large",
+          "value": 4,
+          "color": "#E74C3C"
+        }
+      ],
+      "title": "Model Sizes",
+      "innerRadius": 60,
+      "outerRadius": 100
+    },
+    "transparency_heatmap": {
+      "type": "heatmap",
+      "data": [
+        {
+          "x": 0,
+          "y": 0,
+          "value": 92.0,
+          "model": "gemini-2.0-flash-lite",
+          "provider": "Google"
+        },
+        {
+          "x": 1,
+          "y": 0,
+          "value": 37.0,
+          "model": "Gemini 2.5 Pro",
+          "provider": "Google"
+        },
+        {
+          "x": 2,
+          "y": 0,
+          "value": 0.0,
+          "model": "Gemini 2.5 Flash",
+          "provider": "Google"
+        },
+        {
+          "x": 3,
+          "y": 0,
+          "value": 0.0,
+          "model": "Gemini 2.0 Flash",
+          "provider": "Google"
+        },
+        {
+          "x": 4,
+          "y": 0,
+          "value": 0.0,
+          "model": "Gemini 3 is",
+          "provider": "Google"
+        },
+        {
+          "x": 5,
+          "y": 0,
+          "value": 0.0,
+          "model": "Gemini 3 Pro",
+          "provider": "Google"
+        },
+        {
+          "x": 6,
+          "y": 0,
+          "value": 0.0,
+          "model": "Gemini Nano",
+          "provider": "Google"
+        },
+        {
+          "x": 0,
+          "y": 1,
+          "value": 90.0,
+          "model": "command-r-plus-04",
+          "provider": "Cohere"
+        },
+        {
+          "x": 1,
+          "y": 1,
+          "value": 90.0,
+          "model": "command-r-03",
+          "provider": "Cohere"
+        },
+        {
+          "x": 2,
+          "y": 1,
+          "value": 90.0,
+          "model": "Embed v3.0",
+          "provider": "Cohere"
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "value": 90.0,
+          "model": "rerank",
+          "provider": "Cohere"
+        },
+        {
+          "x": 4,
+          "y": 1,
+          "value": 90.0,
+          "model": "Rerank v3.5",
+          "provider": "Cohere"
+        },
+        {
+          "x": 5,
+          "y": 1,
+          "value": 90.0,
+          "model": "command-r7",
+          "provider": "Cohere"
+        },
+        {
+          "x": 0,
+          "y": 2,
+          "value": 37.0,
+          "model": "Mistral Mistral 7B",
+          "provider": "Mistral AI"
+        },
+        {
+          "x": 1,
+          "y": 2,
+          "value": 0.0,
+          "model": "Mistral Mixtral",
+          "provider": "Mistral AI"
+        },
+        {
+          "x": 2,
+          "y": 2,
+          "value": 0.0,
+          "model": "Mistral Mistral Large",
+          "provider": "Mistral AI"
+        },
+        {
+          "x": 3,
+          "y": 2,
+          "value": 0.0,
+          "model": "Mistral Mistral Medium",
+          "provider": "Mistral AI"
+        },
+        {
+          "x": 4,
+          "y": 2,
+          "value": 0.0,
+          "model": "Mistral Mistral Small",
+          "provider": "Mistral AI"
+        }
+      ],
+      "title": "Model Transparency Scores",
+      "yLabels": [
+        "Google",
+        "Cohere",
+        "Mistral AI"
+      ],
+      "colorScale": [
+        "#FFE5E5",
+        "#FF6B6B",
+        "#27AE60"
+      ]
+    },
+    "timeline": {
+      "type": "line",
+      "data": [
+        {
+          "date": "2023-09",
+          "value": 1
+        },
+        {
+          "date": "2023-12",
+          "value": 1
+        },
+        {
+          "date": "2024-01",
+          "value": 8
+        },
+        {
+          "date": "2024-03",
+          "value": 1
+        },
+        {
+          "date": "2024-04",
+          "value": 1
+        },
+        {
+          "date": "2024-07",
+          "value": 1
+        },
+        {
+          "date": "2025-02",
+          "value": 1
+        },
+        {
+          "date": "2025-05",
+          "value": 1
+        },
+        {
+          "date": "2025-09",
+          "value": 2
+        }
+      ],
+      "title": "Model Releases Over Time",
+      "xAxis": {
+        "type": "time",
+        "format": "%Y-%m"
+      },
+      "yAxis": {
+        "title": "Models Released"
+      }
+    },
+    "provider_comparison_radar": {
+      "type": "radar",
+      "data": [
+        {
+          "provider": "Cohere",
+          "metrics": [
+            {
+              "axis": "Model Count",
+              "value": 85.71428571428571
+            },
+            {
+              "axis": "Regional Diversity",
+              "value": 33.3
+            },
+            {
+              "axis": "Documentation Coverage",
+              "value": 50.0
+            },
+            {
+              "axis": "Avg Doc Length",
+              "value": 100.0
+            }
+          ]
+        },
+        {
+          "provider": "Google",
+          "metrics": [
+            {
+              "axis": "Model Count",
+              "value": 100.0
+            },
+            {
+              "axis": "Regional Diversity",
+              "value": 33.3
+            },
+            {
+              "axis": "Documentation Coverage",
+              "value": 75.0
+            },
+            {
+              "axis": "Avg Doc Length",
+              "value": 97.82608695652173
+            }
+          ]
+        },
+        {
+          "provider": "Mistral AI",
+          "metrics": [
+            {
+              "axis": "Model Count",
+              "value": 71.42857142857143
+            },
+            {
+              "axis": "Regional Diversity",
+              "value": 33.3
+            },
+            {
+              "axis": "Documentation Coverage",
+              "value": 25.0
+            },
+            {
+              "axis": "Avg Doc Length",
+              "value": 42.934782608695656
+            }
+          ]
+        }
+      ],
+      "title": "Provider Comparison",
+      "axes": [
+        "Model Count",
+        "Regional Diversity",
+        "Documentation Coverage",
+        "Avg Doc Length"
+      ]
+    },
+    "section_completeness": {
+      "type": "grouped-bar",
+      "data": [
+        {
+          "section": "Use",
+          "documented": 7,
+          "fields": 15,
+          "avgLength": 209.0
+        },
+        {
+          "section": "Properties",
+          "documented": 7,
+          "fields": 21,
+          "avgLength": 198.0
+        },
+        {
+          "section": "General",
+          "documented": 7,
+          "fields": 21,
+          "avgLength": 161.0
+        },
+        {
+          "section": "Distribution",
+          "documented": 7,
+          "fields": 14,
+          "avgLength": 206.0
+        },
+        {
+          "section": "Training",
+          "documented": 2,
+          "fields": 6,
+          "avgLength": 111.0
+        },
+        {
+          "section": "Energy",
+          "documented": 2,
+          "fields": 4,
+          "avgLength": 30.0
+        }
+      ],
+      "title": "Documentation by Section",
+      "series": [
+        {
+          "key": "documented",
+          "name": "Models Documented",
+          "color": "#3498DB"
+        },
+        {
+          "key": "fields",
+          "name": "Total Fields",
+          "color": "#2ECC71"
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "total_models": {
+      "value": 18,
+      "label": "Total Models",
+      "icon": "database",
+      "trend": null
+    },
+    "providers": {
+      "value": 3,
+      "label": "AI Providers",
+      "icon": "building",
+      "trend": null
+    },
+    "documented_models": {
+      "value": 0,
+      "label": "Documented Models",
+      "icon": "file-text",
+      "percentage": 0.0
+    },
+    "avg_transparency": {
+      "value": 38.6,
+      "label": "Avg Transparency Score",
+      "icon": "eye",
+      "unit": "%"
+    }
+  },
+  "generated_at": "2025-11-28T10:21:39.391704"
+}

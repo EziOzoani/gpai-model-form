@@ -185,8 +185,8 @@ export const ModelDetailPanel = ({ model, onClose }: ModelDetailPanelProps) => {
 
   // Render all fields for a given section
   // Extracts field data from section_data and uses appropriate labels
-  const renderSectionFields = (sectionKey: string, sectionData: SectionData | undefined) => {
-    if (!sectionData) {
+  const renderSectionFields = (sectionKey: string, sectionData: any) => {
+    if (!sectionData || Object.keys(sectionData).length === 0) {
       return (
         <p className="text-sm text-muted-foreground italic">
           No data available for this section
@@ -307,22 +307,33 @@ export const ModelDetailPanel = ({ model, onClose }: ModelDetailPanelProps) => {
                             // Skip metadata fields
                             if (fieldKey.startsWith('_') || fieldKey === 'bonus_star') return null;
                             
-                            const fieldData = fieldValue as FieldData;
-                            if (!fieldData?.text) return null;
+                            // Handle both FieldData objects and plain values
+                            const text = typeof fieldValue === 'object' && fieldValue !== null && 'text' in fieldValue
+                              ? fieldValue.text
+                              : Array.isArray(fieldValue)
+                              ? fieldValue.join(', ')
+                              : typeof fieldValue === 'object'
+                              ? JSON.stringify(fieldValue, null, 2)
+                              : String(fieldValue);
+                            
+                            if (!text || text === '{}') return null;
+                            
+                            const labels = FIELD_LABELS[section.key] || {};
+                            const label = labels[fieldKey] || fieldKey.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
                             
                             return (
                               <div key={fieldKey} className="space-y-1">
-                                <h4 className="font-medium capitalize">
-                                  {fieldKey.replace(/_/g, ' ')}
+                                <h4 className="font-medium">
+                                  {label}
                                 </h4>
-                                <p className="text-muted-foreground">
-                                  {fieldData.text}
+                                <p className="text-muted-foreground whitespace-pre-wrap">
+                                  {text}
                                 </p>
-                                {fieldData.source && (
+                                {typeof fieldValue === 'object' && fieldValue !== null && 'source' in fieldValue && fieldValue.source && (
                                   <p className="text-xs text-muted-foreground/70">
-                                    Source: {fieldData.source.url} • 
-                                    Type: {fieldData.source.type} • 
-                                    Confidence: {Math.round(fieldData.source.confidence * 100)}%
+                                    Source: {fieldValue.source.url} • 
+                                    Type: {fieldValue.source.type} • 
+                                    Confidence: {Math.round(fieldValue.source.confidence * 100)}%
                                   </p>
                                 )}
                               </div>

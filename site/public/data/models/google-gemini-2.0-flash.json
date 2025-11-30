@@ -5,9 +5,9 @@
   "size": "Small",
   "release_date": "2024-01-01",
   "transparency_score": {
-    "overall": 5,
+    "overall": 20,
     "sections": {
-      "general": 0.4,
+      "general": 1.0,
       "properties": 0.0,
       "distribution": 0.0,
       "use": 0.0,
@@ -19,7 +19,7 @@
   },
   "stars": 0,
   "label_x": "US-Small",
-  "last_updated": "2025-11-28 08:23:24",
+  "last_updated": "2025-11-28 09:52:39",
   "section_data": {
     "general": {
       "legal_name": "Google LLC",
