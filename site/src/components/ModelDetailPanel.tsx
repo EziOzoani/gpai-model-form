@@ -218,8 +218,9 @@ export const ModelDetailPanel = ({ model, onClose, onFeedback }: ModelDetailPane
 
   return (
     <TooltipProvider>
+      {/* Modal container - Height set to 85vh (85% of viewport height) */}
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm">
-        <div className="relative h-[90vh] w-[90vw] max-w-5xl overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
+        <div className="relative h-[85vh] w-[90vw] max-w-5xl overflow-hidden rounded-2xl border border-border bg-card shadow-2xl">
         {/* Header */}
         <div className="flex items-start justify-between border-b border-border bg-panel p-6">
           <div className="flex-1">
@@ -303,8 +304,9 @@ export const ModelDetailPanel = ({ model, onClose, onFeedback }: ModelDetailPane
           </div>
         </div>
 
-        {/* Content */}
-        <ScrollArea className="h-[calc(90vh-180px)]">
+        {/* Content - Height calculation: 85vh minus header (~120px) and footer (~100px with padding)
+            Adjust the 220px value to increase/decrease content area */}
+        <ScrollArea className="h-[calc(85vh-220px)]">
           <div className="p-6">
             <div className="space-y-6">
               {/* Show full documentation view if requested */}
@@ -441,8 +443,10 @@ export const ModelDetailPanel = ({ model, onClose, onFeedback }: ModelDetailPane
           </div>
         </ScrollArea>
 
-        {/* Footer */}
-        <div className="border-t border-border bg-panel p-4">
+        {/* Footer - Height controlled by padding (p-5 = 20px padding on all sides)
+            Adjust p-4 (16px) for smaller footer, p-6 (24px) for larger footer
+            Total footer height ~60-70px including border and content */}
+        <div className="border-t border-border bg-panel p-5">
           <div className="flex items-center justify-between text-sm text-muted-foreground">
             <span>
               Last updated:{" "}
