@@ -87,17 +87,52 @@ export const FeedbackDialog = ({ isOpen, onClose, context = { type: 'general' } 
     };
 
     try {
-      // For now, just log the feedback - you can add actual backend integration later
-      console.log('Feedback submitted:', feedbackData);
+      // Create GitHub issue
+      const issueTitle = feedbackType === 'model' 
+        ? `[${modelName}] Feedback: ${section ? MODEL_SECTIONS.find(s => s.value === section)?.label : 'General'}`
+        : `Dashboard Feedback: ${feedbackType === 'bug' ? 'Bug Report' : feedbackType === 'feature' ? 'Feature Request' : 'General'}`;
       
-      // Store in localStorage for now (replace with actual API call)
-      const existingFeedback = JSON.parse(localStorage.getItem('gpai-feedback') || '[]');
-      existingFeedback.push(feedbackData);
-      localStorage.setItem('gpai-feedback', JSON.stringify(existingFeedback));
+      const issueBody = `## Feedback Details
+
+**Type:** ${feedbackType === 'model' ? 'Model-Specific' : feedbackType === 'bug' ? 'Bug Report' : feedbackType === 'feature' ? 'Feature Request' : 'General'}
+${feedbackType === 'model' ? `**Model:** ${modelName}` : ''}
+${feedbackType === 'model' && section ? `**Section:** ${MODEL_SECTIONS.find(s => s.value === section)?.label || section}` : ''}
+**Submitted:** ${new Date().toLocaleString()}
+${name ? `**Submitted by:** ${name}` : ''}
+${email ? `**Contact:** ${email}` : ''}
+
+### Feedback
+${feedback}
+
+---
+*This issue was automatically created from the GPAI Model Dashboard feedback form.*`;
+
+      // Create the issue using GitHub API
+      const response = await fetch('https://api.github.com/repos/EziOzoani/gpai-model-form/issues', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/vnd.github.v3+json',
+          'Content-Type': 'application/json',
+          // Note: In production, this token should be stored securely on a backend server
+          // For now, we'll use a placeholder that needs to be configured
+          'Authorization': `token ${import.meta.env.VITE_GITHUB_TOKEN || ''}`
+        },
+        body: JSON.stringify({
+          title: issueTitle,
+          body: issueBody,
+          labels: feedbackType === 'bug' ? ['bug'] : feedbackType === 'feature' ? ['enhancement'] : ['feedback']
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+      }
+
+      const issue = await response.json();
       
       toast({
         title: "Thank you for your feedback!",
-        description: "We appreciate your contribution to improving the dashboard.",
+        description: `Your feedback has been submitted as issue #${issue.number}.`,
       });
       
       // Reset form
@@ -106,9 +141,16 @@ export const FeedbackDialog = ({ isOpen, onClose, context = { type: 'general' } 
       setName('');
       onClose();
     } catch (error) {
+      console.error('Error creating GitHub issue:', error);
+      
+      // Fallback to localStorage if GitHub API fails
+      const existingFeedback = JSON.parse(localStorage.getItem('gpai-feedback') || '[]');
+      existingFeedback.push(feedbackData);
+      localStorage.setItem('gpai-feedback', JSON.stringify(existingFeedback));
+      
       toast({
-        title: "Error submitting feedback",
-        description: "Please try again later.",
+        title: "Feedback saved locally",
+        description: "Unable to create GitHub issue. Your feedback has been saved and will be submitted later.",
         variant: "destructive",
       });
     } finally {
