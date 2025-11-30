@@ -163,6 +163,9 @@ const IndexEnhanced = () => {
               </Link>
             )}
           </div>
+          <div className="bg-red-500/15 border-2 border-red-500/30 text-red-700 dark:text-red-400 px-6 py-3 rounded-lg text-base font-semibold flex-1 text-center">
+            ⚠️ THIS DASHBOARD IS A WORK IN PROGRESS !!
+          </div>
           <div className="text-sm text-muted-foreground">
             Last updated: {lastUpdated ? new Date(lastUpdated).toLocaleDateString('en-GB') : 'Loading...'}
           </div>
