@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Database, ChevronDown, ChevronUp, AlertCircle, ArrowUpDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ModelRadarChart } from "@/components/ModelRadarChart";
+import { FeedbackButton } from "@/components/FeedbackButton";
+import { FeedbackDialog } from "@/components/FeedbackDialog";
 
 const SECTIONS = [
   { key: "general", label: "General" },
@@ -236,6 +238,7 @@ const Compare = () => {
   const { models, loading } = useModelData();
   const [selectedModels, setSelectedModels] = useState<Model[]>([]);
   const [expandedSections, setExpandedSections] = useState<string[]>([]);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
 
   useEffect(() => {
     const modelNames = searchParams.get("models")?.split(",") || [];
@@ -285,25 +288,32 @@ const Compare = () => {
       {/* Header */}
       <header className="border-b border-border bg-panel/50 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-8">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" asChild>
-              <Link to="/">
-                <ArrowLeft className="h-4 w-4" />
-              </Link>
-            </Button>
-            <img 
-              src="./appliedAI_horizontal_rgb_RZ.png" 
-              alt="AppliedAI" 
-              className="h-12 object-contain"
-            />
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">
-                Model Comparison
-              </h1>
-              <p className="mt-2 text-muted-foreground">
-                Comparing {selectedModels.length} models side by side
-              </p>
+          <div className="flex items-start justify-between">
+            <div className="flex items-start gap-4">
+              <Button variant="ghost" asChild className="mt-1">
+                <Link to="/">
+                  <ArrowLeft className="h-4 w-4" />
+                </Link>
+              </Button>
+              <img 
+                src="./appliedAI_horizontal_rgb_RZ.png" 
+                alt="AppliedAI" 
+                className="h-12 object-contain"
+              />
+              <div>
+                <h1 className="text-3xl font-bold text-foreground">
+                  Model Comparison
+                </h1>
+                <p className="mt-2 text-muted-foreground">
+                  Comparing {selectedModels.length} models side by side
+                </p>
+              </div>
             </div>
+            <FeedbackButton 
+              onClick={() => setFeedbackOpen(true)}
+              size="sm"
+              showTooltip={true}
+            />
           </div>
         </div>
       </header>
@@ -496,8 +506,17 @@ const Compare = () => {
             </table>
           </div>
         </div>
-
       </main>
+      
+      <FeedbackDialog
+        isOpen={feedbackOpen}
+        onClose={() => setFeedbackOpen(false)}
+        context={{
+          type: 'model',
+          modelName: `Comparison: ${selectedModels.map(m => m.model_name).join(' vs ')}`,
+          modelId: selectedModels.map(m => m.model_name).join(','),
+        }}
+      />
     </div>
   );
 };
