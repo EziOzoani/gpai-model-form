@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Model, SectionData, FieldData } from "@/types/model";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { X, ExternalLink, Calendar, Building2, Globe, Database, Info, Star } from "lucide-react";
+import { FeedbackButton } from "@/components/FeedbackButton";
+import { X, ExternalLink, Calendar, Building2, Globe, Database, Info, Star, MessageSquare } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -15,6 +16,7 @@ import {
 interface ModelDetailPanelProps {
   model: Model;
   onClose: () => void;
+  onFeedback?: (section?: string) => void;
 }
 
 // Configuration for each documentation section
@@ -89,7 +91,7 @@ const FIELD_LABELS: Record<string, Record<string, string>> = {
   },
 };
 
-export const ModelDetailPanel = ({ model, onClose }: ModelDetailPanelProps) => {
+export const ModelDetailPanel = ({ model, onClose, onFeedback }: ModelDetailPanelProps) => {
   // State to control view mode - summary or full documentation
   const [showFullDocs, setShowFullDocs] = useState(false);
   // Determine the colour variant based on transparency score
@@ -270,14 +272,35 @@ export const ModelDetailPanel = ({ model, onClose }: ModelDetailPanelProps) => {
               </div>
             </div>
           </div>
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onClose}
-            className="ml-4 rounded-full"
-          >
-            <X className="h-5 w-5" />
-          </Button>
+          <div className="flex items-center gap-2">
+            {onFeedback && (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => onFeedback()}
+                    className="flex items-center gap-2"
+                  >
+                    <MessageSquare className="h-4 w-4" />
+                    <span>Comments or Corrections</span>
+                    <Info className="h-3 w-3" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>We welcome comments, corrections, insights and more</p>
+                </TooltipContent>
+              </Tooltip>
+            )}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onClose}
+              className="ml-2 rounded-full"
+            >
+              <X className="h-5 w-5" />
+            </Button>
+          </div>
         </div>
 
         {/* Content */}

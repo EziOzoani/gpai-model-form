@@ -4,6 +4,8 @@ import { useCleanedModelData } from "@/hooks/useCleanedModelData";
 import { ModelHeatmap } from "@/components/ModelHeatmap";
 import { ModelDetailPanel } from "@/components/ModelDetailPanel";
 import { FilterPanel } from "@/components/FilterPanel";
+import { FeedbackDialog } from "@/components/FeedbackDialog";
+import { FeedbackButton } from "@/components/FeedbackButton";
 import { Button } from "@/components/ui/button";
 import { Database, Loader2, GitCompare, BarChart3, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -20,6 +22,8 @@ const IndexEnhanced = () => {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
   const [selectedModels, setSelectedModels] = useState<string[]>([]);
   const [selectionMode, setSelectionMode] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [feedbackContext, setFeedbackContext] = useState<any>({ type: 'general' });
 
   // Load cleaned model data with filters
   const { models, loading, error, lastUpdated, signatoriesCount } = useCleanedModelData(
@@ -105,6 +109,13 @@ const IndexEnhanced = () => {
               </div>
             </div>
             <div className="flex gap-2">
+              <FeedbackButton
+                onClick={() => {
+                  setFeedbackContext({ type: 'general' });
+                  setFeedbackOpen(true);
+                }}
+                size="sm"
+              />
               <Link to="/analytics">
                 <Button variant="outline" size="sm">
                   <BarChart3 className="h-4 w-4 mr-2" />
@@ -208,8 +219,23 @@ const IndexEnhanced = () => {
         <ModelDetailPanel
           model={selectedModel}
           onClose={() => setSelectedModel(null)}
+          onFeedback={(section?: string) => {
+            setFeedbackContext({
+              type: 'model',
+              modelName: selectedModel.model_name,
+              modelId: selectedModel.model_name,
+              section
+            });
+            setFeedbackOpen(true);
+          }}
         />
       )}
+      
+      <FeedbackDialog
+        isOpen={feedbackOpen}
+        onClose={() => setFeedbackOpen(false)}
+        context={feedbackContext}
+      />
     </div>
   );
 };

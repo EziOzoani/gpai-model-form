@@ -21,6 +21,8 @@ import { Model } from "@/types/model";
 import { useModelData } from "@/hooks/useModelData";
 import { ModelHeatmap } from "@/components/ModelHeatmap";
 import { ModelDetailPanel } from "@/components/ModelDetailPanel";
+import { FeedbackDialog } from "@/components/FeedbackDialog";
+import { FeedbackButton } from "@/components/FeedbackButton";
 import {
   Select,
   SelectContent,
@@ -46,6 +48,8 @@ const Index = () => {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('desc');
   const [selectedModels, setSelectedModels] = useState<string[]>([]);
   const [selectionMode, setSelectionMode] = useState(false);
+  const [feedbackOpen, setFeedbackOpen] = useState(false);
+  const [feedbackContext, setFeedbackContext] = useState<any>({ type: 'general' });
 
   // Handle sorting
   const handleSort = (column: string) => {
@@ -117,22 +121,30 @@ const Index = () => {
       {/* Header */}
       <header className="border-b border-border bg-panel/50 backdrop-blur-sm">
         <div className="container mx-auto px-6 py-8">
-          <div className="flex items-start gap-4">
-            <img 
-              src="./appliedAI_horizontal_rgb_RZ.png" 
-              alt="AppliedAI" 
-              className="h-12 object-contain"
-            />
-            <div>
-              <h1 className="text-3xl font-bold text-foreground">
-                GPAI Model Documentation Dashboard
-              </h1>
-              <p className="mt-2 text-muted-foreground max-w-3xl">
-                Comprehensive transparency tracking for general-purpose AI models. Filter by
-                region, size, and view per-section documentation completeness with traffic-light
-                indicators.
-              </p>
+          <div className="flex items-start justify-between gap-4">
+            <div className="flex items-start gap-4">
+              <img 
+                src="./appliedAI_horizontal_rgb_RZ.png" 
+                alt="AppliedAI" 
+                className="h-12 object-contain"
+              />
+              <div>
+                <h1 className="text-3xl font-bold text-foreground">
+                  GPAI Model Documentation Dashboard
+                </h1>
+                <p className="mt-2 text-muted-foreground max-w-3xl">
+                  Comprehensive transparency tracking for general-purpose AI models. Filter by
+                  region, size, and view per-section documentation completeness with traffic-light
+                  indicators.
+                </p>
+              </div>
             </div>
+            <FeedbackButton 
+              onClick={() => {
+                setFeedbackContext({ type: 'general' });
+                setFeedbackOpen(true);
+              }}
+            />
           </div>
         </div>
       </header>
@@ -270,9 +282,24 @@ const Index = () => {
       {selectedModel && (
         <ModelDetailPanel 
           model={selectedModel} 
-          onClose={() => setSelectedModel(null)} 
+          onClose={() => setSelectedModel(null)}
+          onFeedback={(section?: string) => {
+            setFeedbackContext({
+              type: 'model',
+              modelName: selectedModel.model_name,
+              modelId: selectedModel.model_name,
+              section
+            });
+            setFeedbackOpen(true);
+          }}
         />
       )}
+      
+      <FeedbackDialog
+        isOpen={feedbackOpen}
+        onClose={() => setFeedbackOpen(false)}
+        context={feedbackContext}
+      />
     </div>
   );
 };
