@@ -252,6 +252,14 @@ A GitHub Actions workflow can be configured for quarterly updates:
 - [ ] Inetgrate with map
 - [ ] Real-time update notifications
 
+## 📝 TODO for GCP Deployment
+
+### Feedback System
+- [ ] Add necessary keys on GCP for feedback to GitHub issues creation:
+  - Store GitHub Personal Access Token in GCP Secret Manager or as environment variable
+  - Configure API endpoint to handle feedback submissions
+  - Update frontend to use GCP backend API instead of direct GitHub calls
+
 
 
 
