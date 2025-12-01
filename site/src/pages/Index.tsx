@@ -17,6 +17,7 @@
  */
 
 import { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import { Model } from "@/types/model";
 import { useModelData } from "@/hooks/useModelData";
 import { ModelHeatmap } from "@/components/ModelHeatmap";
@@ -38,6 +39,7 @@ import { Database, Filter, Loader2, GitCompare } from "lucide-react";
 const Index = () => {
   // Load model data from the generated JSON file
   const { models, loading, error, lastUpdated } = useModelData();
+  const navigate = useNavigate();
   
   // State management for user interactions
   const [selectedModel, setSelectedModel] = useState<Model | null>(null);
@@ -234,7 +236,7 @@ const Index = () => {
                 size="sm"
                 onClick={() => {
                   // Open comparison view
-                  window.location.href = `/compare?models=${selectedModels.join(',')}`;
+                  navigate(`/compare?models=${selectedModels.join(',')}`);
                 }}
               >
                 Compare {selectedModels.length} Models
