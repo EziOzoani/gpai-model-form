@@ -13,6 +13,7 @@ Performs analysis on cleaned database to generate:
 import sqlite3
 import json
 from pathlib import Path
+from ranking_calculator import RankingCalculator
 from datetime import datetime
 from collections import defaultdict, Counter
 import logging
@@ -200,10 +201,7 @@ class ModelDataAnalyzer:
         
         scores = []
         for row in cursor:
-            # Base score on number of sections and fields
-            base_score = min(100, (row['sections_filled'] * 12.5) + (row['total_fields'] * 2))
-            
-            # Bonus for content quality
+            # Get quality fields count
             content_cursor = self.conn.execute("""
                 SELECT COUNT(*) as quality_fields
                 FROM section_content 
@@ -211,14 +209,18 @@ class ModelDataAnalyzer:
             """, (row['id'],))
             
             quality_fields = content_cursor.fetchone()[0]
-            quality_bonus = min(20, quality_fields * 2)
             
-            final_score = min(100, base_score + quality_bonus)
+            # Use centralized calculation
+            score = RankingCalculator.calculate_transparency_score(
+                row['sections_filled'],
+                row['total_fields'],
+                quality_fields
+            )
             
             scores.append({
                 "model": row['name'],
                 "provider": row['provider'],
-                "transparency_score": round(final_score, 1),
+                "transparency_score": score,
                 "sections_documented": row['sections_filled'],
                 "total_fields": row['total_fields']
             })

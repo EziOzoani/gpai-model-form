@@ -8,6 +8,9 @@ from flask_cors import CORS
 import sqlite3
 from pathlib import Path
 from datetime import datetime
+import sys
+sys.path.append(str(Path(__file__).parent.parent / 'scripts'))
+from ranking_calculator import RankingCalculator
 import json
 
 app = Flask(__name__)
@@ -42,9 +45,8 @@ def get_transparency_score(model_id, conn):
     if row:
         sections = row[0]
         fields = row[1]
-        # Base score calculation
-        score = min(100, (sections * 12.5) + (fields * 2))
-        return round(score, 1)
+        # Use centralized calculation
+        return RankingCalculator.calculate_transparency_score(sections, fields)
     return 0
 
 def is_code_of_practice_signatory(provider, cutoff_date):

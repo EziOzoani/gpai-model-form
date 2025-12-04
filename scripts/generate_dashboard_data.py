@@ -8,6 +8,9 @@ import sqlite3
 import os
 from datetime import datetime
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from ranking_calculator import RankingCalculator
 
 def calculate_section_score(section_data):
     """Calculate score for a section based on filled fields."""
@@ -28,39 +31,23 @@ def calculate_section_score(section_data):
     return 0.0
 
 def calculate_transparency_score(data):
-    """Calculate overall transparency score using the same logic as the UI."""
-    sections = {
-        'general': data.get('general', {}),
-        'properties': data.get('properties', {}),
-        'distribution': data.get('distribution', {}),
-        'use': data.get('use', {}),
-        'data': data.get('data', {}),
-        'training': data.get('training', {}),
-        'compute': data.get('compute', {}),
-        'energy': data.get('energy', {})
-    }
+    """Calculate overall transparency score using centralized logic."""
+    # Convert data to section map format for centralized calculator
+    section_map = {}
     
-    # Calculate individual section scores
-    section_scores = {}
-    for section_name, section_data in sections.items():
-        section_scores[section_name] = calculate_section_score(section_data)
+    # Process each section
+    for section in ['general', 'properties', 'distribution', 'use', 'data', 'training', 'compute', 'energy']:
+        section_data = data.get(section, {})
+        if section_data and isinstance(section_data, dict):
+            # Add _filled flag based on whether section has content
+            section_data['_filled'] = any(v for k, v in section_data.items() if not k.startswith('_'))
+            section_map[section] = section_data
+        else:
+            section_map[section] = {'_filled': False}
     
-    # Weight sections (matching UI logic)
-    weights = {
-        'general': 1.0,
-        'properties': 1.0,
-        'distribution': 1.0,
-        'use': 1.5,  # Higher weight for use cases
-        'data': 1.5,  # Higher weight for data transparency
-        'training': 1.0,
-        'compute': 1.0,
-        'energy': 1.0
-    }
-    
-    total_weight = sum(weights.values())
-    weighted_sum = sum(section_scores[s] * weights[s] for s in sections)
-    
-    overall_score = (weighted_sum / total_weight) * 100
+    # Use centralized calculator
+    result = RankingCalculator.calculate_from_section_map(section_map)
+    overall_score = result['transparency_score']
     
     return {
         'overall': round(overall_score),

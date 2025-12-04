@@ -1,0 +1,90 @@
+{
+  "model_name": "Mistral Ministral-3-8B-Reasoning-2512",
+  "provider": "Mistral AI",
+  "region": "EU",
+  "size": "Small",
+  "release_date": "2025-10-31",
+  "transparency_score": {
+    "overall": 50,
+    "sections": {
+      "general": 1.0,
+      "properties": 1.0,
+      "distribution": 1.0,
+      "use": 1.0,
+      "data": 0.0,
+      "training": 0.0,
+      "compute": 0.0,
+      "energy": 0.0
+    }
+  },
+  "stars": 0,
+  "star_sections": [
+    "training",
+    "compute",
+    "energy"
+  ],
+  "section_info": {
+    "general": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "properties": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "distribution": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "use": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "data": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "training": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    },
+    "compute": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    },
+    "energy": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    }
+  },
+  "label_x": null,
+  "last_updated": "2025-12-04 03:51:18",
+  "section_data": {
+    "general": {
+      "legal_name": "Mistral AI"
+    },
+    "properties": {
+      "architecture": "visual content, in addition to text.",
+      "input_modalities": "text",
+      "output_modalities": "text"
+    },
+    "distribution": {
+      "license_type": "apache-2.0"
+    },
+    "use": {
+      "intended_use": "Perfect for balanced performance in local or embedded systems, combining versatility with efficiency. - Chat interfaces in constrained environments - Local daily-driver AI assistant - Image/document description and understanding - Translation and content generation - Specialized agentic use cases - Fine-tuning and specialization - And more... Bringing advanced AI capabilities to resource-constrained environments."
+    },
+    "data": {},
+    "training": {},
+    "compute": {},
+    "energy": {}
+  }
+}

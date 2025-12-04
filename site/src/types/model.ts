@@ -53,6 +53,14 @@ export interface Model {
   release_date: string;
   transparency_score: ModelTransparencyScore;
   stars: number;
+  star_sections?: string[];  // Which sections award stars (e.g., ['training', 'compute', 'energy'])
+  section_info?: {  // Information about each section including star indicators
+    [key: string]: {
+      is_star_section: boolean;
+      star_label: string;
+      section_type: 'core' | 'bonus';
+    };
+  };
   label_x?: string;
   last_updated?: string;
   documentation?: ModelDocumentation;  // Legacy field for backward compatibility

@@ -18,6 +18,9 @@ import json
 import sqlite3
 from pathlib import Path
 from typing import List, Dict, Any
+import sys
+sys.path.insert(0, str(Path(__file__).parent))
+from ranking_calculator import RankingCalculator, BONUS_SECTIONS
 
 # Path configurations
 DB = Path("data/model_docs.db")
@@ -104,8 +107,10 @@ def fetch_all() -> List[Dict[str, Any]]:
         # Use the completeness_percent from database instead of recalculating
         overall_percentage = pct if pct is not None else 0
         
-        # Calculate section scores for display (keep the existing logic for section breakdown)
+        # Calculate section scores and get section info for star indicators
         section_scores = {}
+        section_info = RankingCalculator.get_all_sections_info()
+        
         for section_name, section_content in data.items():
             if isinstance(section_content, dict):
                 # Check if section has _filled flag
@@ -141,6 +146,8 @@ def fetch_all() -> List[Dict[str, Any]]:
                 "sections": section_scores
             },
             "stars": stars,
+            "star_sections": BONUS_SECTIONS,
+            "section_info": section_info,
             "label_x": label,
             "last_updated": updated,
             "section_data": section_data

@@ -401,9 +401,13 @@ export const ModelDetailPanel = ({ model, onClose, onFeedback }: ModelDetailPane
                           {section.title}
                         </h3>
                         {/* Display star for bonus sections */}
-                        {['training', 'compute', 'energy'].includes(section.key) && 
-                         model.section_data?.[section.key as keyof typeof model.section_data]?.bonus_star && (
-                          <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
+                        {model.star_sections?.includes(section.key) && (
+                          <div className="relative group">
+                            <Star className="h-4 w-4 text-yellow-500 fill-yellow-500" />
+                            <span className="absolute left-0 top-6 hidden group-hover:block bg-gray-900 text-white text-xs rounded px-2 py-1 whitespace-nowrap z-10">
+                              Bonus section - earns a star when filled
+                            </span>
+                          </div>
                         )}
                       </div>
                       <div

@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from scripts.crawl_general import GapFillingCrawler
 from scripts.enhanced_scraper import TierOneScraper
-from scripts.scoring import completeness
+from scripts.ranking_calculator import calculate_completeness as completeness
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

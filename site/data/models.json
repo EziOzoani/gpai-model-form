@@ -6,7 +6,7 @@
     "size": "Big",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -19,6 +19,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "US-Big",
     "last_updated": "2025-11-28 10:37:33",
     "section_data": {
@@ -135,7 +182,7 @@
     "size": "Big",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 20,
+      "overall": 37,
       "sections": {
         "general": 1.0,
         "properties": 0.0,
@@ -148,6 +195,53 @@
       }
     },
     "stars": 2,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "US-Big",
     "last_updated": "2025-11-28T10:21:27.458062",
     "section_data": {
@@ -178,7 +272,7 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 20,
+      "overall": 12,
       "sections": {
         "general": 1.0,
         "properties": 0.0,
@@ -191,6 +285,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "US-Small",
     "last_updated": "2025-11-28 09:52:40",
     "section_data": {
@@ -214,7 +355,7 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 20,
+      "overall": 12,
       "sections": {
         "general": 1.0,
         "properties": 0.0,
@@ -227,6 +368,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "US-Small",
     "last_updated": "2025-11-28 09:52:39",
     "section_data": {
@@ -250,7 +438,7 @@
     "size": "Small",
     "release_date": "2023-09-20",
     "transparency_score": {
-      "overall": 80,
+      "overall": 75,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -263,6 +451,53 @@
       }
     },
     "stars": 2,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "EU-Small",
     "last_updated": "2025-11-28 10:37:49",
     "section_data": {
@@ -313,7 +548,7 @@
     "size": "Small",
     "release_date": "2023-12-01",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -326,6 +561,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "EU-Small",
     "last_updated": "2025-11-28 10:38:04",
     "section_data": {
@@ -369,7 +651,7 @@
     "size": "Small",
     "release_date": "2024-07-24",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -382,6 +664,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "EU-Small",
     "last_updated": "2025-11-28 10:38:21",
     "section_data": {
@@ -425,7 +754,7 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -438,6 +767,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "EU-Small",
     "last_updated": "2025-11-28 10:38:31",
     "section_data": {
@@ -480,7 +856,7 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -493,6 +869,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "EU-Small",
     "last_updated": "2025-11-28 10:38:42",
     "section_data": {
@@ -535,7 +958,7 @@
     "size": "Big",
     "release_date": "2024-04-03",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -548,6 +971,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "Non-EU UK-Big",
     "last_updated": "2025-11-28 09:52:48",
     "section_data": {
@@ -655,7 +1125,7 @@
     "size": "Small",
     "release_date": "2024-03-11",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -668,6 +1138,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "Non-EU UK-Small",
     "last_updated": "2025-11-28 09:52:48",
     "section_data": {
@@ -775,7 +1292,7 @@
     "size": "Small",
     "release_date": "2025-09-16",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -788,6 +1305,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "Non-EU UK-Small",
     "last_updated": "2025-11-28 09:52:48",
     "section_data": {
@@ -894,7 +1458,7 @@
     "size": "Small",
     "release_date": "2025-09-16",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -907,6 +1471,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "Non-EU UK-Small",
     "last_updated": "2025-11-28 09:52:48",
     "section_data": {
@@ -1013,7 +1624,7 @@
     "size": "Small",
     "release_date": "2025-05-14",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -1026,6 +1637,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "Non-EU UK-Small",
     "last_updated": "2025-11-28 09:52:48",
     "section_data": {
@@ -1132,7 +1790,7 @@
     "size": "Small",
     "release_date": "2025-02-27",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -1145,6 +1803,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "Non-EU UK-Small",
     "last_updated": "2025-11-28 09:52:48",
     "section_data": {
@@ -1251,7 +1956,7 @@
     "size": "Small",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 20,
+      "overall": 12,
       "sections": {
         "general": 1.0,
         "properties": 0.0,
@@ -1264,6 +1969,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "US-Small",
     "last_updated": "2025-11-28 09:52:40",
     "section_data": {
@@ -1287,7 +2039,7 @@
     "size": "Big",
     "release_date": "2024-01-01",
     "transparency_score": {
-      "overall": 20,
+      "overall": 12,
       "sections": {
         "general": 1.0,
         "properties": 0.0,
@@ -1300,6 +2052,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": "US-Big",
     "last_updated": "2025-11-28 09:52:40",
     "section_data": {
@@ -1323,12 +2122,59 @@
     "size": null,
     "release_date": null,
     "transparency_score": {
-      "overall": 20,
+      "overall": 12,
       "sections": {
         "properties": 1.0
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": null,
     "last_updated": "2025-11-28T09:43:03.255630",
     "section_data": {
@@ -1344,7 +2190,7 @@
     "size": "Small",
     "release_date": "2024-11-28",
     "transparency_score": {
-      "overall": 80,
+      "overall": 50,
       "sections": {
         "general": 1.0,
         "properties": 1.0,
@@ -1357,6 +2203,53 @@
       }
     },
     "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
     "label_x": null,
     "last_updated": "2025-11-28 10:39:51",
     "section_data": {
@@ -1390,6 +2283,816 @@
         "aup_link": "https://ai.google.dev/gemini-api/terms",
         "intended_use": "Image generation and understanding for consumer applications",
         "prohibited_uses": "See Google AI Prohibited Use Policy"
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Mistral Ministral-3-14B-Instruct-2512",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2025-10-31",
+    "transparency_score": {
+      "overall": 50,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
+    "label_x": null,
+    "last_updated": "2025-12-04 03:51:12",
+    "section_data": {
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "visual content, in addition to text.",
+        "input_modalities": "text",
+        "output_modalities": "text"
+      },
+      "distribution": {
+        "license_type": "apache-2.0"
+      },
+      "use": {
+        "intended_use": "Private AI deployments where advanced capabilities meet practical hardware constraints: - Private/custom chat and AI assistant deployments in constrained environments - Advanced local agentic use cases - Fine-tuning and specialization - And more... Bringing advanced AI capabilities to most environments."
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Mistral Ministral-3-8B-Instruct-2512",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2025-10-31",
+    "transparency_score": {
+      "overall": 50,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
+    "label_x": null,
+    "last_updated": "2025-12-04 03:51:13",
+    "section_data": {
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "visual content, in addition to text.",
+        "input_modalities": "text",
+        "output_modalities": "text"
+      },
+      "distribution": {
+        "license_type": "apache-2.0"
+      },
+      "use": {
+        "intended_use": "Perfect for balanced performance in local or embedded systems, combining versatility with efficiency. - Chat interfaces in constrained environments - Local daily-driver AI assistant - Image/document description and understanding - Translation and content generation - Specialized agentic use cases - Fine-tuning and specialization - And more... Bringing advanced AI capabilities to resource-constrained environments."
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Mistral Ministral-3-3B-Instruct-2512",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2025-10-31",
+    "transparency_score": {
+      "overall": 50,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
+    "label_x": null,
+    "last_updated": "2025-12-04 03:51:15",
+    "section_data": {
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "visual content, in addition to text.",
+        "input_modalities": "text",
+        "output_modalities": "text"
+      },
+      "distribution": {
+        "license_type": "apache-2.0"
+      },
+      "use": {
+        "intended_use": "Ideal for lightweight, real-time applications on edge or low-resource devices, such as: - Image captioning - Text classification - Real-time efficient translation - Data extraction - Short content generation - Fine-tuning and specialization - And more... Bringing advanced AI capabilities to edge and distributed environments for embedded systems."
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Mistral Ministral-3-14B-Reasoning-2512",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2025-10-31",
+    "transparency_score": {
+      "overall": 50,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
+    "label_x": null,
+    "last_updated": "2025-12-04 03:51:16",
+    "section_data": {
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "visual content, in addition to text.",
+        "input_modalities": "text",
+        "output_modalities": "text"
+      },
+      "distribution": {
+        "license_type": "apache-2.0"
+      },
+      "use": {
+        "intended_use": "Private AI deployments where advanced capabilities meet practical hardware constraints: - Private/custom chat and AI assistant deployments in constrained environments - Advanced local agentic use cases - Fine-tuning and specialization - And more... Bringing advanced AI capabilities to most environments."
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Mistral Ministral-3-8B-Reasoning-2512",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2025-10-31",
+    "transparency_score": {
+      "overall": 50,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
+    "label_x": null,
+    "last_updated": "2025-12-04 03:51:18",
+    "section_data": {
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "visual content, in addition to text.",
+        "input_modalities": "text",
+        "output_modalities": "text"
+      },
+      "distribution": {
+        "license_type": "apache-2.0"
+      },
+      "use": {
+        "intended_use": "Perfect for balanced performance in local or embedded systems, combining versatility with efficiency. - Chat interfaces in constrained environments - Local daily-driver AI assistant - Image/document description and understanding - Translation and content generation - Specialized agentic use cases - Fine-tuning and specialization - And more... Bringing advanced AI capabilities to resource-constrained environments."
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Mistral Ministral-3-3B-Reasoning-2512",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2025-10-31",
+    "transparency_score": {
+      "overall": 50,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
+    "label_x": null,
+    "last_updated": "2025-12-04 03:51:20",
+    "section_data": {
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "visual content, in addition to text.",
+        "input_modalities": "text",
+        "output_modalities": "text"
+      },
+      "distribution": {
+        "license_type": "apache-2.0"
+      },
+      "use": {
+        "intended_use": "Ideal for lightweight, real-time applications on edge or low-resource devices, such as: - Image captioning - Text classification - Real-time efficient translation - Data extraction - Short content generation - Fine-tuning and specialization - And more... Bringing advanced AI capabilities to edge and distributed environments for embedded systems."
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Mistral Ministral-3-14B-Base-2512",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2025-10-31",
+    "transparency_score": {
+      "overall": 50,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
+    "label_x": null,
+    "last_updated": "2025-12-04 03:51:21",
+    "section_data": {
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "visual content, in addition to text.",
+        "input_modalities": "text",
+        "output_modalities": "text"
+      },
+      "distribution": {
+        "license_type": "apache-2.0"
+      },
+      "use": {
+        "intended_use": "Private AI deployments where advanced capabilities meet practical hardware constraints: - Private/custom chat and AI assistant deployments in constrained environments - Advanced local agentic use cases - Fine-tuning and specialization - And more... Bringing advanced AI capabilities to most environments."
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Mistral Ministral-3-8B-Base-2512",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2025-10-31",
+    "transparency_score": {
+      "overall": 50,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
+    "label_x": null,
+    "last_updated": "2025-12-04 03:51:23",
+    "section_data": {
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "visual content, in addition to text.",
+        "input_modalities": "text",
+        "output_modalities": "text"
+      },
+      "distribution": {
+        "license_type": "apache-2.0"
+      },
+      "use": {
+        "intended_use": "Perfect for balanced performance in local or embedded systems, combining versatility with efficiency. - Chat interfaces in constrained environments - Local daily-driver AI assistant - Image/document description and understanding - Translation and content generation - Specialized agentic use cases - Fine-tuning and specialization - And more... Bringing advanced AI capabilities to resource-constrained environments."
+      },
+      "data": {},
+      "training": {},
+      "compute": {},
+      "energy": {}
+    }
+  },
+  {
+    "model_name": "Mistral Ministral-3-3B-Base-2512",
+    "provider": "Mistral AI",
+    "region": "EU",
+    "size": "Small",
+    "release_date": "2025-10-31",
+    "transparency_score": {
+      "overall": 50,
+      "sections": {
+        "general": 1.0,
+        "properties": 1.0,
+        "distribution": 1.0,
+        "use": 1.0,
+        "data": 0.0,
+        "training": 0.0,
+        "compute": 0.0,
+        "energy": 0.0
+      }
+    },
+    "stars": 0,
+    "star_sections": [
+      "training",
+      "compute",
+      "energy"
+    ],
+    "section_info": {
+      "general": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "properties": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "distribution": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "use": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "data": {
+        "is_star_section": false,
+        "star_label": "",
+        "section_type": "core"
+      },
+      "training": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "compute": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      },
+      "energy": {
+        "is_star_section": true,
+        "star_label": "\u2b50",
+        "section_type": "bonus"
+      }
+    },
+    "label_x": null,
+    "last_updated": "2025-12-04 03:51:24",
+    "section_data": {
+      "general": {
+        "legal_name": "Mistral AI"
+      },
+      "properties": {
+        "architecture": "visual content, in addition to text.",
+        "input_modalities": "text",
+        "output_modalities": "text"
+      },
+      "distribution": {
+        "license_type": "apache-2.0"
+      },
+      "use": {
+        "intended_use": "Ideal for lightweight, real-time applications on edge or low-resource devices, such as: - Image captioning - Text classification - Real-time efficient translation - Data extraction - Short content generation - Fine-tuning and specialization - And more... Bringing advanced AI capabilities to edge and distributed environments for embedded systems."
       },
       "data": {},
       "training": {},
