@@ -1,0 +1,110 @@
+{
+  "model_name": "Mistral Mistral 7B",
+  "provider": "Mistral AI",
+  "region": "EU",
+  "size": "Small",
+  "release_date": "2023-09-20",
+  "transparency_score": {
+    "overall": 75,
+    "sections": {
+      "general": 1.0,
+      "properties": 1.0,
+      "distribution": 1.0,
+      "use": 1.0,
+      "data": 0.0,
+      "training": 1.0,
+      "compute": 0.0,
+      "energy": 1.0
+    }
+  },
+  "stars": 2,
+  "star_sections": [
+    "training",
+    "compute",
+    "energy"
+  ],
+  "section_info": {
+    "general": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "properties": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "distribution": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "use": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "data": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "training": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    },
+    "compute": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    },
+    "energy": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    }
+  },
+  "label_x": "EU-Small",
+  "last_updated": "2025-11-28 10:37:49",
+  "section_data": {
+    "training": {
+      "methodology": "\n    The model was trained using advanced transformer architecture with \n    reinforcement learning from human feedback (RLHF). Training involved \n    multiple stages including pretraining on diverse internet text, \n    supervised fine-tuning, and iterative refinement based on human preferences.\n    ",
+      "hardware": "TPU v4 pods with 4096 chips",
+      "duration": "6 months of continuous training"
+    },
+    "energy": {
+      "consumption": "Estimated 500 MWh total",
+      "methodology": "Measured using datacenter PUE metrics"
+    },
+    "general": {
+      "legal_name": "Mistral AI"
+    },
+    "properties": {
+      "architecture": "Transformer-based",
+      "input_modalities": [
+        "text"
+      ],
+      "output_modalities": [
+        "text"
+      ],
+      "parameters": "7.2B"
+    },
+    "distribution": {
+      "license_type": "Apache 2.0",
+      "channels": [
+        "Mistral API",
+        "Hugging Face"
+      ]
+    },
+    "use": {
+      "aup_link": "https://mistral.ai/terms/",
+      "intended_use": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd...",
+      "prohibited_uses": "Using Mistral AI Products to generate Outputs that are illegal or infringe on third-party rights is prohibited. For more details, please refer to our Usage Policy. We encourage you to read and understand these Terms, the Additional Terms and our Usage Policy because by clicking on \u201cI agree\u201d (or any similar button or checkbox) at the time you sign up for a Mistral AI Product or by accessing or using any of the Mistral AI Products, you are agreeing to these Terms (including all applicable Additional Terms and our Usage Policy), which constitute an agreement between you and Mistral AI....",
+      "monitoring": "The Mistral AI Products. We grant you a non-exclusive right to access and use the Mistral AI Products only in compliance with these Terms, any applicable Additional Terms, all applicable laws and regulations, and any other documentation, guidelines, or policies we make available to you, including our Usage Policy. Certain Mistral AI Products are only available if you have a paid subscription. Some Mistral AI Products may be subject to certain restrictions, such as formatting or size restrictions, or rate limits. Any such restrictions can be found in the applicable documentation or on our platform. The different subscription plans applicable...",
+      "feedback": "Mistral AI accounts. Some Mistral AI Products require a Mistral AI account. You must provide complete and accurate account information and promptly update your account if any of your information changes. Your account is intended for your individual use only and you may not share your account with any other person. The creation or use of multiple Mistral AI Accounts by a single individual is strictly prohibited, including to bypass rate limits or any other restrictions. You are responsible for any activities conducted through your account, including activities of any end user provisioned with an account under your account (\u201cEnd..."
+    },
+    "data": {},
+    "compute": {}
+  }
+}

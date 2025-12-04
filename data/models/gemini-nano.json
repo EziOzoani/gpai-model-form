@@ -1,0 +1,68 @@
+{
+  "model_name": "Gemini Nano",
+  "provider": "Google",
+  "region": null,
+  "size": null,
+  "release_date": null,
+  "transparency_score": {
+    "overall": 12,
+    "sections": {
+      "properties": 1.0
+    }
+  },
+  "stars": 0,
+  "star_sections": [
+    "training",
+    "compute",
+    "energy"
+  ],
+  "section_info": {
+    "general": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "properties": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "distribution": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "use": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "data": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "training": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    },
+    "compute": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    },
+    "energy": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    }
+  },
+  "label_x": null,
+  "last_updated": "2025-11-28T09:43:03.255630",
+  "section_data": {
+    "properties": {
+      "data_source": "gemini_nano_docs"
+    }
+  }
+}

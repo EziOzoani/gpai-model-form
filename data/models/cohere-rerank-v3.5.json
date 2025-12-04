@@ -1,0 +1,166 @@
+{
+  "model_name": "Cohere Rerank v3.5",
+  "provider": "Cohere",
+  "region": "Non-EU UK",
+  "size": "Small",
+  "release_date": "2025-05-14",
+  "transparency_score": {
+    "overall": 50,
+    "sections": {
+      "general": 1.0,
+      "properties": 1.0,
+      "distribution": 1.0,
+      "use": 1.0,
+      "data": 0.0,
+      "training": 0.0,
+      "compute": 0.0,
+      "energy": 0.0
+    }
+  },
+  "stars": 0,
+  "star_sections": [
+    "training",
+    "compute",
+    "energy"
+  ],
+  "section_info": {
+    "general": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "properties": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "distribution": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "use": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "data": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "training": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    },
+    "compute": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    },
+    "energy": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    }
+  },
+  "label_x": "Non-EU UK-Small",
+  "last_updated": "2025-11-28 09:52:48",
+  "section_data": {
+    "general": {
+      "legal_name": {
+        "text": "Cohere Inc.",
+        "source": {
+          "url": "https://cohere.com",
+          "type": "official",
+          "confidence": 1.0
+        }
+      },
+      "model_id": {
+        "text": "Rerank v3.5",
+        "source": {
+          "url": "https://docs.cohere.com/changelog",
+          "type": "official",
+          "confidence": 1.0
+        }
+      },
+      "description": {
+        "text": "Rerank v3.5 is an AI model from Cohere designed for Document reranking. It provides enterprise-ready capabilities with a focus on reliability and performance.",
+        "source": {
+          "url": "https://docs.cohere.com",
+          "type": "official",
+          "confidence": 0.95
+        }
+      }
+    },
+    "properties": {
+      "architecture": {
+        "text": "Transformer-based architecture optimised for enterprise applications. The model uses advanced attention mechanisms and has been trained on diverse, high-quality datasets.",
+        "source": {
+          "url": "https://docs.cohere.com",
+          "type": "technical",
+          "confidence": 0.9
+        }
+      },
+      "input_modalities": {
+        "text": "Supported inputs: text. The model processes these inputs with high efficiency.",
+        "source": {
+          "url": "https://docs.cohere.com",
+          "type": "official",
+          "confidence": 1.0
+        }
+      },
+      "output_modalities": {
+        "text": "Output types: rankings.",
+        "source": {
+          "url": "https://docs.cohere.com",
+          "type": "official",
+          "confidence": 1.0
+        }
+      },
+      "use_case": "Document reranking"
+    },
+    "distribution": {
+      "license_type": {
+        "text": "Cohere API Terms of Service. Commercial usage permitted with appropriate subscription.",
+        "source": {
+          "url": "https://cohere.com/terms-of-use",
+          "type": "legal",
+          "confidence": 1.0
+        }
+      },
+      "channels": {
+        "text": "Available through Cohere API, AWS Bedrock, and enterprise deployments. SDK support for Python, Node.js, Go, and Java.",
+        "source": {
+          "url": "https://docs.cohere.com",
+          "type": "official",
+          "confidence": 1.0
+        }
+      }
+    },
+    "use": {
+      "aup_link": {
+        "text": "https://cohere.com/terms-of-use",
+        "source": {
+          "url": "https://cohere.com",
+          "type": "official",
+          "confidence": 1.0
+        }
+      },
+      "intended_use": {
+        "text": "Designed for enterprise applications including content generation, semantic search, classification, and conversational AI. Suitable for production deployments with SLA guarantees.",
+        "source": {
+          "url": "https://docs.cohere.com",
+          "type": "official",
+          "confidence": 0.95
+        }
+      },
+      "usage_guidelines": "https://docs.cohere.com/docs/usage-guidelines"
+    },
+    "data": {},
+    "training": {},
+    "compute": {},
+    "energy": {}
+  }
+}

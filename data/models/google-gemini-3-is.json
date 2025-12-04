@@ -1,0 +1,83 @@
+{
+  "model_name": "Google Gemini 3 is",
+  "provider": "Google",
+  "region": "US",
+  "size": "Small",
+  "release_date": "2024-01-01",
+  "transparency_score": {
+    "overall": 12,
+    "sections": {
+      "general": 1.0,
+      "properties": 0.0,
+      "distribution": 0.0,
+      "use": 0.0,
+      "data": 0.0,
+      "training": 0.0,
+      "compute": 0.0,
+      "energy": 0.0
+    }
+  },
+  "stars": 0,
+  "star_sections": [
+    "training",
+    "compute",
+    "energy"
+  ],
+  "section_info": {
+    "general": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "properties": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "distribution": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "use": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "data": {
+      "is_star_section": false,
+      "star_label": "",
+      "section_type": "core"
+    },
+    "training": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    },
+    "compute": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    },
+    "energy": {
+      "is_star_section": true,
+      "star_label": "\u2b50",
+      "section_type": "bonus"
+    }
+  },
+  "label_x": "US-Small",
+  "last_updated": "2025-11-28 09:52:40",
+  "section_data": {
+    "general": {
+      "legal_name": "Google LLC",
+      "model_id": "Gemini 3 is"
+    },
+    "properties": {},
+    "distribution": {},
+    "use": {},
+    "data": {},
+    "training": {},
+    "compute": {},
+    "energy": {}
+  }
+}
